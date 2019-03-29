@@ -32,23 +32,23 @@ class Index extends React.Component {
         //console.log(data)
         return (
             <main className={mainClass}>
-                {/* <Helmet>
+                <Helmet>
                     <meta charSet="utf-8" />
-                    <title>{data.contentfulHeader.subtitle}</title>
-                    <meta name="description" content={data.contentfulHeader.subtitle} />
+                    <title>{data.contentfulLandingPage.title}</title>
+                    <meta name="description" content={data.contentfulLandingPage.description} />
                     <meta property="og:url" content="" />
-                    <meta property="og:title" content={data.contentfulHeader.subtitle} />
-                    <meta property="og:description" content={data.contentfulHeader.subtitle} />
-                    <meta property="og:image" content={data.contentfulHeader.image.file.url} />
+                    <meta property="og:title" content={data.contentfulLandingPage.title} />
+                    <meta property="og:description" content={data.contentfulLandingPage.description} />
+                    <meta property="og:image" content="" />
 
                     <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:site" content="@saw" />
-                    <meta name="twitter:creator" content="@saw" />
+                    <meta name="twitter:site" content="@Revision_HQ" />
+                    <meta name="twitter:creator" content="@Revision_HQ" />
                     <meta property="og:url" content="" />
-                    <meta property="og:title" content={data.contentfulHeader.subtitle} />
-                    <meta property="og:description" content={data.contentfulHeader.subtitle} />
-                    <meta property="og:image" content={data.contentfulHeader.image.file.url} />
-                </Helmet> */}
+                    <meta property="og:title" content={data.contentfulLandingPage.title} />
+                    <meta property="og:description" content={data.contentfulLandingPage.description} />
+                    <meta property="og:image" content="" />
+                </Helmet>
 
                 <div className="tiles">
                     <div className="tile headline">
