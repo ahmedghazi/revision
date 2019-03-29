@@ -1,0 +1,188 @@
+
+@font-face {
+	font-family: 'BasierCircle-Regular';
+	src: url('./fonts/BasierCircle-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+  
+body {
+	color: $color1;
+	font-family: $fontPrimary;
+	font-size: $paragraph;
+	//line-height: 1.6;
+	line-height: $paragraphLh; 
+}
+
+/* Headings */
+h1,h2,h3,h4,h5,h6,
+.headline {
+	clear: both;
+	font-weight: normal;
+	@include text-crop;
+	font-size: $headline;
+	line-height: $headlineLh;
+}
+.small{font-size: $paragraph}
+
+.btn{
+	border: $borderHeight * 2 solid;
+	&:hover{
+		color: white;
+		background: black;
+	}
+	&.btn-large{
+		width: 100%;
+		display: block;
+		text-align: center;
+		border-radius: 5em;
+		height: 100%;
+		line-height: 100%;
+		@include flex_center_h_v();
+	}
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+/* Text elements */
+p {
+	@include text-crop;
+	margin-bottom: 1em;
+	line-height: 1.4;
+	&:last-child{margin-bottom: 0}
+	&:empty{display: none}
+}
+ul, ol {
+	//margin: 0 0 1.5em 2.5em;
+	margin: 0;
+	//margin-left: 1.696em;
+}
+ul {
+	//list-style: square;
+}
+// ol {
+// 	list-style-type: decimal;
+// 	ol {
+// 		list-style: upper-alpha;
+// 		ol {
+// 			list-style: lower-roman;
+// 		}
+// 		ol {
+// 			list-style: lower-alpha;
+// 		}
+// 	}	
+// }
+ul ul, ol ol, ul ol, ol ul {
+	margin-bottom: 0;
+}
+dl {
+	margin: 0 1.5em;
+}
+dt {
+}
+dd {
+	margin-bottom: 1.5em;
+}
+strong {
+}
+em, i {
+	font-style: italic;
+}
+blockquote {
+	font-style: italic;
+	font-weight: normal;
+	margin: 0 3em;
+}
+blockquote em, blockquote i, blockquote cite {
+	font-style: normal;
+}
+cite {
+	color: #666;
+	letter-spacing: 0.05em;
+	padding-left: 60px;
+}
+pre {
+	background: #f4f4f4;
+	line-height: 1.5;
+	margin-bottom: 1.5em;
+	overflow: auto;
+	padding: 0.75em 1.5em;
+}
+code, kbd {
+	font-family: "Andale Mono", Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+abbr, acronym, dfn {
+	border-bottom: $border;
+	cursor: help;
+}
+address {
+	display: block;
+	margin: 0 0 1.5em;
+}
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+sup,
+sub {
+	font-size: 10px;
+	height: 0;
+	line-height: 1;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	bottom: 1ex;
+}
+sub {
+	top: .5ex;
+}
+
+
+
+/* Links */
+a,.btn {
+	color: $links;
+	text-decoration: none;
+	&:focus,
+	&:active,
+	&:hover {
+		color: $hover;
+	}
+}
+p{
+	a{color: $color2}
+}
+
+
+/* Assistive text */
+.assistive-text {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+}
+#access a.assistive-text:active,
+#access a.assistive-text:focus {
+	clip: auto !important;
+	font-size: 12px;
+	position: absolute;
+	text-decoration: underline;
+	top: 0;
+	left: 7.6%;
+}
+
+@media all and (max-width:767px){
+	body,h2{
+		
+	}
+	p{
+		
+	}
+}

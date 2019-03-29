@@ -1,0 +1,49 @@
+/* BASE VARIABLES
+ *******************/
+
+
+/* Sizes */
+$max-width: 1800px;
+
+/* Colors */
+$color1: #000;
+$color2: #fff;
+$links: $color1;
+$hover: $color2;
+
+$bg: white;
+
+/* PADDINGS */
+$margeXS: 10px;
+$margeS: $margeXS * 2;
+$margeM: $margeXS * 4;
+$margeL: $margeXS * 8;
+
+/* Fonts */
+$fontPrimary: 'BasierCircle-Regular', sans-serif;
+
+$headline: 4.9vh;
+$headlineLh: 7vh;
+$paragraph: 2.45vh;
+$paragraphLh: 2.8vh;
+
+$xHeightM: 38px;
+$indexWidth: $xHeightM + $margeS;
+//$fontXL: 6vw;
+
+/* Borders */
+$borderHeight: 2px;
+$border: $borderHeight solid;
+
+$tileWidth: 50vw;
+$tileHeight: 50vh;
+$paddV:3.5vh;
+$paddH:2vw;
+
+$gutter: $margeXS / 2;
+
+/* Breakpoints */
+$cap: 1920px;
+$m: 1024px;
+$s: 768px;
+$xs: 500px;

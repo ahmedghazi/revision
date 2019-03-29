@@ -1,0 +1,20 @@
+html{
+    //scroll-behavior: smooth;
+}
+main{
+    &.is-carousel{
+        header,
+        footer,
+        .projets{
+            filter: blur(50px)
+        }
+    }
+}
+
+.hidden-xs{display: block}
+.hidden-m{display: none}
+
+@media all and (max-width:767px){
+    .hidden-xs{display: none}
+    .hidden-m{display: block}
+}

@@ -1,0 +1,12 @@
+.landing-page{
+    
+    .tile{
+        @include flexbox();
+        @include flex-wrap(wrap);
+        
+        .tile-quarter{
+            border: $border;
+            padding: $paddV $paddH;
+        }
+    }
+}
