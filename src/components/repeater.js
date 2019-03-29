@@ -25,7 +25,7 @@ class Repeater extends React.Component {
         const {length} = this.state
         setInterval(() => {
             //let topPos = scroller.offsetTop + 10;
-            //console.log(topPos)
+            //console.log(scroller.scrollTop + scroller.offsetHeight, scroller.scrollHeight)
             scroller.scrollTop += 1;
 			// $(".scrollSide").animate({scrollTop:"+=10px"}, 100, function () {  
 			// 	if(this.scrollTop + this.offsetHeight >= this.scrollHeight) {
@@ -33,7 +33,7 @@ class Repeater extends React.Component {
 			// 		$('.scrollSide').append(clone);
 			// 	}
             // });
-            if(this.scrollTop + this.offsetHeight >= this.scrollHeight) {
+            if(scroller.scrollTop + scroller.offsetHeight >= scroller.scrollHeight) {
                 this.setState({
                     length: length + 20
                 })
