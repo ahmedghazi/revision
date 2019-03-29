@@ -3,11 +3,8 @@ import {graphql} from 'gatsby';
 import Helmet from "react-helmet";
 //import PubSub from 'pubsub-js';
 
-// import Header from "../components/header"
+import Repeater from "../components/repeater"
 
-// import Footer from "../components/footer"
-// import Projets from "../components/projets"
-// import CarouselModal from "../components/carouse-modal"
 
 require('../styles/index.scss')
 
@@ -32,7 +29,7 @@ class Index extends React.Component {
     render() {
         const {mainClass} = this.state
         const {data} = this.props
-        console.log(data)
+        //console.log(data)
         return (
             <main className={mainClass}>
                 {/* <Helmet>
@@ -53,17 +50,17 @@ class Index extends React.Component {
                     <meta property="og:image" content={data.contentfulHeader.image.file.url} />
                 </Helmet> */}
 
-                <div class="tiles">
+                <div className="tiles">
                     <div className="tile headline">
                         <div className="tile-quarter">
                             <h1>{data.contentfulLandingPage.title}</h1>
-                            <div class="date">{data.contentfulLandingPage.date}</div>
+                            <div className="date">{data.contentfulLandingPage.date}</div>
+                        </div>
+                        <div className="tile-quarter no-pad-v">
+                            <Repeater title={data.contentfulLandingPage.baseline} />
                         </div>
                         <div className="tile-quarter">
-                            <div>{data.contentfulLandingPage.baseline}</div>
-                        </div>
-                        <div className="tile-quarter">
-                            <a target="_blank" href={data.contentfulLandingPage.tickets} class="btn btn-large">
+                            <a target="_blank" href={data.contentfulLandingPage.tickets} className="btn btn-large">
                                 <div>BUY TICKETS</div>
                             </a>
                         </div>

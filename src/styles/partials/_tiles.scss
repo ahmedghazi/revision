@@ -6,3 +6,12 @@
         height: 50%;
     }
 }
+
+@media all and (max-width:767px){
+    .tile{
+        .tile-quarter{
+            width: 100%;
+            min-height: 50%;
+        }
+    }
+}

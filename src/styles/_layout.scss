@@ -18,3 +18,12 @@ main{
     .hidden-xs{display: none}
     .hidden-m{display: block}
 }
+
+.no-pad-v{
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+}
+.no-pad-h{
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
