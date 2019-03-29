@@ -14,12 +14,13 @@ class Repeater extends React.Component {
 
     _tick(){
         const scroller = this.refs.scroller;
-        const {length} = this.state
+        
         setInterval(() => {
             //console.log(scroller.scrollTop + scroller.offsetHeight, scroller.scrollHeight)
             scroller.scrollTop += 1;
 
             if(scroller.scrollTop + scroller.offsetHeight >= scroller.scrollHeight) {
+                const {length} = this.state
                 this.setState({
                     length: length + 20
                 })
