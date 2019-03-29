@@ -2,4 +2,14 @@
     scroll-behavior: smooth;
     overflow: hidden;
     height: 100%;
+    .item{
+        &.blink{
+            animation: blink 1s linear 0s infinite alternate;
+        }
+    }
 }
+
+@keyframes blink {
+    from {color: black}
+    to {color: blue;}
+  }
