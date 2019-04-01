@@ -25,9 +25,10 @@
 
 @media all and (max-width:767px){
     .tile{
+        height: auto;
         .tile-quarter{
             width: 100%;
-            min-height: 50%;
+            height: 100vw;
         }
     }
 }

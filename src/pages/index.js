@@ -88,7 +88,7 @@ class Index extends React.Component {
 
                         
                     </div>
-                    <div class="tile tile-hauto footer">
+                    <div className="tile tile-hauto footer">
                         <div className="tile-quarter ">
                             <ul className="connectors">
                                 {data.contentfulFooter.links.map((li,key) => (
@@ -117,7 +117,7 @@ class Index extends React.Component {
                                             rel="noopener noreferrer">Privacy policy</a>
                                     </li>
                                 </ul>
-                                <div class="copy">
+                                <div className="copy">
                                 ©2019 Revision.io
                                 </div>
                                 

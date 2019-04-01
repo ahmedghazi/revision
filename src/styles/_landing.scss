@@ -49,3 +49,14 @@
     }
 }
 
+@media all and (max-width:767px){
+    .landing-page{
+        .tile{
+            @include flex-direction(column);
+            .tile-quarter:nth-child(1){order: 1;}
+            .tile-quarter:nth-child(2){order: 3;}
+            .tile-quarter:nth-child(3){order: 2;}
+            .tile-quarter:nth-child(4){order: 4;}
+        }
+    }
+}
