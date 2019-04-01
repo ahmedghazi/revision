@@ -4,10 +4,37 @@
         @include flexbox();
         @include flex-wrap(wrap);
         
-        .tile-quarter{
+        .tile-quarter,
+        .tile-half{
             border: $border;
             padding: $paddV $paddH;
         }
+        .tile-half{height: auto;}
+        .footer{
+            @include flexbox();
+            @include justify-content(space-between);
+            @include align-items(baseline);
+            a:hover{color: blue;}
+        }
+        ul{
+            //text-transform: lowercase
+            @include flexbox();
+            
+            li{
+                padding-right: 1em;
+            }
+        }
+        // .header,
+        // .footer{
+        //     position: absolute; left: 0;
+        //     width: 100%;
+        //     padding: $paddV $paddH;
+        // }
+        // .header{top: 0;}
+        // .footer{
+        //     bottom: 0;
+        //     ul{@include justify-content(flex-end);}
+        // }
     }
 }
 

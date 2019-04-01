@@ -29,7 +29,7 @@ class Index extends React.Component {
     render() {
         const {mainClass} = this.state
         const {data} = this.props
-        //console.log(data)
+        console.log(data)
         return (
             <main className={mainClass}>
                 <Helmet>
@@ -60,12 +60,45 @@ class Index extends React.Component {
                             <Repeater title={data.contentfulLandingPage.baseline} />
                         </div>
                         <div className="tile-quarter">
-                            <a target="_blank" href={data.contentfulLandingPage.tickets} className="btn btn-large">
+                            <a 
+                            target="_blank" 
+                            href={data.contentfulLandingPage.tickets} 
+                            className="btn btn-large"
+                            rel="noopener noreferrer">
                                 <div>BUY TICKETS</div>
                             </a>
                         </div>
                         <div className="tile-quarter">
                             <div>{data.contentfulLandingPage.description}</div>
+                        </div>
+                        <div className="tile-half">
+                            <div className="footer">
+                                <ul className="connectors">
+                                    {data.contentfulFooter.links.map((li,key) => (
+                                        <li key={key} style={{paddingLeft: 0+'em'}}>
+                                            <a 
+                                            href={li.url} 
+                                            target="_blank"
+                                            rel="noopener noreferrer">↗ {li.label}</a>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <ul className="legals small">
+                                    <li>
+                                        <a 
+                                            href="https://www.notion.so/revisionio/LEGAL-DISCLOSURE-6a2e89e5b0ff494ca40ef250871530de?fbclid=IwAR0Vt9QjfSkqW0wlpOupuupHNRLXEOy9krvFG2ump32uU_ZlWB-rXZhVJOE"
+                                            target="_blank"
+                                            rel="noopener noreferrer">LEGAL</a>
+                                    </li>
+                                    <li>
+                                        <a 
+                                            href="https://www.notion.so/revisionio/PRIVACY-POLICY-b24ee8d7bd4e477e9750a67833fcf9a1?fbclid=IwAR1jXGSLXQnrEaT5_aoQP_Lo9DY2HY8q9Mk8i-UvXpEZn4xJyKh8j3btRXE"
+                                            target="_blank"
+                                            rel="noopener noreferrer">Privacy policy</a>
+                                    </li>
+                                    <li>©2019 Revision.io</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -78,12 +111,18 @@ export default Index
 
 export const query = graphql `
     query{
-        contentfulLandingPage {
-        title
-        baseline
-        description
-        date
-        tickets
-    }
-}
+            contentfulLandingPage {
+                title
+                baseline
+                description
+                date
+                tickets
+            }
+            contentfulFooter {
+                links {
+                    label
+                    url
+                }
+            }
+        }
 `

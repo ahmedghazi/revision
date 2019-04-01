@@ -45,7 +45,7 @@ class Repeater extends React.Component {
 
     render(){
         //const {menuClass} = this.state
-        const {title} = this.props
+        //const {title} = this.props
         return(
             <div className="repeater" ref="scroller">
                 {this.renderItems()}
