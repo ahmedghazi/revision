@@ -1,13 +1,19 @@
 .landing-page{
-    
     .tile{
         @include flexbox();
         @include flex-wrap(wrap);
+        border: $border;
+        border-width: 0.35vh;
+        &:first-child{border-bottom: none}
+        &:last-child{border-top: none;}
         
         .tile-quarter,
         .tile-half{
             border: $border;
+            border-style: inset;
+            border-color: $color1;
             padding: $paddV $paddH;
+            background: white;
         }
         .tile-half{height: auto;}
         .footer{
@@ -16,25 +22,30 @@
             @include align-items(baseline);
             a:hover{color: blue;}
         }
+        &.footer{
+            .small{
+                @include flexbox();
+                @include justify-content(space-between);
+                @include align-items(baseline);
+            }
+        }
         ul{
             //text-transform: lowercase
             @include flexbox();
-            
             li{
                 padding-right: 1em;
             }
         }
-        // .header,
-        // .footer{
-        //     position: absolute; left: 0;
-        //     width: 100%;
-        //     padding: $paddV $paddH;
-        // }
-        // .header{top: 0;}
-        // .footer{
-        //     bottom: 0;
-        //     ul{@include justify-content(flex-end);}
-        // }
+        .top,
+        .bottom{
+            position: absolute; left: 0;
+            width: 100%;
+            padding: $paddV $paddH;
+        }
+        .top{top: 0;}
+        .bottom{
+            bottom: 0;
+        }
     }
 }
 

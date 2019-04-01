@@ -1,9 +1,21 @@
 .tile{
     width: 100vw;
     height: 100vh;
+    //border: $border;
+    &.tile-hauto{
+        height: auto;
+        @include align-items(baseline)
+        [class^="tile"]{
+            height: auto;
+        }
+    }
     .tile-quarter{
+        //border-top-left: $border;
         width: 50%;
         height: 50%;
+        &.tile-quarter--hauto{
+            //height: auto;
+        }
     }
     .tile-half{
         width: 100%;

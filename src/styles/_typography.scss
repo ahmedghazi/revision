@@ -25,7 +25,10 @@ h1,h2,h3,h4,h5,h6,
 	font-size: $headline;
 	line-height: $headlineLh;
 }
-.small{font-size: $paragraph}
+.small{
+	font-size: $paragraph;
+	line-height: $paragraphLh;
+}
 
 .btn{
 	border: $borderHeight * 2 solid;
@@ -156,6 +159,7 @@ a,.btn {
 	&:hover {
 		color: $hover;
 	}
+	&.btn:hover{color: #fff}
 }
 p{
 	a{color: $color2}

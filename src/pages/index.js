@@ -53,8 +53,22 @@ class Index extends React.Component {
                 <div className="tiles">
                     <div className="tile headline">
                         <div className="tile-quarter">
-                            <h1>{data.contentfulLandingPage.title}</h1>
-                            <div className="date">{data.contentfulLandingPage.date}</div>
+                            <div className="top">
+                                <h1>{data.contentfulLandingPage.title}</h1>
+                                <div className="date">{data.contentfulLandingPage.date}</div>
+                            </div>
+                            <div className="bottom">
+                                <ul className="nav small">
+                                    {data.contentfulLandingPage.nav.map((li,key) => (
+                                        <li key={key} style={{paddingLeft: 0+'em'}}>
+                                            <a 
+                                            href={li.url} 
+                                            target="_blank"
+                                            rel="noopener noreferrer">{li.label}</a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                         <div className="tile-quarter no-pad-v">
                             <Repeater title={data.contentfulLandingPage.baseline} />
@@ -71,18 +85,24 @@ class Index extends React.Component {
                         <div className="tile-quarter">
                             <div>{data.contentfulLandingPage.description}</div>
                         </div>
-                        <div className="tile-half">
-                            <div className="footer">
-                                <ul className="connectors">
-                                    {data.contentfulFooter.links.map((li,key) => (
-                                        <li key={key} style={{paddingLeft: 0+'em'}}>
-                                            <a 
-                                            href={li.url} 
-                                            target="_blank"
-                                            rel="noopener noreferrer">↗ {li.label}</a>
-                                        </li>
-                                    ))}
-                                </ul>
+
+                        
+                    </div>
+                    <div class="tile tile-hauto footer">
+                        <div className="tile-quarter ">
+                            <ul className="connectors">
+                                {data.contentfulFooter.links.map((li,key) => (
+                                    <li key={key} style={{paddingLeft: 0+'em'}}>
+                                        <a 
+                                        href={li.url} 
+                                        target="_blank"
+                                        rel="noopener noreferrer">↗ {li.label}</a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="tile-quarter">
+                            <div className="small">
                                 <ul className="legals small">
                                     <li>
                                         <a 
@@ -96,8 +116,11 @@ class Index extends React.Component {
                                             target="_blank"
                                             rel="noopener noreferrer">Privacy policy</a>
                                     </li>
-                                    <li>©2019 Revision.io</li>
                                 </ul>
+                                <div class="copy">
+                                ©2019 Revision.io
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -111,18 +134,22 @@ export default Index
 
 export const query = graphql `
     query{
-            contentfulLandingPage {
-                title
-                baseline
-                description
-                date
-                tickets
-            }
-            contentfulFooter {
-                links {
-                    label
-                    url
-                }
+        contentfulLandingPage {
+            title
+            baseline
+            description
+            date
+            tickets
+            nav{
+                label
+                url
             }
         }
+        contentfulFooter {
+            links {
+                label
+                url
+            }
+        }
+    }
 `

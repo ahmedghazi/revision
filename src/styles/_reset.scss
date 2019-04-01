@@ -265,3 +265,11 @@ textarea {
 
 /* SRCSET */
 img[data-sizes="auto"] { display: block; width: 100%; }
+
+::-moz-selection { /* Code for Firefox */
+  color: blue;
+}
+
+::selection {
+  color: blue; 
+}
