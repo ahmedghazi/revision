@@ -3,7 +3,7 @@
         @include flexbox();
         @include flex-wrap(wrap);
         border: $border;
-        border-width: 0.35vh;
+        //border-width: 0.35vh;
         &:first-child{border-bottom: none}
         &:last-child{border-top: none;}
         
@@ -16,6 +16,12 @@
             background: white;
         }
         .tile-half{height: auto;}
+        .date{
+            p{
+                white-space: pre;
+                text-transform: uppercase
+            }
+        }
         .footer{
             @include flexbox();
             @include justify-content(space-between);

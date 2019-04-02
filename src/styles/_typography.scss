@@ -21,7 +21,7 @@ h1,h2,h3,h4,h5,h6,
 .headline {
 	clear: both;
 	font-weight: normal;
-	@include text-crop;
+	//@include text-crop;
 	font-size: $headline;
 	line-height: $headlineLh;
 }
@@ -56,7 +56,7 @@ hr {
 
 /* Text elements */
 p {
-	@include text-crop;
+	//@include text-crop;
 	margin-bottom: 1em;
 	line-height: 1.4;
 	&:last-child{margin-bottom: 0}

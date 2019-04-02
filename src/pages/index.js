@@ -55,7 +55,7 @@ class Index extends React.Component {
                         <div className="tile-quarter">
                             <div className="top">
                                 <h1>{data.contentfulLandingPage.title}</h1>
-                                <div className="date">{data.contentfulLandingPage.date}</div>
+                                <div className="date" dangerouslySetInnerHTML={{ __html: data.contentfulLandingPage.date.childMarkdownRemark.html }} />
                             </div>
                             <div className="bottom">
                                 <ul className="nav small">
@@ -138,7 +138,11 @@ export const query = graphql `
             title
             baseline
             description
-            date
+            date{
+                childMarkdownRemark{
+                    html
+                }
+            }
             tickets
             nav{
                 label
