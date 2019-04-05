@@ -3,8 +3,13 @@ import {graphql} from 'gatsby';
 import Helmet from "react-helmet";
 //import PubSub from 'pubsub-js';
 
+import Header from "../components/header"
+import Footer from "../components/footer"
+import Social from "../components/social"
 import Repeater from "../components/repeater"
+import Cta from "../components/cta"
 
+import favicon from '../images/favicon.png';
 
 require('../styles/index.scss')
 
@@ -34,6 +39,9 @@ class Index extends React.Component {
             <main className={mainClass}>
                 <Helmet>
                     <meta charSet="utf-8" />
+
+                    <link rel='shortcut icon' type="image/png" href={favicon} />
+
                     <title>{data.contentfulLandingPage.title}</title>
                     <meta name="description" content={data.contentfulLandingPage.description} />
                     <meta property="og:url" content="" />
@@ -51,77 +59,27 @@ class Index extends React.Component {
                 </Helmet>
 
                 <div className="tiles">
-                    <div className="tile headline">
+                    <div className="tile tile-4 headline">
                         <div className="tile-quarter">
-                            <div className="top">
-                                <h1>{data.contentfulLandingPage.title}</h1>
-                                <div className="date" dangerouslySetInnerHTML={{ __html: data.contentfulLandingPage.date.childMarkdownRemark.html }} />
-                            </div>
-                            <div className="bottom">
-                                <ul className="nav small">
-                                    {data.contentfulLandingPage.nav.map((li,key) => (
-                                        <li key={key} style={{paddingLeft: 0+'em'}}>
-                                            <a 
-                                            href={li.url} 
-                                            target="_blank"
-                                            rel="noopener noreferrer">{li.label}</a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                            <Header data={data} />
                         </div>
                         <div className="tile-quarter no-pad-v">
                             <Repeater title={data.contentfulLandingPage.baseline} />
                         </div>
                         <div className="tile-quarter">
-                            <a 
-                            target="_blank" 
-                            href={data.contentfulLandingPage.tickets} 
-                            className="btn btn-large"
-                            rel="noopener noreferrer">
-                                <div>BUY TICKETS</div>
-                            </a>
+                            <Cta data={data} />
+                            
                         </div>
                         <div className="tile-quarter">
                             <div>{data.contentfulLandingPage.description}</div>
                         </div>
-
-                        
                     </div>
-                    <div className="tile tile-hauto footer">
-                        <div className="tile-quarter ">
-                            <ul className="connectors">
-                                {data.contentfulFooter.links.map((li,key) => (
-                                    <li key={key} style={{paddingLeft: 0+'em'}}>
-                                        <a 
-                                        href={li.url} 
-                                        target="_blank"
-                                        rel="noopener noreferrer">{li.label}</a>
-                                    </li>
-                                ))}
-                            </ul>
+                    <div className="tile tile-2 tile-h-auto">
+                        <div className="tile-half ">
+                            <Social data={data} />
                         </div>
-                        <div className="tile-quarter">
-                            <div className="small">
-                                <ul className="legals small">
-                                    <li>
-                                        <a 
-                                            href="https://www.notion.so/revisionio/LEGAL-DISCLOSURE-6a2e89e5b0ff494ca40ef250871530de?fbclid=IwAR0Vt9QjfSkqW0wlpOupuupHNRLXEOy9krvFG2ump32uU_ZlWB-rXZhVJOE"
-                                            target="_blank"
-                                            rel="noopener noreferrer">Legal</a>
-                                    </li>
-                                    <li>
-                                        <a 
-                                            href="https://www.notion.so/revisionio/PRIVACY-POLICY-b24ee8d7bd4e477e9750a67833fcf9a1?fbclid=IwAR1jXGSLXQnrEaT5_aoQP_Lo9DY2HY8q9Mk8i-UvXpEZn4xJyKh8j3btRXE"
-                                            target="_blank"
-                                            rel="noopener noreferrer">Privacy</a>
-                                    </li>
-                                </ul>
-                                <div className="copy">
-                                ©2019 Revision.io
-                                </div>
-                                
-                            </div>
+                        <div className="tile-half">
+                            <Footer data={data} />
                         </div>
                     </div>
                 </div>

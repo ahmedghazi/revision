@@ -1,0 +1,14 @@
+.social{
+    ul{
+        @include flexbox();
+        li a{padding-right: 1em;}
+    }
+}
+
+@media all and (max-width:767px){
+    .social{
+        ul{
+            @include flex-direction(column)
+        }
+    }
+}

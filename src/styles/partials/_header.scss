@@ -1,0 +1,22 @@
+header{
+    .top,
+    .bottom{
+        position: absolute; left: 0;
+        width: 100%;
+        padding: $paddV $paddH;
+    }
+    .top{top: 0;}
+    .bottom{
+        bottom: 0;
+    }
+    ul{
+        @include flexbox();
+        li a{padding-right: 1em;}
+    }
+
+    .date{
+        p{
+            white-space: pre;
+        }
+    }
+}

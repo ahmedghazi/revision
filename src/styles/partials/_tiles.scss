@@ -1,35 +1,40 @@
 .tile{
-    width: 100vw;
     height: 100vh;
-    //border: $border;
-    &.tile-hauto{
+    display:grid;
+    &.tile-4{
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%;
+    }
+    &.tile-2{
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100%;
+    }
+
+    &.tile-h-auto{
         height: auto;
-        @include align-items(baseline)
-        [class^="tile"]{
-            height: auto;
-        }
     }
-    .tile-quarter{
-        //border-top-left: $border;
-        width: 50%;
-        height: 50%;
-        &.tile-quarter--hauto{
-            //height: auto;
-        }
-    }
+
+    .tile-quarter,
     .tile-half{
-        width: 100%;
-        height: 50%;
+        max-height: 50vh; overflow: hidden;
+        padding: $paddV $paddH;
+        background: white;
+        border: $border;
     }
 }
 
 @media all and (max-width:767px){
     .tile{
-        height: auto;
-        .tile-quarter{
-            width: 100%;
-            height: 50vh;
+        &.tile-4{
+            min-height: 200vh;
+            grid-template-columns: 100%;
+            grid-template-rows: 25% 25% 25% 25%;
         }
-        
+        &.tile-2{
+            grid-template-rows: 100%;
+        }
+        &.tile-h-auto{
+            min-height: 50vh;
+        }
     }
 }

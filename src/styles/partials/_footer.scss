@@ -1,0 +1,19 @@
+footer{
+    @include flexbox();
+    @include justify-content(space-between);
+    @include align-items(baseline);
+    ul{
+        @include flexbox();
+        li a{padding-right: 1em;}
+    }
+}
+
+@media all and (max-width:767px){
+    footer{
+        height: 100%;
+        @include flex-direction(column)
+        ul{
+            @include flex-direction(column)
+        }
+    }
+}

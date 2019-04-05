@@ -1,86 +1,17 @@
 .landing-page{
-    .tile{
-        @include flexbox();
-        @include flex-wrap(wrap);
+    .tiles{
         border: $border;
-        //border-width: 0.35vh;
-        &:first-child{border-bottom: none}
-        &:last-child{border-top: none;}
-        
-        .tile-quarter,
-        .tile-half{
-            border: $border;
-            border-style: inset;
-            border-color: $color1;
-            padding: $paddV $paddH;
-            background: white;
-        }
-        .tile-half{height: auto;}
-        .date{
-            p{
-                white-space: pre;
-            }
-        }
-        .footer{
-            @include flexbox();
-            @include justify-content(space-between);
-            @include align-items(baseline);
-            a:hover{color: blue;}
-        }
-        &.footer{
-            .small{
-                @include flexbox();
-                @include justify-content(space-between);
-                @include align-items(baseline);
-            }
-        }
-        ul{
-            //text-transform: lowercase
-            @include flexbox();
-            li{
-                padding-right: 1em;
-            }
-        }
-        .top,
-        .bottom{
-            position: absolute; left: 0;
-            width: 100%;
-            padding: $paddV $paddH;
-        }
-        .top{top: 0;}
-        .bottom{
-            bottom: 0;
-        }
     }
 }
 
 @media all and (max-width:767px){
     .landing-page{
         .tile{
-            @include flex-direction(column);
             .tile-quarter:nth-child(1){order: 1;}
             .tile-quarter:nth-child(2){order: 3;}
             .tile-quarter:nth-child(3){order: 2;}
             .tile-quarter:nth-child(4){order: 4;}
-            &.footer{
-                @include flex-direction(row);
-                .tile-quarter{
-                    width: 50%;
-                    height: 50vh;
-                    ul{
-                        @include flex-direction(column);
-                    }
-                    .small{
-                        height: 100%;
-                        @include flexbox();
-                        @include flex-direction(column);
-                        @include justify-content(space-between);
-                        ul{
-                            @include justify-content(flex-start);
-                        }
-                    }
-                }
-            }
         }
+        
     }
 }
