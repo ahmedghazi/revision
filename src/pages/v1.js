@@ -20,7 +20,6 @@ class v1 extends React.Component {
         console.log(data)
         return (
             <main className={mainClass}>
-                {/* <Tiles data={data.allContentfulTilePost.edges} /> */}
                 <Tiles landing={data.contentfulLandingPage} data={data.allContentfulTile.edges} />
             </main>
         );
@@ -28,7 +27,6 @@ class v1 extends React.Component {
 }
 
 export default v1;
-
 
 export const query = graphql `
     query {
