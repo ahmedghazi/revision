@@ -3,13 +3,8 @@ import {graphql} from 'gatsby';
 import Helmet from "react-helmet";
 //import PubSub from 'pubsub-js';
 
-// import Landing from "../components/ui/landing"
-// // import Header from "../components/ui/header"
-// import Footer from "../components/ui/footer"
-// import Social from "../components/ui/social"
-// // import Repeater from "../components/ui/repeater"
-// // import Cta from "../components/ui/cta"
 import Tiles from "../components/tiles"
+import Menu from "../components/ui/menu"
 
 import favicon from '../images/favicon.png';
 
@@ -24,19 +19,14 @@ class Index extends React.Component {
 
     }
 
-
     componentDidMount() {
-        // PubSub.subscribe('IS_CAROUSEL', (e, d) => {
-        //     const mainClass = d.status ? "is-carousel" : ""
-        //     this.setState({
-        //         mainClass: mainClass
-        //     })
+        // PubSub.subscribe('EVT', (e, d) => {
         // })
     }
     render() {
         const {mainClass} = this.state
         const {data} = this.props
-        console.log(data)
+        //console.log(data)
         return (
             <main className={mainClass}>
                 <Helmet>
@@ -63,6 +53,8 @@ class Index extends React.Component {
                 <Tiles 
                 landing={data.contentfulLandingPage} 
                 data={data.allContentfulTile.edges} />
+
+                <Menu />
             </main>
         )
     }

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {spiral} from '../utils/tiles-builder'
-import {range} from '../utils'
+//import {range} from '../utils'
 
 import Tile from "./tile"
-//import Embed from "../components/ui/embed"
 
 class Tiles extends Component {
     constructor(props) {

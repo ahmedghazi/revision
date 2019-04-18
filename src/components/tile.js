@@ -69,7 +69,7 @@ class Tile extends Component {
             data,
             index
         } = this.props
-        console.log(index)
+        //console.log(index)
         if(index === 0){
             return(
                 <Landing data={data} index={index} />

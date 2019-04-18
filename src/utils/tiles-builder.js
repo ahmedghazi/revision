@@ -22,32 +22,24 @@ export function spiral(n) {
     // so square can connect
 
     var pos = [0, 0, r];
-    switch (Math.floor(a / (r * 2))) {
+    //switch (Math.floor(a / (r * 2))) {
+    switch ( Math.floor(a / en) ) {
         // find the face : 0 top, 1 right, 2, bottom, 3 left
         case 0:
-            {
-                pos[0] = a - r;
-                pos[1] = -r;
-            }
+            pos[0] = a - r;
+            pos[1] = -r;
             break;
         case 1:
-            {
-                pos[0] = r;
-                pos[1] = (a % en) - r;
-
-            }
+            pos[0] = r;
+            pos[1] = (a % en) - r;
             break;
-        case 2:
-            {
-                pos[0] = r - (a % en);
-                pos[1] = r;
-            }
+        case 2:        
+            pos[0] = r - (a % en);
+            pos[1] = r;
             break;
         case 3:
-            {
-                pos[0] = -r;
-                pos[1] = r - (a % en);
-            }
+            pos[0] = -r;
+            pos[1] = r - (a % en);
             break;
     }
     return pos;

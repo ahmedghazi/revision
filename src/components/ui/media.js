@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Figure from './figure';
+//import Figure from './figure';
 
 class Media extends Component {
     render() {
