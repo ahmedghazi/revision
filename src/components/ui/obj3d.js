@@ -6,7 +6,7 @@ class Obj3d extends Component {
     constructor(props) {
         super(props);
         this.animate = this.animate.bind(this);
-        this.addCube = this.addCube.bind(this);
+        //this.addCube = this.addCube.bind(this);
         this.initializeCamera = this.initializeCamera.bind(this);
         this.initializeOrbits = this.initializeOrbits.bind(this);
     }
@@ -27,6 +27,13 @@ class Obj3d extends Component {
         const material = new THREE.MeshBasicMaterial( { color: 0xf0000ff } );
         this.cube = new THREE.Mesh( geometry, material );
         this.scene.add( this.cube );
+
+        // const _geometry = new THREE.SphereGeometry( 5, 32, 32 );
+        // const _material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+        // this.sphere = new THREE.Mesh( _geometry, _material );
+        // this.scene.add( this.sphere );
+        // console.log(this.sphere)
+   
         this.animate();
     }
 
@@ -55,16 +62,16 @@ class Obj3d extends Component {
         this.cube.rotation.y += 0.01;
     }
 
-    addCube(cube) {
-        this.scene.add(cube);
-    }
+    // addCube(sphere) {
+    //     this.scene.add(sphere);
+    // }
 
     render() {
         return (
             <div>
                 <div
                     id="boardCanvas"
-                    style={{ width: "30vw", height: "30vh" }}
+                    style={{ width: "40vw", height: "40vw" }}
                     ref={mount => {
                         this.mount = mount;
                     }}
