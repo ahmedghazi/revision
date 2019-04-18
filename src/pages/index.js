@@ -3,11 +3,12 @@ import {graphql} from 'gatsby';
 import Helmet from "react-helmet";
 //import PubSub from 'pubsub-js';
 
-import Header from "../components/ui/header"
+import Landing from "../components/ui/landing"
+// import Header from "../components/ui/header"
 import Footer from "../components/ui/footer"
 import Social from "../components/ui/social"
-import Repeater from "../components/ui/repeater"
-import Cta from "../components/ui/cta"
+// import Repeater from "../components/ui/repeater"
+// import Cta from "../components/ui/cta"
 
 import favicon from '../images/favicon.png';
 
@@ -59,25 +60,12 @@ class Index extends React.Component {
                 </Helmet>
 
                 <div className="tiles">
-                    <div className="tile tile-4 headline">
-                        <div className="tile-quarter">
-                            <Header data={data} />
-                        </div>
-                        <div className="tile-quarter no-pad-v">
-                            <Repeater title={data.contentfulLandingPage.baseline} />
-                        </div>
-                        <div className="tile-quarter">
-                            <Cta data={data} />
-                        </div>
-                        <div className="tile-quarter">
-                            <div>{data.contentfulLandingPage.description}</div>
-                        </div>
-                    </div>
-                    <div className="tile tile-2 tile-h-auto">
-                        <div className="tile-half ">
+                    <Landing data={data.contentfulLandingPage} />
+                    <div className="tile tile-2 tile-h-auto footer">
+                        <div className="tile-item tile-half ">
                             <Social data={data} />
                         </div>
-                        <div className="tile-half">
+                        <div className="tile-item tile-half">
                             <Footer data={data} />
                         </div>
                     </div>

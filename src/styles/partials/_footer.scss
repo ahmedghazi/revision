@@ -1,7 +1,9 @@
-footer{
+footer,
+.footer{
     @include flexbox();
     @include justify-content(space-between);
     @include align-items(baseline);
+    .tile-item{width: 50%}
     ul{
         @include flexbox();
         li a{padding-right: 1em;}
