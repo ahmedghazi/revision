@@ -3,11 +3,11 @@ import {graphql} from 'gatsby';
 import Helmet from "react-helmet";
 //import PubSub from 'pubsub-js';
 
-import Header from "../components/header"
-import Footer from "../components/footer"
-import Social from "../components/social"
-import Repeater from "../components/repeater"
-import Cta from "../components/cta"
+import Header from "../components/ui/header"
+import Footer from "../components/ui/footer"
+import Social from "../components/ui/social"
+import Repeater from "../components/ui/repeater"
+import Cta from "../components/ui/cta"
 
 import favicon from '../images/favicon.png';
 
@@ -68,7 +68,6 @@ class Index extends React.Component {
                         </div>
                         <div className="tile-quarter">
                             <Cta data={data} />
-                            
                         </div>
                         <div className="tile-quarter">
                             <div>{data.contentfulLandingPage.description}</div>

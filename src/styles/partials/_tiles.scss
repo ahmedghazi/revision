@@ -1,9 +1,36 @@
+html,body{
+    //overflow: hidden;
+    //scroll-snap-type: both mandatory;
+}
+.tiles{
+    // min-width: 500vw;
+    // min-height: 500vh
+    @include anime();
+}
 .tile{
+    //scroll-snap-align: start;
+    position: absolute;
+    width: 100vw;
     height: 100vh;
+    // width: 50vw;
+    // height: 50vh;
     display:grid;
+    background: $color1;
+    // text-align: center; font-size: 4em;
+    // line-height: 100vh;
+    // &:nth-child(odd){background: red}
+    // &:nth-child(even){background: green}
+    
     &.tile-4{
         grid-template-columns: 50% 50%;
         grid-template-rows: 50% 50%;
+    }
+    &.tile-3{
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%;
+        .tile-half{
+            grid-row: 1 / span 2;
+        }
     }
     &.tile-2{
         grid-template-columns: 50% 50%;
@@ -13,13 +40,19 @@
     &.tile-h-auto{
         height: auto;
     }
-
-    .tile-quarter,
-    .tile-half{
-        max-height: 50vh; overflow: hidden;
+  
+    .tile-quarter{max-height: 50vh}
+    .tile-item{
+        overflow: hidden;
         padding: $paddV $paddH;
         background: white;
-        border: $border;
+        //border: $border;
+        margin: 1.4vh;
+
+        &.nopad{
+            padding: 0;
+            //.inner{padding: $paddV $paddH;}
+        }
     }
 }
 

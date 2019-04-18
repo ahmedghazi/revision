@@ -1,0 +1,9 @@
+.ui-media{
+    height: 100%;
+    color: $color2;
+    .bottom{
+        width: 100%;
+        padding: $paddV $paddH;
+        .title{z-index: 1;}
+    }
+}

@@ -1,0 +1,12 @@
+.ui-ads-{
+    height: 100%;
+    color: $color2;
+    background: red;
+    .bottom{
+        width: 100%;
+        padding: $paddV $paddH;
+        .title{z-index: 1;}
+        @include flexbox();
+        @include justify-content(space-between);
+    }
+}

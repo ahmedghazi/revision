@@ -1,0 +1,21 @@
+.ui-link-texte{
+    height: 100%;
+    .bottom{
+        width: 100%;
+        .url,
+        .btn{
+            position: absolute; bottom: 0;
+            max-width: 50%;
+        }
+        .url{
+            overflow: hidden;
+            white-space: nowrap;
+            
+        }
+        .btn{
+            right: 0;
+            display: block;
+            min-width: 260px;
+        }
+    }
+}

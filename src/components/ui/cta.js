@@ -6,7 +6,7 @@ class Cta extends Component {
         return (
             <a 
             target="_blank" 
-            href={data.contentfulLandingPage.tickets} 
+            href={data.tickets} 
             className="btn btn-large"
             rel="noopener noreferrer">
                 <div>BUY TICKETS</div>

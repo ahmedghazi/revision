@@ -11,30 +11,63 @@
 body {
 	color: $color1;
 	font-family: $fontPrimary;
-	font-size: $paragraph;
-	//line-height: 1.6;
-	line-height: $paragraphLh; 
+	font-size: $fontS;
+	line-height: $fontSLh; 
 }
 
+
+.fxs{
+	font-size: $fontXs;
+	line-height: $fontXsLh; 
+}
+.fs{
+	font-size: $fontS;
+	line-height: $fontSLh; 
+}
+.fm{
+	font-size: $fontM;
+	line-height: $fontMLh; 
+}
+.fl{
+	font-size: $fontL;
+	line-height: $fontLLh; 
+}
 /* Headings */
 h1,h2,h3,h4,h5,h6,
 .headline {
-	clear: both;
-	font-weight: normal;
-	//@include text-crop;
-	font-size: $headline;
-	line-height: $headlineLh;
-}
-.small{
-	font-size: $paragraph;
-	line-height: $paragraphLh;
+	// clear: both;
+	// font-weight: normal;
+	// //@include text-crop;
+	// font-size: $headline;
+	// line-height: $headlineLh;
 }
 
+// .small{
+// 	font-size: $fontXs;
+// 	line-height: $fontXsLh;
+// }
+
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
+
 .btn{
-	border: $borderHeight * 2 solid;
+	//border: $borderHeight solid;
+	color: $color1;
+	border: $border;
+	border-color: $color1;
+	//border-style: inset;
+	font-size: $fontL;
+	//line-height: $fontLLh; 
+	border-radius: 2em;
+	text-transform: uppercase;
 	&:hover{
-		color: white;
-		background: black;
+		color: $color2;
+		background: $color1;
+		border-color: $color1;
+	}
+	&.btn-small{
+		padding: 1.5vh 3.5vh;
+		height: 13.5vh;
+		line-height: 5vh; 
 	}
 	&.btn-large{
 		width: 100%;
@@ -43,6 +76,7 @@ h1,h2,h3,h4,h5,h6,
 		border-radius: 5em;
 		height: 100%;
 		line-height: 100%;
+		height: 35vh;
 		@include flex_center_h_v();
 	}
 }
@@ -58,9 +92,11 @@ hr {
 p {
 	//@include text-crop;
 	margin-bottom: 1em;
-	line-height: 1.4;
+	//line-height: 1.4;
+	hyphens: auto;
 	&:last-child{margin-bottom: 0}
 	&:empty{display: none}
+
 }
 ul, ol {
 	//margin: 0 0 1.5em 2.5em;
@@ -151,15 +187,16 @@ sub {
 
 
 /* Links */
+//a{text-decoration: none;}
 a,.btn {
-	color: $links;
+	color: $color1;
 	text-decoration: none;
 	&:focus,
 	&:active,
 	&:hover {
-		color: $hover;
+		//color: $hover;
 	}
-	&.btn:hover{color: #fff}
+	//&.btn:hover{color: #fff}
 }
 p{
 	a{color: $color2}

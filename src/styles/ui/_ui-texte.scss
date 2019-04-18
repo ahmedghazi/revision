@@ -1,0 +1,11 @@
+.ui-texte{
+    .texte{
+        margin-bottom: calc(3.5vh / 2);
+    }
+}
+.tile-half{
+    .texte{
+        font-size: $fontM;
+	    line-height: $fontMLh; 
+    }
+}

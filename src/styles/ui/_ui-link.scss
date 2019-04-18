@@ -1,0 +1,11 @@
+.ui-link{
+    .btn{
+        margin-bottom: $fontXs;
+        //display: block;
+    }
+    .url{
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+    }
+}
