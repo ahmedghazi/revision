@@ -3,12 +3,13 @@ import {graphql} from 'gatsby';
 import Helmet from "react-helmet";
 //import PubSub from 'pubsub-js';
 
-import Landing from "../components/ui/landing"
-// import Header from "../components/ui/header"
-import Footer from "../components/ui/footer"
-import Social from "../components/ui/social"
-// import Repeater from "../components/ui/repeater"
-// import Cta from "../components/ui/cta"
+// import Landing from "../components/ui/landing"
+// // import Header from "../components/ui/header"
+// import Footer from "../components/ui/footer"
+// import Social from "../components/ui/social"
+// // import Repeater from "../components/ui/repeater"
+// // import Cta from "../components/ui/cta"
+import Tiles from "../components/tiles"
 
 import favicon from '../images/favicon.png';
 
@@ -59,17 +60,9 @@ class Index extends React.Component {
                     <meta property="og:image" content="" />
                 </Helmet>
 
-                <div className="tiles">
-                    <Landing data={data.contentfulLandingPage} />
-                    <div className="tile tile-2 tile-h-auto footer">
-                        <div className="tile-item tile-half ">
-                            <Social data={data} />
-                        </div>
-                        <div className="tile-item tile-half">
-                            <Footer data={data} />
-                        </div>
-                    </div>
-                </div>
+                <Tiles 
+                landing={data.contentfulLandingPage} 
+                data={data.allContentfulTile.edges} />
             </main>
         )
     }
@@ -78,27 +71,167 @@ class Index extends React.Component {
 export default Index
 
 export const query = graphql `
-    query{
-        contentfulLandingPage {
+    query {
+      contentfulLandingPage {
+        title
+        baseline
+        description
+        date{
+            childMarkdownRemark{
+                html
+            }
+        }
+        tickets
+        nav{
+            label
+            url
+        }
+      }
+      allContentfulTile(sort: {fields: hierarchy}) {
+        edges {
+          node {
             title
-            baseline
-            description
-            date{
-                childMarkdownRemark{
-                    html
+            hierarchy
+            postTiles {
+              __typename
+              ... on ContentfulLinkText {
+                size
+                title
+                subheadline
+                people {
+                  name
+                  info
+                  image {
+                    file {
+                      contentType
+                      fileName
+                      url
+                    }
+                    fluid(maxWidth: 1440) {
+                      sizes
+                      src
+                      srcSet
+                    }
+                  }
                 }
-            }
-            tickets
-            nav{
-                label
+                texte {
+                  childMarkdownRemark {
+                    html
+                  }
+                }
+              }
+              ... on ContentfulAds {
+                id
+                size
+                title
+                video
+                image {
+                  file {
+                    contentType
+                    fileName
+                    url
+                  }
+                  fluid(maxWidth: 1440) {
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+                sponsor {
+                  title
+                  url
+                  image {
+                    file {
+                      contentType
+                      fileName
+                      url
+                    }
+                    fluid(maxWidth: 1440) {
+                      sizes
+                      src
+                      srcSet
+                    }
+                  }
+                }
+              }
+              ... on ContentfulEvent {
+                size
+                title
+                subheadline
+                eventType
+                people {
+                  name
+                  info
+                  image {
+                    file {
+                      contentType
+                      fileName
+                      url
+                    }
+                    fluid(maxWidth: 1440) {
+                      sizes
+                      src
+                      srcSet
+                    }
+                  }
+                }
+              }
+              ... on ContentfulLink {
+                size
+                title
                 url
+              }
+              ... on ContentfulHeadline {
+                size
+                title
+                subheadline
+              }
+              ... on ContentfulTexte {
+                size
+                title
+                people {
+                  name
+                  info
+                  image {
+                    file {
+                      contentType
+                      fileName
+                      url
+                    }
+                    fluid(maxWidth: 1440) {
+                      sizes
+                      src
+                      srcSet
+                    }
+                  }
+                }
+                texte {
+                  childMarkdownRemark {
+                    html
+                  }
+                }
+              }
+              ... on ContentfulMedia {
+                size
+                title
+                video
+                image {
+                  file {
+                    contentType
+                    fileName
+                    url
+                  }
+                  fluid(maxWidth: 1440) {
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+              }
             }
+          }
         }
-        contentfulFooter {
-            links {
-                label
-                url
-            }
-        }
+      }
     }
-`
+    
+`   
