@@ -151,11 +151,28 @@ export const query = graphql `
               ... on ContentfulEvent {
                 size
                 title
+                date
                 subheadline
                 eventType
-                people {
+                peoples {
                   name
                   info
+                  image {
+                    file {
+                      contentType
+                      fileName
+                      url
+                    }
+                    fluid(maxWidth: 1440) {
+                      sizes
+                      src
+                      srcSet
+                    }
+                  }
+                }
+                sponsor{
+                  title
+                  url
                   image {
                     file {
                       contentType

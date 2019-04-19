@@ -6,7 +6,7 @@ class Ads extends Component {
         const {data} = this.props
         
         return (
-            <div className="ui-ads-">    
+            <div className="ui-advertisement">    
                 <div 
                 className="cover"
                 style={{backgroundImage: 'url('+data.image.fluid.src+')'}}></div>

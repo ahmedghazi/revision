@@ -3,12 +3,17 @@
     @include align-items(center);
     figure{
         margin-right: 1vw;
+        border-radius: 3.5vh;
+        overflow: hidden;
+        img{
+            //@include flex-shrink(0);
+            max-height: 3.5vh;
+            max-height: 3.5vh;
+            opacity: 0.9;
+        }
     }
-    img{
-        //@include flex-shrink(0);
-        max-height: 3.5vh;
-        max-height: 3.5vh;
-        
-        opacity: 0.9;
+    .people-body{
+        .name,
+        .info{white-space: nowrap}
     }
 }

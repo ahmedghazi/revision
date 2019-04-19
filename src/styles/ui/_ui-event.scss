@@ -1,1 +1,7 @@
-.ui-event{}
+.ui-event{
+    height: 100%;
+    time{
+        margin-bottom: calc(3.5vh / 2);
+        display: block;
+    }
+}

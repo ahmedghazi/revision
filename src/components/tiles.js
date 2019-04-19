@@ -30,11 +30,11 @@ class Tiles extends Component {
         //document.addEventListener("mousemove", this._onMouseMove)  
 
         //https://codepen.io/anon/pen/VNxyzG
-        window.requestAnimationFrame = window.requestAnimationFrame
-            || window.mozRequestAnimationFrame
-            || window.webkitRequestAnimationFrame
-            || window.msRequestAnimationFrame
-            || function(f){return setTimeout(f, 1000/10)} // simulate calling code 60 
+        // window.requestAnimationFrame = window.requestAnimationFrame
+        //     || window.mozRequestAnimationFrame
+        //     || window.webkitRequestAnimationFrame
+        //     || window.msRequestAnimationFrame
+        //     || function(f){return setTimeout(f, 1000/10)}
 
         //requestAnimationFrame(this._update);
         // a.ui.win.on('deviceorientation', function(e){

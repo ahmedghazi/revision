@@ -28,6 +28,39 @@
 		background-image: linear-gradient(to bottom, rgba(34,34,34,0), rgba(34,34,34,0.9));
 	}
 }
+
+.peoples{
+	@include flexbox();
+	li{
+		pointer-events: none;
+		.people{
+			pointer-events: auto;
+			@include anime();
+			&.sibling-is-hover{
+				opacity: 0;
+				pointer-events: none;
+			}
+			&.is-hover{
+				.people-body{
+					opacity: 1;
+					pointer-events: auto;
+				}
+			}
+
+			.people-body{
+				@include anime();
+				pointer-events: none;
+				position: absolute;
+				left: 4.5vh;
+				opacity: 0;
+			}
+		}
+		
+		
+	}
+	
+}
+
 dl.gallery-item {
 	margin: 0;
 }

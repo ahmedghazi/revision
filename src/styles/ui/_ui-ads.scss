@@ -1,4 +1,4 @@
-.ui-ads-{
+.ui-advertisement{
     height: 100%;
     color: $color2;
     background: red;
@@ -8,5 +8,19 @@
         .title{z-index: 1;}
         @include flexbox();
         @include justify-content(space-between);
+        .sponsor{
+            figure{
+                margin-right: 0;
+                margin-left: 1vw;
+            }
+        }
+    }
+}
+
+.tile-full{
+    .ui-advertisement{
+        .bottom{
+            @include justify-content(flex-end);
+        }
     }
 }
