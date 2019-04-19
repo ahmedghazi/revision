@@ -3,7 +3,7 @@ import Header from "./header"
 //import Footer from "./footer"
 import Repeater from "./repeater"
 //import Cta from "./cta"
-import Link from './link'
+import Link from './ui-link'
 
 class Landing extends Component {
     render() {

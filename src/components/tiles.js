@@ -22,7 +22,7 @@ class Tiles extends Component {
     componentDidMount(){
         this._onResize()
         document.addEventListener("resize", this._onResize)        
-        //document.addEventListener("mousemove", this._onMouseMove)  
+        document.addEventListener("mousemove", this._onMouseMove)  
         
         // a.ui.win.on('deviceorientation', function(e){
         //     a.nav.clientX = ((e.originalEvent.gamma+90)/180) * a.sizes.winWidth;

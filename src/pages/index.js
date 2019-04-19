@@ -90,6 +90,8 @@ export const query = graphql `
                 size
                 title
                 subheadline
+                linkUrl
+                linkLabel
                 people {
                   name
                   info

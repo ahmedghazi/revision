@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 import Landing from "./ui/landing"
-import Headline from "./ui/headline"
-import Media from "./ui/media"
-import Texte from "./ui/texte"
-import Link from "./ui/link"
-import LinkTexte from "./ui/link-texte"
-import Event from "./ui/event"
-import Ads from "./ui/ads"
+import Headline from "./ui/ui-headline"
+import Media from "./ui/ui-media"
+import Texte from "./ui/ui-texte"
+import Link from "./ui/ui-link"
+import LinkTexte from "./ui/ui-link-texte"
+import Event from "./ui/ui-event"
+import Ads from "./ui/ui-ads"
 
 class Tile extends Component {
     _normaliseSize(size){
