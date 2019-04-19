@@ -96,6 +96,7 @@ class Tiles extends Component {
         } = this.state;
 
         var decay = 0.11;
+        var decay = 0.21;
         var percentX = e.clientX / winWidth;
         var percentY = e.clientY / winHeight;
         // get the old scroll value
@@ -106,6 +107,8 @@ class Tiles extends Component {
         // the new scroll value is the destination value minus how far we've currently scrolled, multiplied by an easing number
         xpX += parseFloat((scrollAmountX - xpX) * decay);
         xpY += parseFloat((scrollAmountY - xpY) * decay);
+
+  
 
         document.body.scrollLeft = xpX;
         document.body.scrollTop = xpY;
