@@ -8,22 +8,35 @@ class Tiles extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            width: 0,
-            height: 0,
-            startX: 0,
-            startY: 0,
+            docWidth: document.innerWidth,
+            docHeight: document.innerHeight,
+            winWidth: window.innerWidth,
+            winHeight: window.innerHeight,
+            inertia: 10,
             bounding: null
         }       
         
+        this._update = this._update.bind(this)
         this._onResize = this._onResize.bind(this)
         this._onMouseMove = this._onMouseMove.bind(this)
+
+        this.x = 0
+        this.y = 0
     }
 
     componentDidMount(){
         this._onResize()
         document.addEventListener("resize", this._onResize)        
-        document.addEventListener("mousemove", this._onMouseMove)  
-        
+        //document.addEventListener("mousemove", this._onMouseMove)  
+
+        //https://codepen.io/anon/pen/VNxyzG
+        window.requestAnimationFrame = window.requestAnimationFrame
+            || window.mozRequestAnimationFrame
+            || window.webkitRequestAnimationFrame
+            || window.msRequestAnimationFrame
+            || function(f){return setTimeout(f, 1000/10)} // simulate calling code 60 
+
+        //requestAnimationFrame(this._update);
         // a.ui.win.on('deviceorientation', function(e){
         //     a.nav.clientX = ((e.originalEvent.gamma+90)/180) * a.sizes.winWidth;
         //     a.nav.clientY = ((e.originalEvent.beta+90)/180) * a.sizes.winHeight;
@@ -32,6 +45,8 @@ class Tiles extends Component {
 
     _onResize(){
         this.setState({
+            docWidth: document.innerWidth,
+            docHeight: document.innerHeight,
             winWidth: window.innerWidth,
             winHeight: window.innerHeight
         }, () => this._renderSpiral())
@@ -92,36 +107,56 @@ class Tiles extends Component {
             winWidth,
             winHeight,
             docWidth,
-            docHeight
+            docHeight,         
         } = this.state;
 
         var decay = 0.11;
-        var decay = 0.21;
         var percentX = e.clientX / winWidth;
         var percentY = e.clientY / winHeight;
         // get the old scroll value
-        var xpX = document.body.scrollLeft;
-        var xpY = document.body.scrollTop;
+        var scrollX = document.body.scrollLeft;
+        var scrollY = document.body.scrollTop;
         var scrollAmountX = (docWidth - winWidth) * percentX;
         var scrollAmountY = (docHeight - winHeight) * percentY;
         // the new scroll value is the destination value minus how far we've currently scrolled, multiplied by an easing number
-        xpX += parseFloat((scrollAmountX - xpX) * decay);
-        xpY += parseFloat((scrollAmountY - xpY) * decay);
+        scrollX += parseFloat((scrollAmountX - scrollX) * decay);
+        scrollY += parseFloat((scrollAmountY - scrollY) * decay);
 
-  
+        this.setState({
+            scrollX: scrollX,
+            scrollY: scrollY
+        })
 
-        document.body.scrollLeft = xpX;
-        document.body.scrollTop = xpY;
-              
+        // document.body.scrollLeft = xpX;
+        // document.body.scrollTop = xpY;
+    }
+
+    _update(){
+        const {
+            scrollX, scrollY, inertia
+        } = this.state;
+
+        if(scrollX){
+            const x = (document.body.scrollLeft - scrollX) / inertia
+            const y = (document.body.scrollTop - scrollY) / inertia
+      //console.log(x, y)
+            document.body.scrollLeft = scrollX;
+            document.body.scrollTop = scrollY;
+        }
+        
+        requestAnimationFrame(this._update);
     }
 
     render() {
         const {landing,data} = this.props;
 
-        //console.log(data)
+        const style = {
+            //transform:'translate('+this.x+'px,'+this.y+'px)'
+        }
+        //console.log(style)
         return (
             
-            <div className="tiles">
+            <div className="tiles" style={style}>
                 <Tile 
                     key={0} 
                     index={0} 
