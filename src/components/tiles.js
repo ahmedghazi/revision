@@ -8,10 +8,10 @@ class Tiles extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            docWidth: document.innerWidth,
-            docHeight: document.innerHeight,
-            winWidth: window.innerWidth,
-            winHeight: window.innerHeight,
+            docWidth: 0,
+            docHeight: 0,
+            winWidth: 0,
+            winHeight: 0,
             inertia: 10,
             bounding: null
         }       
