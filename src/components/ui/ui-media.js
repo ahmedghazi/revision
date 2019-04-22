@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import YouTube from 'react-youtube';
+import Video from './video';
+
 
 class Media extends Component {
     constructor(props) {
@@ -9,10 +10,6 @@ class Media extends Component {
             video: '',
             youtubeID: ''
         }
-
-        this._play = this._play.bind(this)
-        this._onReady = this._onReady.bind(this)
-        
     }
 
     _play(){
@@ -33,29 +30,6 @@ console.log("youtubeID",youtubeID)
         }
     }
 
-    _pause(){
-        const {video} = this.state
-        
-        this.setState({
-            playState: 'pause'
-        } )
-
-        video.pauseVideo()
-    }
-
-    youtube_parser(url){
-        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-        var match = url.match(regExp);
-        return (match&&match[7].length===11)? match[7] : false;
-    }
-
-    _onReady(event) {
-        console.log(event)
-        this.setState({
-            video: event.target
-        } )
-    }
-
     render() {
         const {data} = this.props
         const {playState,youtubeID} = this.state
@@ -68,39 +42,19 @@ console.log("youtubeID",youtubeID)
 
                 <div className="gradient-overlay"></div>
 
+                {data.video !== "" &&
+                    <Video url={data.video} />    
+                }
+
                 <div className="bottom fs ">
                     <div className="inner">
                         {data.title !== "" &&
-                        <   div className="title">{data.title}</div>
-                        }
-
-                        {data.video !== "" &&
-                            <div 
-                            className="btn btn-small btn-video btn-white" 
-                            onClick={this._play}>{playState === "play" ? "PAUSE" : "PLAY"}</div>
+                            <div className="title">{data.title}</div>
                         }
                     </div>
                 </div>
                 
-                {playState === "play" &&
-                    <YouTube
-                        videoId={youtubeID}
-                        containerClassName='embed-wrap'
-                        opts={{
-                            height: '100%',
-                            width: '100%',
-                            playerVars: {
-                                autoplay: 1,
-                                controls: 0,
-                                modestbranding: 1,
-                                showinfo: 0,
-                                rel: 0
-                            }    
-                        }}
-                        onReady={this._onReady}
-                    />
-                    
-                }
+                
                 
             </div>
         );
