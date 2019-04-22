@@ -9,7 +9,6 @@ class People extends Component {
             hoverClass: '',
         }
 
-        
         this._onMouseEnter = this._onMouseEnter.bind(this)
         this._onMouseLeave = this._onMouseLeave.bind(this)
     }
@@ -18,7 +17,7 @@ class People extends Component {
         const {hasSiblings} = this.props
         if(hasSiblings){
             PubSub.subscribe('PEOPLE_HOVER', (e, d) => {
-                console.log(e,d)
+                //console.log(e,d)
                 let hoverClass = ''
                 if(d.hover){
                     if(this.props.data.name != d.name){

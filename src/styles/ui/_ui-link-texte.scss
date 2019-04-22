@@ -10,7 +10,11 @@
         .url{
             overflow: hidden;
             white-space: nowrap;
-            
+            .gradient-texte{max-width: 100%;}
+            .icon{
+                position: absolute; right: 0;
+                top: 4px;
+            }
         }
         .btn{
             right: 0;

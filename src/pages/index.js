@@ -92,6 +92,7 @@ export const query = graphql `
                 subheadline
                 linkUrl
                 linkLabel
+                service
                 people {
                   name
                   info
@@ -191,6 +192,7 @@ export const query = graphql `
                 size
                 title
                 url
+                service
               }
               ... on ContentfulHeadline {
                 size

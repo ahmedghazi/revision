@@ -5,7 +5,8 @@ class Link extends Component {
     render() {
         const {
             title,
-            url
+            url,
+            service
         } = this.props.data
 
         //console.log(title, url)
@@ -15,7 +16,12 @@ class Link extends Component {
                     label={title}
                     url={url}
                     size="large" />
-                <div className="url fxs gradient-texte">{url}</div>
+
+                <div className="url">
+                    <div className=" fxs gradient-texte">{url}</div>
+                    <div className={"icon icon-"+service}></div>
+                </div>
+                
             </div>
         );
     }
