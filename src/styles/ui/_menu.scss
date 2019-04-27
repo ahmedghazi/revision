@@ -1,5 +1,11 @@
 .menu-wrap{
-    
+    &.active{
+        .menu{
+            visibility: hidden;
+            pointer-events: none
+        }
+        #obj3d{display: none}
+    }
     .menu,
     #obj3d{
         position: fixed;
@@ -11,10 +17,7 @@
     }
     .menu{
         left: 0; top: 0;
-        &.hidden{
-            visibility: hidden;
-            pointer-events: none
-        }
+        
         background: rgb(35,35,35);
         background: linear-gradient(0deg, rgba(35,35,35,1) 0%, rgba(77,77,77,1) 35%, rgba(35,35,35,1) 100%);
         //opacity: .5;

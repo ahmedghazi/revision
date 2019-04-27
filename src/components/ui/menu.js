@@ -10,7 +10,7 @@ class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            menuClass: 'hidden',
+            menuClass: '',
         }
         this._menuClick = this._menuClick.bind(this)
     }
@@ -18,13 +18,13 @@ class Menu extends Component {
     componentDidMount(){
         PubSub.subscribe("MENU_OPEN", (e,d) => {
             this.setState({
-                menuClass: ''
+                menuClass: 'active'
             })
         })
 
         PubSub.subscribe("MENU_CLOSE", (e,d) => {
             this.setState({
-                menuClass: 'hidden'
+                menuClass: ''
             })
         })
     }
@@ -43,8 +43,8 @@ class Menu extends Component {
         } = this.props
         
         return (
-            <div className="menu-wrap">
-                <div className={"menu "+menuClass}>
+            <div className={"menu-wrap "+menuClass}>
+                <div className={"menu"}>
                     <div className="row">
                         <div className="col-md-4">
                             <div className="header">
