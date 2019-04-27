@@ -67,7 +67,11 @@ class Menu extends Component {
                         <div className="col-md-4">
                             <MiniMap data={tiles} />
                         </div>
-                        <div className="col-md-4">right</div>
+                        <div className="col-md-4">
+                            <div class="text-right">
+                                Index
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <Obj3d />
