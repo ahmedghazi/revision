@@ -18,11 +18,15 @@ class Video extends Component {
 
     componentDidMount(){
         const {url} = this.props
-        const _youtubeID = this._youtube_parser(url)
-        console.log(_youtubeID)
-        this.setState({
-            youtubeID: _youtubeID
-        })
+        if(url){
+            //console.log(url)
+            const _youtubeID = this._youtube_parser(url)
+            //console.log(_youtubeID)
+            this.setState({
+                youtubeID: _youtubeID
+            })
+        }
+        
     }
 
     _handleVideo(){

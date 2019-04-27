@@ -7,13 +7,13 @@ import Link from './ui-link'
 
 class Landing extends Component {
     render() {
-        const {
-            data,
-            index
-        } = this.props
+        const {data} = this.props
 
         return (
-            <div data-id={data.title} id={"tile-"+index} className="tile tile-4">
+            <div 
+            id={"landing"} 
+            className="tile tile-4"
+            data-subtitle={data.title} >
                 <div className="tile-item tile-quarter">
                     <Header data={data} />
                 </div>

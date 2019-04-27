@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PubSub from 'pubsub-js';
 import * as THREE from "three";
 const OrbitControls = require("three-orbit-controls")(THREE);
 
@@ -9,6 +10,8 @@ class Obj3d extends Component {
         //this.addCube = this.addCube.bind(this);
         this.initializeCamera = this.initializeCamera.bind(this);
         this.initializeOrbits = this.initializeOrbits.bind(this);
+
+        this._onClick = this._onClick.bind(this)
     }
 
     componentDidMount() {
@@ -66,12 +69,17 @@ class Obj3d extends Component {
     //     this.scene.add(sphere);
     // }
 
+    _onClick(){
+        PubSub.publish('MENU_OPEN', {})
+    }
+
     render() {
         return (
-            <div>
+            <div id="obj3d">
                 <div
                     id="boardCanvas"
-                    style={{ width: "40vw", height: "40vw" }}
+                    style={{ width: "20vw", height: "20vw" }}
+                    onClick={() => this._onClick()}
                     ref={mount => {
                         this.mount = mount;
                     }}

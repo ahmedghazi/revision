@@ -54,7 +54,10 @@ class Index extends React.Component {
                 landing={data.contentfulLandingPage} 
                 data={data.allContentfulTile.edges} />
 
-                <Menu />
+                <Menu 
+                  data={data.contentfulMenu}
+                  landing={data.contentfulLandingPage}
+                  tiles={data.allContentfulTile.edges} />
             </main>
         )
     }
@@ -64,6 +67,14 @@ export default Index
 
 export const query = graphql `
     query {
+      contentfulMenu {
+        title
+        nav {
+          title
+          slug
+          subtitle
+        }
+      }
       contentfulLandingPage {
         title
         baseline
@@ -83,6 +94,7 @@ export const query = graphql `
         edges {
           node {
             title
+            slug
             hierarchy
             postTiles {
               __typename

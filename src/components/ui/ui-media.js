@@ -32,7 +32,7 @@ console.log("youtubeID",youtubeID)
 
     render() {
         const {data} = this.props
-        const {playState,youtubeID} = this.state
+        const {playState} = this.state
         //console.log(data)
         return (
             <div className={"ui-media video-"+playState}>

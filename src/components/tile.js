@@ -76,7 +76,11 @@ class Tile extends Component {
             )
         }else{
             return (
-                <div data-id={data.title} id={"tile-"+index} className={"tile tile-"+data.postTiles.length}>
+                <div 
+                id={data.slug} 
+                className={"tile tile-"+data.postTiles.length}
+                data-id={data.title} 
+                data-subtitle="">
                     {data.postTiles.map((tile, key) => (
                         <div key={key} className={"tile-item "+this._normaliseSize(tile.size)+" "+this._padding(tile)}>
                             {this._renderTile(tile)}

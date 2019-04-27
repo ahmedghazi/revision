@@ -20,7 +20,7 @@ class People extends Component {
                 //console.log(e,d)
                 let hoverClass = ''
                 if(d.hover){
-                    if(this.props.data.name != d.name){
+                    if(this.props.data.name !== d.name){
                         hoverClass = 'sibling-is-hover'
                     }else{
                         hoverClass = 'is-hover'

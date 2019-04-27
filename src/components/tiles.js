@@ -12,16 +12,16 @@ class Tiles extends Component {
             docHeight: 0,
             winWidth: 0,
             winHeight: 0,
-            inertia: 10,
+            //inertia: 10,
             bounding: null
         }       
         
         this._update = this._update.bind(this)
         this._onResize = this._onResize.bind(this)
-        this._onMouseMove = this._onMouseMove.bind(this)
+        //this._onMouseMove = this._onMouseMove.bind(this)
 
-        this.x = 0
-        this.y = 0
+        // this.x = 0
+        // this.y = 0
     }
 
     componentDidMount(){
@@ -60,10 +60,11 @@ class Tiles extends Component {
 
         const tilesWrap = document.querySelector(".tiles")
         const tiles = document.querySelectorAll(".tile")
-        
+        let first = ''
         tiles.forEach((tile,idx) => {
             
-            //if(idx === 0)first = tile
+            if(idx === 0)first = tile
+
             const pos = spiral(idx)
             const left = pos[0] * (winWidth/1)
             const top = pos[1] * (winHeight/1)
@@ -95,50 +96,51 @@ class Tiles extends Component {
                 docHeight: document.body.scrollHeight,
                 bounding: tilesWrap.getBoundingClientRect()
             })
-            document.getElementById("tile-0").scrollIntoView({ 
+            //console.log(first.id)
+            first.scrollIntoView({ 
                 behavior: 'smooth',
                 block: "start"
             });
         }, 400)
     }
 
-    _onMouseMove(e){
-        const {
-            winWidth,
-            winHeight,
-            docWidth,
-            docHeight,         
-        } = this.state;
+    // _onMouseMove(e){
+    //     const {
+    //         winWidth,
+    //         winHeight,
+    //         docWidth,
+    //         docHeight,         
+    //     } = this.state;
 
-        var decay = 0.11;
-        var percentX = e.clientX / winWidth;
-        var percentY = e.clientY / winHeight;
-        // get the old scroll value
-        var scrollX = document.body.scrollLeft;
-        var scrollY = document.body.scrollTop;
-        var scrollAmountX = (docWidth - winWidth) * percentX;
-        var scrollAmountY = (docHeight - winHeight) * percentY;
-        // the new scroll value is the destination value minus how far we've currently scrolled, multiplied by an easing number
-        scrollX += parseFloat((scrollAmountX - scrollX) * decay);
-        scrollY += parseFloat((scrollAmountY - scrollY) * decay);
+    //     var decay = 0.11;
+    //     var percentX = e.clientX / winWidth;
+    //     var percentY = e.clientY / winHeight;
+    //     // get the old scroll value
+    //     var scrollX = document.body.scrollLeft;
+    //     var scrollY = document.body.scrollTop;
+    //     var scrollAmountX = (docWidth - winWidth) * percentX;
+    //     var scrollAmountY = (docHeight - winHeight) * percentY;
+    //     // the new scroll value is the destination value minus how far we've currently scrolled, multiplied by an easing number
+    //     scrollX += parseFloat((scrollAmountX - scrollX) * decay);
+    //     scrollY += parseFloat((scrollAmountY - scrollY) * decay);
 
-        this.setState({
-            scrollX: scrollX,
-            scrollY: scrollY
-        })
+    //     this.setState({
+    //         scrollX: scrollX,
+    //         scrollY: scrollY
+    //     })
 
-        // document.body.scrollLeft = xpX;
-        // document.body.scrollTop = xpY;
-    }
+    //     // document.body.scrollLeft = xpX;
+    //     // document.body.scrollTop = xpY;
+    // }
 
     _update(){
         const {
-            scrollX, scrollY, inertia
+            scrollX, scrollY
         } = this.state;
 
         if(scrollX){
-            const x = (document.body.scrollLeft - scrollX) / inertia
-            const y = (document.body.scrollTop - scrollY) / inertia
+            // const x = (document.body.scrollLeft - scrollX) / inertia
+            // const y = (document.body.scrollTop - scrollY) / inertia
       //console.log(x, y)
             document.body.scrollLeft = scrollX;
             document.body.scrollTop = scrollY;

@@ -1,34 +1,77 @@
 import React, { Component } from 'react';
+import PubSub from 'pubsub-js';
 import Obj3d from './obj3d'
+import MiniMap from './mini-map'
 //import {OBJModel} from 'react-3d-viewer'
 //import {OBJViewer, STLViewer} from 'react-stl-obj-viewer';
 
 
 class Menu extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            menuClass: 'hidden',
+        }
+        this._menuClick = this._menuClick.bind(this)
+    }
+
+    componentDidMount(){
+        PubSub.subscribe("MENU_OPEN", (e,d) => {
+            this.setState({
+                menuClass: ''
+            })
+        })
+
+        PubSub.subscribe("MENU_CLOSE", (e,d) => {
+            this.setState({
+                menuClass: 'hidden'
+            })
+        })
+    }
+
+    _menuClick(e){
+        e.preventDefault();
+        PubSub.publish('MENU_CLOSE', {})
+    }
+
     render() {
+        const {menuClass} = this.state
+        const {
+            landing,
+            data, 
+            tiles
+        } = this.props
+        
         return (
-            <div className="menu">
+            <div className="menu-wrap">
+                <div className={"menu "+menuClass}>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <div className="header">
+                                <h1 className="fm">{landing.title}</h1>
+                                <div className="date" dangerouslySetInnerHTML={{ __html: landing.date.childMarkdownRemark.html }} />
+                            </div>
+                            <nav>
+                                <ul>
+                                    {data.nav.map((li,key) => {
+                                        return(
+                                            <li key={key}>
+                                                <a href={"#"+li.slug}
+                                                onClick={(e)=> this._menuClick(e)}>{li.title}</a>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </nav>
+                        </div>
+                        <div className="col-md-4">
+                            <MiniMap data={tiles} />
+                        </div>
+                        <div className="col-md-4">right</div>
+                    </div>
+                </div>
                 <Obj3d />
-                {/* <OBJViewer 
-                    url='./static/3d/bb8.obj'
-                    backgroundColor='0xff0000'
-                    className="obj"
-                    sceneClassName="test"
-                    modelColor="#fff000"
-                /> */}
-                {/* <OBJModel 
-                    width="400" height="400"  
-                    position={{x:0,y:-100,z:0}} 
-                    //texPath="./static/3d/earth"
-                    src="./static/3d/bb8.obj"
-                    background="green"
-                    onLoad={()=>{
-                    //...
-                    }}
-                    onProgress={xhr=>{
-                    //...
-                    }}
-                /> */}
+                
             </div>
         );
     }
