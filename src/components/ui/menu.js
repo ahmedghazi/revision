@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
 import Obj3d from './obj3d'
-import MiniMap from './mini-map'
+import MenuMiniMap from './menu-mini-map'
+import Header from './header'
+import MenuIndex from './menu-index'
 //import {OBJModel} from 'react-3d-viewer'
 //import {OBJViewer, STLViewer} from 'react-stl-obj-viewer';
 
@@ -41,13 +43,13 @@ class Menu extends Component {
             data, 
             tiles
         } = this.props
-        
+        console.log(data)
         return (
             <div className={"menu-wrap "+menuClass}>
                 <div className={"menu"}>
                     <div className="row">
                         <div className="col-md-4">
-                            <div className="header">
+                            <div className="header fm">
                                 <h1 className="fm">{landing.title}</h1>
                                 <div className="date" dangerouslySetInnerHTML={{ __html: landing.date.childMarkdownRemark.html }} />
                             </div>
@@ -65,11 +67,11 @@ class Menu extends Component {
                             </nav>
                         </div>
                         <div className="col-md-4">
-                            <MiniMap data={tiles} />
+                            <MenuMiniMap data={tiles} />
                         </div>
                         <div className="col-md-4">
-                            <div class="text-right">
-                                Index
+                            <div className="text-right">
+                                <MenuIndex data={tiles} />
                             </div>
                         </div>
                     </div>

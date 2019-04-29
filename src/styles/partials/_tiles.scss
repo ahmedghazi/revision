@@ -44,7 +44,7 @@ html,body{
         background: white;
         //border: $border;
         margin: 1.4vh;
-
+        margin: $borderHeight/2;
         &.nopad{
             padding: 0;
             //.inner{padding: $paddV $paddH;}

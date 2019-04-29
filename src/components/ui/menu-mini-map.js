@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {spiral} from '../../utils/tiles-builder'
 import PubSub from 'pubsub-js';
 
-class MiniMap extends Component {
+class MenuMiniMap extends Component {
     constructor(props) {
         super(props);
 
@@ -107,4 +107,4 @@ class MiniMap extends Component {
     }
 }
 
-export default MiniMap;
+export default MenuMiniMap;

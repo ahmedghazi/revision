@@ -67,7 +67,11 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 	&.btn-small{
 		padding: 1.5vh 3.5vh;
 		height: 13.5vh;
-		line-height: 5vh; 
+		//line-height: 5vh; 
+		line-height: 13.5vh;
+		padding-top: 0;
+		padding-bottom: 0;
+		text-align: center;
 	}
 	&.btn-large{
 		width: 100%;
