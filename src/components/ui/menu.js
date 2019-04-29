@@ -49,37 +49,56 @@ class Menu extends Component {
             data, 
             tiles
         } = this.props
-        //console.log(data)
+        console.log(data)
         return (
             <div className={"menu-wrap "+menuClass}>
                 <div className={"menu"}>
                     <div className="row">
-                        <div className="col-md-4">
-                            <div className="header fm">
-                                <h1 className="fm">{landing.title}</h1>
-                                <div className="date" dangerouslySetInnerHTML={{ __html: landing.date.childMarkdownRemark.html }} />
-                            </div>
-                            <nav className="main-nav">
-                                <ul>
-                                    {data.nav.map((li,key) => {
-                                        {if(li.slug){
+                        <div className="hidden-xs col-md-4">
+                            <div class="naviguation">
+                                <div class="nav-top">
+                                    <div className="header fm">
+                                        <h1 className="fm">{landing.title}</h1>
+                                        <div className="date" dangerouslySetInnerHTML={{ __html: landing.date.childMarkdownRemark.html }} />
+                                    </div>
+                                    <nav className="main-nav">
+                                        <ul>
+                                            {data.nav.map((li,key) => {
+                                                {if(li.slug){
+                                                    return(
+                                                    
+                                                        <li key={key}>
+                                                            <a href={"#"+li.slug}
+                                                            onClick={(e)=> this._menuClick(e)}>{li.title}</a>
+                                                        </li>
+                                                    )
+                                                }}
+                                                
+                                            })}
+                                        </ul>
+                                    </nav>
+                                </div>
+                                
+                                <nav className="links">
+                                    <ul>
+                                        {data.links.map((li,key) => {
                                             return(
-                                            
                                                 <li key={key}>
-                                                    <a href={"#"+li.slug}
-                                                    onClick={(e)=> this._menuClick(e)}>{li.title}</a>
+                                                    <a 
+                                                    href={"#"+li.url}
+                                                    target="_blank"
+                                                    >{li.label}</a>
                                                 </li>
                                             )
-                                        }}
-                                        
-                                    })}
-                                </ul>
-                            </nav>
+                                        })}
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-xs-12 col-md-4">
                             <MenuMiniMap data={tiles} menuClass={menuClass} />
                         </div>
-                        <div className="col-md-4">
+                        <div className="hidden-xs col-md-4">
                             <div className="text-right">
                                 <MenuIndex data={tiles} />
                             </div>

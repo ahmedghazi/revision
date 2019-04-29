@@ -16,23 +16,26 @@ class MenuMiniMap extends Component {
   
         PubSub.subscribe("SCROLL_END", (e,d) => {
             const {scrollLeft, scrollTop} = d
-            //console.log(scrollLeft, scrollTop)
-            const {mapWidth, mapHeight, itemWidth, itemHeight} = this.state
-            //console.log(mapWidth, itemWidth, itemHeight)
-            const x = (scrollLeft * mapWidth/2) / window.innerWidth
-            const y = (scrollTop * mapHeight/2) / window.innerHeight
-            // console.log(x, y)
-            // console.log(x, y)
+            
+            const doc = document.querySelector(".tiles").getBoundingClientRect()
+            //console.log(document.body.scrollWidth)
+            const {scrollWidth, scrollHeight} = document.body
+            const percentX = (scrollWidth / scrollLeft)
+            const percentY = (scrollHeight / scrollTop)
+
+            var scrollPercentX = (scrollLeft) / (scrollWidth - 0) * 100;
+            var scrollPercentY = (scrollTop) / (scrollHeight - 0) * 100;
+            const x = scrollPercentX * this.mapWidth / 100
+            const y = scrollPercentY * this.mapHeight / 100
+
             this.refs.here.style.left = x+"px"
             this.refs.here.style.top = y+"px"
-            this.refs.here.style.transform = 'translate(-'+(itemWidth/2)+'px, -'+(itemHeight/2)+'px)'
+            this.refs.here.style.transform = 'translate('+(this.itemWidth/2)+'px, '+(this.itemHeight/2)+'px)'
         })
     }
 
     _onResize(){
-        this.setState({
-            //mapWidth: 
-        })
+   
         this._renderSpiral()
         this._handleHereIAm()
     }
@@ -42,43 +45,40 @@ class MenuMiniMap extends Component {
         const tiles = document.querySelectorAll(".mini-map .item")
         if(!tiles)return
 
-        const mapWidth = document.querySelector(".mini-map").getBoundingClientRect().width
-        const mapHeight = document.querySelector(".mini-map").getBoundingClientRect().height
+        this.mapWidth = document.querySelector(".mini-map").getBoundingClientRect().width
+        
         const windowRatio = window.innerWidth/window.innerHeight
         const sqrt = Math.round(Math.sqrt(tiles.length))
-        const itemWidth = Math.round(mapWidth / sqrt)
-        const itemHeight = Math.round(itemWidth / windowRatio)
+        this.itemWidth = Math.round(this.mapWidth / sqrt)
+        this.itemHeight = Math.round(this.itemWidth / windowRatio)
 
-        this.setState({
-            mapWidth: sqrt * itemWidth,
-            mapHeight: sqrt * itemHeight,
-            itemWidth: itemWidth,
-            itemHeight: itemHeight
-        })
-        let translateX = 0
-        let translateY = 0
+        this.mapHeight = this.itemHeight *  sqrt
+        
+        this.translateX = 0
+        this.translateY = 0
 
         tiles.forEach((tile,idx) => {
             const pos = spiral(idx)
-            const left =  itemWidth * pos[0]
-            const top =  itemHeight * pos[1]
+            const left =  this.itemWidth * pos[0]
+            const top =  this.itemHeight * pos[1]
 
-            if(left < 0 && translateX !== left){
+            if(left < 0 && this.translateX !== left){
                 const _left = Math.abs(left)
-                translateX = _left
+                this.translateX = _left
             }
 
-            if(top < 0 && translateY !== top){
+            if(top < 0 && this.translateY !== top){
                 const _top = Math.abs(top)
-                translateY = _top
+                this.translateY = _top
             }
      
-            tile.style.width = itemWidth+"px"
-            tile.style.height = itemHeight+"px"
+            tile.style.width = this.itemWidth+"px"
+            tile.style.height = this.itemHeight+"px"
             tile.style.transform = 'translate('+left+'px, '+top+'px)'
         })
-
-        tilesWrap.style.transform = 'translate('+translateX+'px, '+translateY+'px)'
+        
+        tilesWrap.style.transform = 'translate('+this.translateX+'px, '+this.translateY+'px)'
+        tilesWrap.style.height = (this.itemHeight * sqrt)+"px"
         
     }
 
@@ -90,12 +90,7 @@ class MenuMiniMap extends Component {
         if(slug){
             const tile = document.getElementById(slug)
             PubSub.publish('TILE', {tile: tile})
-            // document.getElementById(slug).scrollIntoView({ 
-            //     behavior: 'smooth',
-            //     block: "start"
-            // });
-       
-
+         
             PubSub.publish('MENU_CLOSE', {})
         }
     }
@@ -105,7 +100,7 @@ class MenuMiniMap extends Component {
     render() {
         const {data} = this.props
         return (
-            <div className="wrap">
+            <div className="mini-map-wrap">
                 <div className="mini-map">
                     <div 
                         className="item"

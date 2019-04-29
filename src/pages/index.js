@@ -74,6 +74,10 @@ export const query = graphql `
           slug
           subtitle
         }
+        links{
+          label
+          url
+        }
       }
       contentfulLandingPage {
         title
