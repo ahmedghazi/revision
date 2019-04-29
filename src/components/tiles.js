@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PubSub from 'pubsub-js';
 import {spiral} from '../utils/tiles-builder'
 //import {range} from '../utils'
 
@@ -18,15 +19,32 @@ class Tiles extends Component {
         
         this._update = this._update.bind(this)
         this._onResize = this._onResize.bind(this)
+        this._onScroll = this._onScroll.bind(this)
         //this._onMouseMove = this._onMouseMove.bind(this)
 
-        // this.x = 0
-        // this.y = 0
     }
 
     componentDidMount(){
         this._onResize()
-        document.addEventListener("resize", this._onResize)        
+        document.addEventListener("resize", this._onResize)      
+        document.body.addEventListener("scroll", this._onScroll)    
+        
+        PubSub.subscribe("TILE", (e,d) => {
+            //console.log(d)
+            const {
+                winWidth,
+                winHeight
+            } = this.state;
+
+            const {x,y} = d.tile.dataset
+            
+            const wrapTranslate = this._getComputedTranslateY()
+            
+            const left = (x*winWidth) + parseFloat(wrapTranslate[4])
+            const top = (y*winHeight) + parseFloat(wrapTranslate[5])
+
+            document.body.scrollTo(left, top)
+        })
         //document.addEventListener("mousemove", this._onMouseMove)  
 
         //https://codepen.io/anon/pen/VNxyzG
@@ -41,6 +59,29 @@ class Tiles extends Component {
         //     a.nav.clientX = ((e.originalEvent.gamma+90)/180) * a.sizes.winWidth;
         //     a.nav.clientY = ((e.originalEvent.beta+90)/180) * a.sizes.winHeight;
         // });
+    }
+
+    _getComputedTranslateY(){
+        const tilesWrap = document.getElementById("tiles")
+        const transform = window
+                            .getComputedStyle(tilesWrap)
+                            .getPropertyValue('transform')
+                            .match(/(-?[0-9\.]+)/g)
+        return transform
+    }
+
+    _onScroll(){
+        window.clearTimeout( this.isScrolling );
+
+        // Set a timeout to run after scrolling ends
+        this.isScrolling = setTimeout(function() {
+            const {scrollLeft, scrollTop} = document.body
+            
+            PubSub.publish('SCROLL_END', {
+                scrollLeft: scrollLeft,
+                scrollTop: scrollTop
+            })
+        }, 66);
     }
 
     _onResize(){
@@ -61,6 +102,10 @@ class Tiles extends Component {
         const tilesWrap = document.querySelector(".tiles")
         const tiles = document.querySelectorAll(".tile")
         let first = ''
+
+        let translateX = 0
+        let translateY = 0
+
         tiles.forEach((tile,idx) => {
             
             if(idx === 0)first = tile
@@ -68,26 +113,35 @@ class Tiles extends Component {
             const pos = spiral(idx)
             const left = pos[0] * (winWidth/1)
             const top = pos[1] * (winHeight/1)
+            tile.style.transform = 'translate('+left+'px, '+top+'px)'
+            tile.dataset.x = pos[0]
+            tile.dataset.y = pos[1]
+            // if(left < 0){
+            //     const _left = Math.abs(left)
+            //     tilesWrap.style.transform = 'translateX('+_left+'px)'
+            // }
+
+            // if(top < 0){
+            //     const _top = Math.abs(top)
+            //     tilesWrap.style.transform = 'translateY('+_top+'px)'
+            // }
+            // if(left < 0 && top < 0){
+            //     const _left = Math.abs(left)
+            //     const _top = Math.abs(top)
+            //     tilesWrap.style.transform = 'translate('+_left+'px, '+_top+'px)'
+            // }
             
-            if(left < 0){
+            if(left < 0 && translateX !== left){
                 const _left = Math.abs(left)
-                tilesWrap.style.transform = 'translateX('+_left+'px)'
+                translateX = _left
             }
 
-            if(top < 0){
+            if(top < 0 && translateY !== top){
                 const _top = Math.abs(top)
-                tilesWrap.style.transform = 'translateY('+_top+'px)'
+                translateY = _top
             }
-            if(left < 0 && top < 0){
-                const _left = Math.abs(left)
-                const _top = Math.abs(top)
-                tilesWrap.style.transform = 'translate('+_left+'px, '+_top+'px)'
-            }
-            
-            // tile.style.left = left+"px"
-            // tile.style.top = top+"px"
-            tile.style.transform = 'translate('+left+'px, '+top+'px)'
         })
+        tilesWrap.style.transform = 'translate('+translateX+'px, '+translateY+'px)'
         //console.log(document.body.scrollWidth, document.body.scrollHeight)
         
         setTimeout(() => {
@@ -96,11 +150,13 @@ class Tiles extends Component {
                 docHeight: document.body.scrollHeight,
                 bounding: tilesWrap.getBoundingClientRect()
             })
-            //console.log(first.id)
-            first.scrollIntoView({ 
-                behavior: 'smooth',
-                block: "start"
-            });
+            var pos = first.getBoundingClientRect()
+            document.body.scrollTo(pos.left, pos.top)
+            //console.log("first", first.id, pos)
+            // first.scrollIntoView({ 
+            //     behavior: 'smooth',
+            //     block: "start"
+            // });
         }, 400)
     }
 
@@ -158,7 +214,7 @@ class Tiles extends Component {
         //console.log(style)
         return (
             
-            <div className="tiles" style={style}>
+            <div id="tiles" className="tiles" style={style}>
                 <Tile 
                     key={0} 
                     index={0} 

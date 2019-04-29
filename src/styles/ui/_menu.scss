@@ -34,22 +34,27 @@
         nav{
             
         }
-        .wrap{background: red; height: 100%;}
-        .mini-map{
+        .wrap{
+            background: red; height: 100%;
+            .mini-map{
             
-            .item{
-                position: absolute;
-                background: white;
-                width: 50px; height: 30px;
-                border: 1px solid black;
-                cursor: pointer;
+                .item{
+                    position: absolute;
+                    background: white;
+                    width: 50px; height: 30px;
+                    border: 1px solid black;
+                    cursor: pointer;
+                }
+                
             }
-            .here-i-am{
+            .here{
+                //@include anime();
                 position: absolute;
                 width: 20px; height: 20px;
                 border-radius: 100%;
                 background: greenyellow;
             }
         }
+        
     }
 }

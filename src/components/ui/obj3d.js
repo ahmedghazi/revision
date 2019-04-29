@@ -26,10 +26,19 @@ class Obj3d extends Component {
         this.initializeOrbits();
         this.initializeCamera();
         
-        const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-        const material = new THREE.MeshBasicMaterial( { color: 0xf0000ff } );
-        this.cube = new THREE.Mesh( geometry, material );
-        this.scene.add( this.cube );
+        // const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        // const material = new THREE.MeshBasicMaterial( { color: 0xf0000ff } );
+        // this.cube = new THREE.Mesh( geometry, material );
+        // this.scene.add( this.cube );
+
+        const geometry = new THREE.SphereGeometry(1, 12, 12, 0, Math.PI * 2, 0, Math.PI * 2);
+        const material = new THREE.MeshNormalMaterial({
+            color: 0xF3A2B0,
+            wireframe: true
+        });
+
+        this.cube = new THREE.Mesh(geometry, material);
+        this.scene.add(this.cube);
 
         // const _geometry = new THREE.SphereGeometry( 5, 32, 32 );
         // const _material = new THREE.MeshBasicMaterial( {color: 0xffff00} );

@@ -12,10 +12,27 @@ class MenuMiniMap extends Component {
 
     componentDidMount(){
         this._onResize()
-        document.addEventListener("resize", this._onResize)            
+        document.addEventListener("resize", this._onResize)       
+  
+        PubSub.subscribe("SCROLL_END", (e,d) => {
+            const {scrollLeft, scrollTop} = d
+            //console.log(scrollLeft, scrollTop)
+            const {mapWidth, mapHeight, itemWidth, itemHeight} = this.state
+            //console.log(mapWidth, itemWidth, itemHeight)
+            const x = (scrollLeft * mapWidth/2) / window.innerWidth
+            const y = (scrollTop * mapHeight/2) / window.innerHeight
+            // console.log(x, y)
+            // console.log(x, y)
+            this.refs.here.style.left = x+"px"
+            this.refs.here.style.top = y+"px"
+            this.refs.here.style.transform = 'translate(-'+(itemWidth/2)+'px, -'+(itemHeight/2)+'px)'
+        })
     }
 
     _onResize(){
+        this.setState({
+            //mapWidth: 
+        })
         this._renderSpiral()
         this._handleHereIAm()
     }
@@ -26,10 +43,18 @@ class MenuMiniMap extends Component {
         if(!tiles)return
 
         const mapWidth = document.querySelector(".mini-map").getBoundingClientRect().width
+        const mapHeight = document.querySelector(".mini-map").getBoundingClientRect().height
         const windowRatio = window.innerWidth/window.innerHeight
         const sqrt = Math.round(Math.sqrt(tiles.length))
         const itemWidth = Math.round(mapWidth / sqrt)
         const itemHeight = Math.round(itemWidth / windowRatio)
+
+        this.setState({
+            mapWidth: sqrt * itemWidth,
+            mapHeight: sqrt * itemHeight,
+            itemWidth: itemWidth,
+            itemHeight: itemHeight
+        })
         let translateX = 0
         let translateY = 0
 
@@ -58,25 +83,24 @@ class MenuMiniMap extends Component {
     }
 
     _handleHereIAm(){
-        const {scrollLeft, scrollTop} = document.body
-        console.log("scrollLeft",scrollLeft)
-        console.log("scrollTop",scrollTop)
+        
     }
 
     _onClick(slug){
         if(slug){
-            console.log(slug)
-            console.log(document.getElementById(slug))
-            document.getElementById(slug).scrollIntoView({ 
-                behavior: 'smooth',
-                block: "start"
-            });
-
-            
+            const tile = document.getElementById(slug)
+            PubSub.publish('TILE', {tile: tile})
+            // document.getElementById(slug).scrollIntoView({ 
+            //     behavior: 'smooth',
+            //     block: "start"
+            // });
+       
 
             PubSub.publish('MENU_CLOSE', {})
         }
     }
+
+    
 
     render() {
         const {data} = this.props
@@ -100,8 +124,9 @@ class MenuMiniMap extends Component {
                         />
                     ))}
 
-                    <div className="here-i-am"></div>
+                    
                 </div>
+                <div ref="here" className="here"></div>
             </div>
         );
     }

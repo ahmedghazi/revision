@@ -36,7 +36,7 @@ class Repeater extends React.Component {
         const items = arr.map(index => (
                 <div 
                 key={index}
-                className='item blink' style={{
+                className='item blink fm' style={{
                     animationDelay: index+"00ms"
                 }}>{title}</div>
         ))
