@@ -54,16 +54,21 @@ html,body{
 
 @media all and (max-width:767px){
     .tile{
+        min-height: 200vh;
         &.tile-4{
-            min-height: 200vh;
             grid-template-columns: 100%;
             grid-template-rows: 25% 25% 25% 25%;
         }
         &.tile-2{
-            grid-template-rows: 100%;
+            grid-template-columns: 100%;
+            grid-template-rows: 50% 50%;
         }
         &.tile-h-auto{
-            min-height: 50vh;
+            //min-height: 50vh;
+        }
+        &.tile-3{
+            grid-template-columns: 100%;
+            grid-template-rows: 25% 25% 25%;
         }
     }
 }

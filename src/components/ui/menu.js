@@ -54,7 +54,7 @@ class Menu extends Component {
             <div className={"menu-wrap "+menuClass}>
                 <div className={"menu"}>
                     <div className="row">
-                        <div className="hidden-xs col-md-4">
+                        <div className="col-md-6 col-md-4">
                             <div className="naviguation">
                                 <div className="nav-top">
                                     <div className="header fm">
@@ -95,10 +95,10 @@ class Menu extends Component {
                                 </nav>
                             </div>
                         </div>
-                        <div className="col-xs-12 col-md-4">
+                        <div className="hidden-xs col-md-4">
                             <MenuMiniMap data={tiles} menuClass={menuClass} />
                         </div>
-                        <div className="hidden-xs col-md-4">
+                        <div className="col-md-6 col-md-4">
                             <div className="text-right">
                                 <MenuIndex data={tiles} />
                             </div>

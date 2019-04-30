@@ -78,3 +78,9 @@
         
     }
 }
+
+@media all and (max-width:767px){
+    .mini-map-wrap{
+        display: none;
+    }
+}
