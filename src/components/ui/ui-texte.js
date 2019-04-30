@@ -6,13 +6,13 @@ class Texte extends Component {
         const {
             data
         } = this.props
-
+//console.log(data)
         return (
             <div className="ui-texte">
                 {data.texte !== "" &&
                     <div className="texte" dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
                 }           
-                {data.people !== "" &&
+                {data.people !== null &&
                     <People data={data.people} />
                 }
             </div>

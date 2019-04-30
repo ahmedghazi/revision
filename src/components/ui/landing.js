@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from "./header"
 //import Footer from "./footer"
-import Repeater from "./repeater"
+//import Repeater from "./ui-repeater"
 //import Cta from "./cta"
 import Link from './ui-link'
 
@@ -14,7 +14,7 @@ class Landing extends Component {
             id={"landing"} 
             className="tile tile-4"
             data-subtitle={data.title} >
-                <div className="tile-item tile-quarter">
+                {/* <div className="tile-item tile-quarter">
                     <Header data={data} />
                 </div>
                 <div className="tile-item tile-quarter no-pad-v">
@@ -31,7 +31,7 @@ class Landing extends Component {
                 </div>
                 <div className="tile-item tile-quarter">
                     <div className="fm">{data.description}</div>
-                </div>
+                </div> */}
                 
         </div>
         );

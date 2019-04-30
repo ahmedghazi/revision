@@ -29,16 +29,16 @@ class Repeater extends React.Component {
     }
 
     renderItems(){
-        const {title} = this.props
+        const {data} = this.props
         const {length} = this.state
-
+//console.log(data.title)
         const arr = Array.from(new Array(length),(val,index)=>index);
         const items = arr.map(index => (
                 <div 
                 key={index}
                 className='item blink fm' style={{
                     animationDelay: index+"00ms"
-                }}>{title}</div>
+                }}>{data.title}</div>
         ))
         return items
     }
@@ -47,7 +47,7 @@ class Repeater extends React.Component {
         //const {menuClass} = this.state
         //const {title} = this.props
         return(
-            <div className="repeater" ref="scroller">
+            <div className="ui-repeater" ref="scroller">
                 {this.renderItems()}
             </div>
         )

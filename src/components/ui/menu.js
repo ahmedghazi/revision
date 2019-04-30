@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
 import Obj3d from './obj3d'
 import MenuMiniMap from './menu-mini-map'
-//import Header from './header'
 import MenuIndex from './menu-index'
-//import {OBJModel} from 'react-3d-viewer'
-//import {OBJViewer, STLViewer} from 'react-stl-obj-viewer';
 
 
 class Menu extends Component {

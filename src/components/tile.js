@@ -8,6 +8,7 @@ import Link from "./ui/ui-link"
 import LinkTexte from "./ui/ui-link-texte"
 import Event from "./ui/ui-event"
 import Ads from "./ui/ui-ads"
+import Repeater from "./ui/ui-repeater"
 
 class Tile extends Component {
     _normaliseSize(size){
@@ -21,6 +22,8 @@ class Tile extends Component {
     }
 
     _renderTile(tile){
+        // console.log(tile.__typename)
+        // console.log(tile)
         switch(tile.__typename){
             case "ContentfulHeadline": return (
                 <Headline data={tile} />
@@ -50,46 +53,52 @@ class Tile extends Component {
                 <Ads data={tile} />
             )
 
+            case "ContentfulRepeater": return (
+                <Repeater data={tile} />
+            )
+
             default:
-            
+                return (<div>Test</div>)
             break;
         }
     }
     
     _padding(tile){
-        if(tile.__typename === "ContentfulAds" || tile.__typename === "ContentfulMedia"){
+        if(
+            tile.__typename === "ContentfulAds" 
+            || tile.__typename === "ContentfulMedia"
+            
+            ){
             return 'nopad'
-        }else{
+        }else if(tile.__typename === "ContentfulRepeater"){
+            return 'nopad-tb'
+        }
+        else{
             return ''
         }
     }
 
     render() {
         const {
-            data,
-            index
+            data
         } = this.props
-        //console.log(index)
-        if(index === 0){
-            return(
-                <Landing data={data} index={index} />
-            )
-        }else{
-            return (
-                <div 
-                id={data.slug} 
-                className={"tile tile-"+data.postTiles.length}
-                data-id={data.title} 
-                data-subtitle="">
-                    {data.postTiles.map((tile, key) => (
-                        <div key={key} className={"tile-item "+this._normaliseSize(tile.size)+" "+this._padding(tile)}>
-                            {this._renderTile(tile)}
-                        </div>
-                    ))}
-                </div>
-               
-            );
-        }
+        
+        return (
+            <div 
+            id={data.slug} 
+            className={"tile tile-"+data.postTiles.length}
+            data-id={data.title} 
+            data-subtitle="">
+                {data.postTiles.map((tile, key) => (
+                    <div key={key} className={"tile-item "+this._normaliseSize(tile.size)+" "+this._padding(tile)}>
+                        {
+                            this._renderTile(tile)
+                        }
+                    </div>
+                ))}
+            </div>
+           
+        );
         
     }
 }

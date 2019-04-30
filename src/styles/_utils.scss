@@ -1,0 +1,10 @@
+.top,
+.bottom{
+    position: absolute; left: 0;
+    width: 100%;
+    //padding: $paddV $paddH;
+}
+.top{top: 0;}
+.bottom{
+    bottom: 0;
+}

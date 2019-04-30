@@ -17,9 +17,12 @@ html,body{
     display:grid;
     background: $color1;
     
-    &.tile-4{
+    &.tile-2{
         grid-template-columns: 50% 50%;
-        grid-template-rows: 50% 50%;
+        grid-template-rows: 100%;
+        .tile-item{
+            max-height: 100%;
+        }
     }
     &.tile-3{
         grid-template-columns: 50% 50%;
@@ -28,10 +31,12 @@ html,body{
             grid-row: 1 / span 2;
         }
     }
-    &.tile-2{
+    &.tile-4{
         grid-template-columns: 50% 50%;
-        grid-template-rows: 100%;
+        grid-template-rows: 50% 50%;
     }
+    
+    
 
     &.tile-h-auto{
         height: auto;
@@ -48,6 +53,10 @@ html,body{
         &.nopad{
             padding: 0;
             //.inner{padding: $paddV $paddH;}
+        }
+        &.nopad-tb{
+            padding-top: 0;
+            padding-bottom: 0;
         }
     }
 }

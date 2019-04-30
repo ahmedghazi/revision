@@ -25,8 +25,13 @@ class Index extends React.Component {
     }
     render() {
         const {mainClass} = this.state
-        const {data} = this.props
+        const {
+          contentfulOptions,
+          contentfulMenu,
+          allContentfulTile
+        } = this.props.data
         //console.log(data)
+        
         return (
             <main className={mainClass}>
                 <Helmet>
@@ -34,30 +39,30 @@ class Index extends React.Component {
 
                     <link rel='shortcut icon' type="image/png" href={favicon} />
 
-                    <title>{data.contentfulLandingPage.title}</title>
-                    <meta name="description" content={data.contentfulLandingPage.description} />
+                    <title>{contentfulOptions.title}</title>
+                    <meta name="description" content={contentfulOptions.description} />
                     <meta property="og:url" content="" />
-                    <meta property="og:title" content={data.contentfulLandingPage.title} />
-                    <meta property="og:description" content={data.contentfulLandingPage.description} />
+                    <meta property="og:title" content={contentfulOptions.title} />
+                    <meta property="og:description" content={contentfulOptions.description} />
                     <meta property="og:image" content="" />
 
                     <meta name="twitter:card" content="summary_large_image" />
                     <meta name="twitter:site" content="@Revision_HQ" />
                     <meta name="twitter:creator" content="@Revision_HQ" />
                     <meta property="og:url" content="" />
-                    <meta property="og:title" content={data.contentfulLandingPage.title} />
-                    <meta property="og:description" content={data.contentfulLandingPage.description} />
+                    <meta property="og:title" content={contentfulOptions.title} />
+                    <meta property="og:description" content={contentfulOptions.description} />
                     <meta property="og:image" content="" />
                 </Helmet>
 
                 <Tiles 
-                landing={data.contentfulLandingPage} 
-                data={data.allContentfulTile.edges} />
+                //landing={data.contentfulLandingPage} 
+                data={allContentfulTile.edges} />
 
-                <Menu 
-                  data={data.contentfulMenu}
-                  landing={data.contentfulLandingPage}
-                  tiles={data.allContentfulTile.edges} />
+                {/* <Menu 
+                  menu={contentfulMenu}
+                  options={contentfulOptions}
+                  tiles={allContentfulTile.edges} /> */}
             </main>
         )
     }
@@ -67,6 +72,14 @@ export default Index
 
 export const query = graphql `
     query {
+      contentfulOptions{
+        title
+        description{
+          childMarkdownRemark{
+            html
+          }
+        }
+      }
       contentfulMenu {
         title
         nav {
@@ -79,21 +92,7 @@ export const query = graphql `
           url
         }
       }
-      contentfulLandingPage {
-        title
-        baseline
-        description
-        date{
-            childMarkdownRemark{
-                html
-            }
-        }
-        tickets
-        nav{
-            label
-            url
-        }
-      }
+      
       allContentfulTile(sort: {fields: hierarchy}) {
         edges {
           node {
@@ -135,7 +134,7 @@ export const query = graphql `
                 id
                 size
                 title
-                video
+                
                 image {
                   file {
                     contentType
@@ -213,7 +212,15 @@ export const query = graphql `
               ... on ContentfulHeadline {
                 size
                 title
-                subheadline
+                texte{
+                  childMarkdownRemark{
+                    html
+                  }
+                }
+                links{
+                  label
+                  url
+                }
               }
               ... on ContentfulTexte {
                 size
@@ -256,6 +263,9 @@ export const query = graphql `
                     srcSet
                   }
                 }
+              }
+              ... on ContentfulRepeater{
+                title
               }
             }
           }

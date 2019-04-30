@@ -206,24 +206,24 @@ class Tiles extends Component {
     }
 
     render() {
-        const {landing,data} = this.props;
+        const {data} = this.props;
 
         const style = {
             //transform:'translate('+this.x+'px,'+this.y+'px)'
         }
-        //console.log(style)
+        //console.log(data)
         return (
             
             <div id="tiles" className="tiles" style={style}>
-                <Tile 
+                {/* <Tile 
                     key={0} 
                     index={0} 
-                    data={landing} />
+                    data={landing} /> */}
                 {/*[...range(0, 24)]*/}
                 {data.map(({node},key) => (
                     <Tile 
-                    key={key + 1} 
-                    index={key + 1} 
+                    key={key} 
+                    index={key} 
                     data={node} />
                 ))}
         
