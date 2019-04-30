@@ -23,7 +23,7 @@ class Video extends Component {
                 embedUrl = '//www.youtube.com/embed/' + videoObj.id + '?autoplay=1'
             }
             else if(videoObj.type === "vimeo"){
-                embedUrl = '//www.youtube.com/embed/' + videoObj.id + '?autoplay=1'
+                embedUrl = '//player.vimeo.com/video/' + videoObj.id + '?autoplay=1'
             }
         
             this.setState({
