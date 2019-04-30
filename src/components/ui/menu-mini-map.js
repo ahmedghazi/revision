@@ -113,8 +113,8 @@ class MenuMiniMap extends Component {
                     {data.map(({node},key) => (
                         <div 
                         className="item"
-                        key={key + 1} 
-                        index={key + 1} 
+                        key={key} 
+                        index={key} 
                         onClick={() => this._onClick(node.slug)}
                         />
                     ))}

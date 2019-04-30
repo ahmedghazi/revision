@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import YouTube from 'react-youtube';
 
 class Video extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            playState: 'initial',
-            video: '',
-            youtubeID: ''
+            //playState: 'initial',
+            embedUrl: ''
         }
 
         this._handleVideo = this._handleVideo.bind(this)
@@ -19,14 +17,45 @@ class Video extends Component {
     componentDidMount(){
         const {url} = this.props
         if(url){
-            //console.log(url)
-            const _youtubeID = this._youtube_parser(url)
-            //console.log(_youtubeID)
+            let embedUrl
+            const videoObj = this._parseVideo(url)
+            if(videoObj.type === "youtube"){
+                embedUrl = '//www.youtube.com/embed/' + videoObj.id + '?autoplay=1'
+            }
+            else if(videoObj.type === "vimeo"){
+                embedUrl = '//www.youtube.com/embed/' + videoObj.id + '?autoplay=1'
+            }
+        
             this.setState({
-                youtubeID: _youtubeID
+                embedUrl: embedUrl,
+                
             })
         }
         
+    }
+
+    _parseVideo(url){
+        // - Supported YouTube URL formats:
+        //   - http://www.youtube.com/watch?v=My2FRPA3Gf8
+        //   - http://youtu.be/My2FRPA3Gf8
+        //   - https://youtube.googleapis.com/v/My2FRPA3Gf8
+        // - Supported Vimeo URL formats:
+        //   - http://vimeo.com/25451551
+        //   - http://player.vimeo.com/video/25451551
+        // - Also supports relative URLs:
+        //   - //player.vimeo.com/video/25451551
+        url.match(/(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(\&\S+)?/);
+        let type = '';
+        if (RegExp.$3.indexOf('youtu') > -1) {
+            type = 'youtube';
+        } else if (RegExp.$3.indexOf('vimeo') > -1) {
+            type = 'vimeo';
+        }
+
+        return {
+            type: type,
+            id: RegExp.$6
+        };
     }
 
     _handleVideo(){
@@ -74,31 +103,43 @@ class Video extends Component {
     }
 
     render() {
-        const {youtubeID, playState} = this.state
+        const {url} = this.props
+        const {embedUrl, playState} = this.state
         return (
             <div className="video">
-                {playState !== "initial" &&
-                    <YouTube
-                        videoId={youtubeID}
-                        containerClassName='embed-wrap'
-                        opts={{
-                            height: '100%',
-                            width: '100%',
-                            playerVars: {
-                                autoplay: 1,
-                                controls: 0,
-                                modestbranding: 0,
-                                showinfo: 0,
-                                rel: 0,
-                                playsinline: 1
-                            }    
-                        }}
-                        onReady={this._onReady}
-                    />
+                {playState !== "initial" && embedUrl &&
+                    <iframe 
+                    title='modal-iframe'
+                    width="100%" 
+                    height="100%" 
+                    src={embedUrl}
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen></iframe>
+                    // <YouTube
+                    //     videoId={videoID}
+                    //     containerClassName='embed-wrap'
+                    //     opts={{
+                    //         height: '100%',
+                    //         width: '100%',
+                    //         playerVars: {
+                    //             autoplay: 1,
+                    //             controls: 0,
+                    //             modestbranding: 0,
+                    //             showinfo: 0,
+                    //             rel: 0,
+                    //             playsinline: 1
+                    //         }    
+                    //     }}
+                    //     onReady={this._onReady}
+                    // />
                 }
-                <div 
+                {/* <div 
                     className="btn btn-small btn-video btn-white" 
-                    onClick={this._handleVideo}>{playState === "play" ? "PAUSE" : "PLAY"}</div>
+                    onClick={this._handleVideo}>{playState === "play" ? "PAUSE" : "PLAY"}</div> */}
+                    <div className="url">
+                        <div className=" fxs gradient-texte gradient-texte--dark">{url}</div>
+                    </div>
             </div>
         );
     }

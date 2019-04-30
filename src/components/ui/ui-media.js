@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Video from './video';
-
+import PubSub from 'pubsub-js';
 
 class Media extends Component {
     constructor(props) {
@@ -10,24 +9,17 @@ class Media extends Component {
             video: '',
             youtubeID: ''
         }
+
+        this._handleVideo = this._handleVideo.bind(this)
     }
 
-    _play(){
-        const {video} = this.props.data
-        const {youtubeID, playState} = this.state
-console.log("youtubeID",youtubeID)
-        if(!youtubeID){
-            const _youtubeID = this.youtube_parser(video)
-            this.setState({
-                youtubeID: _youtubeID,
-                playState: 'play'
-            } )
-        }else{
-            //if(playState === "play")
-            this.setState({
-                playState: playState === "play" ? "pause" : "play"
-            } )
-        }
+    _handleVideo(){
+        const {data} = this.props
+
+        PubSub.publish("MODAL", {
+            status: true,
+            video: data.video
+        })
     }
 
     render() {
@@ -43,7 +35,9 @@ console.log("youtubeID",youtubeID)
                 <div className="gradient-overlay"></div>
 
                 {data.video !== "" &&
-                    <Video url={data.video} />    
+                    <div 
+                    className="btn btn-small btn-video btn-white" 
+                    onClick={this._handleVideo}>PLAY</div>
                 }
 
                 <div className="bottom fs ">

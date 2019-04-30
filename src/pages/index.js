@@ -5,6 +5,7 @@ import Helmet from "react-helmet";
 
 import Tiles from "../components/tiles"
 import Menu from "../components/ui/menu"
+import Modal from "../components/ui/modal"
 
 import favicon from '../images/favicon.png';
 
@@ -23,6 +24,7 @@ class Index extends React.Component {
         // PubSub.subscribe('EVT', (e, d) => {
         // })
     }
+
     render() {
         const {mainClass} = this.state
         const {
@@ -59,10 +61,12 @@ class Index extends React.Component {
                 //landing={data.contentfulLandingPage} 
                 data={allContentfulTile.edges} />
 
-                {/* <Menu 
+                <Menu 
                   menu={contentfulMenu}
                   options={contentfulOptions}
-                  tiles={allContentfulTile.edges} /> */}
+                  tiles={allContentfulTile.edges} />
+
+                <Modal />
             </main>
         )
     }
@@ -75,6 +79,11 @@ export const query = graphql `
       contentfulOptions{
         title
         description{
+          childMarkdownRemark{
+            html
+          }
+        }
+        date{
           childMarkdownRemark{
             html
           }

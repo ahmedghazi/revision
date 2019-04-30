@@ -42,25 +42,25 @@ class Menu extends Component {
     render() {
         const {menuClass} = this.state
         const {
-            landing,
-            data, 
+            options,
+            menu, 
             tiles
         } = this.props
-        console.log(data)
+
         return (
             <div className={"menu-wrap "+menuClass}>
                 <div className={"menu"}>
                     <div className="row">
-                        <div className="col-md-6 col-md-4">
+                        <div className="col-xs-6 col-md-4">
                             <div className="naviguation">
                                 <div className="nav-top">
                                     <div className="header fm">
-                                        <h1 className="fm">{landing.title}</h1>
-                                        <div className="date" dangerouslySetInnerHTML={{ __html: landing.date.childMarkdownRemark.html }} />
+                                        <div className="h1 fm">{options.title}</div>
+                                        <div className="date" dangerouslySetInnerHTML={{ __html: options.date.childMarkdownRemark.html }} />
                                     </div>
                                     <nav className="main-nav">
                                         <ul>
-                                            {data.nav.map((li,key) => {
+                                            {menu.nav.map((li,key) => {
                                                 {if(li.slug){
                                                     return(
                                                     
@@ -76,26 +76,24 @@ class Menu extends Component {
                                     </nav>
                                 </div>
                                 
-                                <nav className="links">
-                                    <ul>
-                                        {data.links.map((li,key) => {
-                                            return(
-                                                <li key={key}>
-                                                    <a 
-                                                    href={"#"+li.url}
-                                                    target="_blank"
-                                                    >{li.label}</a>
-                                                </li>
-                                            )
-                                        })}
-                                    </ul>
-                                </nav>
+                                <ul className="links small fs">
+                                    {menu.links.map((li,key) => {
+                                        return(
+                                            <li key={key}>
+                                                <a 
+                                                href={"#"+li.url}
+                                                target="_blank"
+                                                >{li.label}</a>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
                             </div>
                         </div>
                         <div className="hidden-xs col-md-4">
                             <MenuMiniMap data={tiles} menuClass={menuClass} />
                         </div>
-                        <div className="col-md-6 col-md-4">
+                        <div className="col-xs-6 col-md-4">
                             <div className="text-right">
                                 <MenuIndex data={tiles} />
                             </div>
