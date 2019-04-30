@@ -55,8 +55,8 @@ class Menu extends Component {
                 <div className={"menu"}>
                     <div className="row">
                         <div className="hidden-xs col-md-4">
-                            <div class="naviguation">
-                                <div class="nav-top">
+                            <div className="naviguation">
+                                <div className="nav-top">
                                     <div className="header fm">
                                         <h1 className="fm">{landing.title}</h1>
                                         <div className="date" dangerouslySetInnerHTML={{ __html: landing.date.childMarkdownRemark.html }} />
