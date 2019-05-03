@@ -24,7 +24,7 @@
         cursor: pointer;
     }
     .menu{
-        @include anime(.4s, 0s);
+        @include anime(.6s, 0s);
         left: 0; top: 0;
         visibility: hidden;
         pointer-events: none;
@@ -57,7 +57,7 @@
     }
 
     .mini-map-wrap{
-        @include anime(.4s, 0s);
+        @include anime(.6s, 0s);
         max-width: 33.333vw;
         position: fixed;
         top: 50%; left: 50%;

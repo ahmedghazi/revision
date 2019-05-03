@@ -46,7 +46,7 @@ class Tiles extends Component {
 
             setTimeout(() => {
                 document.body.scrollTo(left, top)
-            }, 450)
+            }, 650)
         })
 
         
