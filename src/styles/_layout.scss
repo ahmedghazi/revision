@@ -21,7 +21,7 @@ main{
     &.is-menu{
         .tiles-wrap{
             transform: perspective(860px) translateZ(-318vh) translateX(-100%);
-            opacity: 0;
+            //opacity: 0;
         }
     }
 }

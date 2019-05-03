@@ -4,10 +4,11 @@
             visibility: visible;
             pointer-events: auto;
             opacity: 1;
+            transform: scale(1);
         }
         #obj3d{display: none}
         .mini-map-wrap{
-            transform: translate(-50%, -50%) scale(.55);
+            transform: translate(-50%, -50%) scale(.85);
             opacity:1;
             pointer-events: auto;
         }
@@ -28,6 +29,7 @@
         visibility: hidden;
         pointer-events: none;
         opacity: 0;
+        transform: scale(5);
         background: $color1;
         //opacity: .5;
     
