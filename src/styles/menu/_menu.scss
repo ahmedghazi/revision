@@ -24,7 +24,7 @@
         cursor: pointer;
     }
     .menu{
-        @include anime(.6s, 0s);
+        @include anime(.6s, .1s);
         left: 0; top: 0;
         visibility: hidden;
         pointer-events: none;
