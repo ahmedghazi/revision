@@ -1,7 +1,7 @@
 import React from 'react';
 import {graphql} from 'gatsby';
 import Helmet from "react-helmet";
-//import PubSub from 'pubsub-js';
+import PubSub from 'pubsub-js';
 
 import Tiles from "../components/tiles"
 import Menu from "../components/inc/menu/menu"
@@ -23,6 +23,13 @@ class Index extends React.Component {
     componentDidMount() {
         // PubSub.subscribe('EVT', (e, d) => {
         // })
+        PubSub.subscribe("MENU", (e,d) => {
+          const tilesClass = d.open ? 'is-menu' : ''
+          this.setState({
+            mainClass: tilesClass
+          })
+
+      })
     }
 
     render() {
@@ -57,9 +64,11 @@ class Index extends React.Component {
                     <meta property="og:image" content="" />
                 </Helmet>
 
-                <Tiles 
-                //landing={data.contentfulLandingPage} 
-                data={allContentfulTile.edges} />
+                <div className="tiles-wrap">
+                  <Tiles 
+                  data={allContentfulTile.edges} />
+                </div>
+                
 
                 <Menu 
                   menu={contentfulMenu}

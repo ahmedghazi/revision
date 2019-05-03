@@ -16,15 +16,11 @@ class Menu extends Component {
     }
 
     componentDidMount(){
-        PubSub.subscribe("MENU_OPEN", (e,d) => {
+        PubSub.subscribe("MENU", (e,d) => {
+            const menuClass = d.open ? 'active' : ''
+  
             this.setState({
-                menuClass: 'active'
-            })
-        })
-
-        PubSub.subscribe("MENU_CLOSE", (e,d) => {
-            this.setState({
-                menuClass: ''
+                menuClass: menuClass
             })
         })
 
@@ -52,7 +48,7 @@ class Menu extends Component {
         console.log(tile)
         PubSub.publish('TILE', {tile: tile})
 
-        PubSub.publish('MENU_CLOSE', {})
+        PubSub.publish('MENU', {open: false})
     }
 
     render() {
@@ -110,7 +106,7 @@ class Menu extends Component {
                             </div>
                         </div>
                         <div className="hidden-xs col-md-4">
-                            <MenuMiniMap data={tiles} menuClass={menuClass} />
+                            
                         </div>
                         <div className="col-xs-6 col-md-4">
                             <div className="text-right">
@@ -119,6 +115,7 @@ class Menu extends Component {
                         </div>
                     </div>
                 </div>
+                <MenuMiniMap data={tiles} menuClass={menuClass} />
                 <ThreeWrapper src={options.objFile.file.url}/>
                 
             </div>

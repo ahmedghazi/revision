@@ -13,7 +13,7 @@ class ThreeWrapper extends Component {
     }
 
     _onClick(){
-        PubSub.publish('MENU_OPEN', {})
+        PubSub.publish('MENU', {open: true})
     }
 
     render() {

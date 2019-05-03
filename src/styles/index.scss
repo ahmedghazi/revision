@@ -10,12 +10,18 @@
 @import "icons";
 
 
+@import "tiles";
+
 @import "partials/content";
-@import "partials/tiles";
 @import "partials/header";
+
+@import "menu/menu";
+
+@import "inc/video";
+@import "inc/modal";
 //@import "partials/footer";
 //@import "ui/social";
-@import "ui/modal";
+
 @import "ui/btn";
 @import "ui/repeater";
 @import "ui/ui-texte";
@@ -27,8 +33,6 @@
 @import "ui/ui-event";
 @import "ui/people";
 @import "ui/sponsor";
-@import "ui/menu";
-@import "ui/video";
 
 
 @import "layout";

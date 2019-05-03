@@ -12,18 +12,19 @@ import Repeater from "./ui/ui-repeater"
 
 class Tile extends Component {
     _normaliseSize(size){
+        //console.log(size)
         switch(size){
             case '1/4': return 'tile-quarter'
             case '1/2': return 'tile-half'
             case '1': return 'tile-full'
-            default: return 'tile-full'
+            default: return 'tile-quarter'
         } 
 
     }
 
     _renderTile(tile){
         // console.log(tile.__typename)
-        // console.log(tile)
+        //console.log(tile.title)
         switch(tile.__typename){
             case "ContentfulHeadline": return (
                 <Headline data={tile} />
@@ -87,10 +88,12 @@ class Tile extends Component {
             <div 
             id={data.slug} 
             className={"tile tile-"+data.postTiles.length}
-            data-id={data.title} 
+            data-title={data.title} 
             data-subtitle="">
                 {data.postTiles.map((tile, key) => (
-                    <div key={key} className={"tile-item "+this._normaliseSize(tile.size)+" "+this._padding(tile)}>
+                    <div 
+                    key={key} 
+                    className={"tile-item "+this._normaliseSize(tile.size)+" "+this._padding(tile)}>
                         {
                             this._renderTile(tile)
                         }

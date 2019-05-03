@@ -3,8 +3,14 @@
         .menu{
             visibility: visible;
             pointer-events: auto;
+            opacity: 1;
         }
         #obj3d{display: none}
+        .mini-map-wrap{
+            transform: translate(-50%, -50%) scale(.55);
+            opacity:1;
+            pointer-events: auto;
+        }
     }
     .menu,
     #obj3d{
@@ -17,9 +23,11 @@
         cursor: pointer;
     }
     .menu{
+        @include anime(.4s, 0s);
         left: 0; top: 0;
         visibility: hidden;
         pointer-events: none;
+        opacity: 0;
         background: $color1;
         //opacity: .5;
     
@@ -42,40 +50,39 @@
         nav{
             
         }
-        .mini-map-wrap{
-            top: 50%;
-            transform: translateY(-50%);
-            //background: red;
-            //height: 50%;
-            //height: 100%;
-            // width: 33.3vw;
-            // position: fixed;
-            // left: 50%; top: 50%;
-            // transform: translate(-50%, -50%);
-
-            .mini-map{
-            
-                .item{
-                    position: absolute;
-                    background: white;
-                    width: 50px; height: 30px;
-                    border: 1px solid black;
-                    cursor: pointer;
-                    &:hover{opacity: .7;}
-                }
-                
-            }
-            .here{
-                //@include anime();
-                position: absolute;
-                width: 20px; height: 20px;
-                margin-left: -10px;
-                margin-top: -10px;
-                border-radius: 100%;
-                background: greenyellow;
-            }
-        }
         
+        
+    }
+
+    .mini-map-wrap{
+        @include anime(.4s, 0s);
+        max-width: 33.333vw;
+        position: fixed;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%) scale(5);
+        opacity:0;
+        pointer-events: none;
+        .mini-map{
+        
+            .item{
+                position: absolute;
+                background: white;
+                width: 50px; height: 30px;
+                border: 1px solid black;
+                cursor: pointer;
+                &:hover{opacity: .7;}
+            }
+            
+        }
+        .here{
+            //@include anime();
+            position: absolute;
+            width: 20px; height: 20px;
+            margin-left: -10px;
+            margin-top: -10px;
+            border-radius: 100%;
+            background: greenyellow;
+        }
     }
 }
 

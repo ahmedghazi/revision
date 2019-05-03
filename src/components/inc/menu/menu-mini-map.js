@@ -45,8 +45,8 @@ class MenuMiniMap extends Component {
         const tiles = document.querySelectorAll(".mini-map .item")
         if(!tiles)return
 
-        this.mapWidth = document.querySelector(".mini-map").getBoundingClientRect().width
-        
+        //this.mapWidth = document.querySelector(".mini-map").getBoundingClientRect().width
+        this.mapWidth = window.innerWidth/3
         const windowRatio = window.innerWidth/window.innerHeight
         const sqrt = Math.round(Math.sqrt(tiles.length))
         this.itemWidth = Math.round(this.mapWidth / sqrt)
@@ -78,6 +78,7 @@ class MenuMiniMap extends Component {
         })
         
         tilesWrap.style.transform = 'translate('+this.translateX+'px, '+this.translateY+'px)'
+        tilesWrap.style.width = (this.itemWidth * sqrt)+"px"
         tilesWrap.style.height = (this.itemHeight * sqrt)+"px"
         
     }
@@ -91,7 +92,7 @@ class MenuMiniMap extends Component {
             const tile = document.getElementById(slug)
             PubSub.publish('TILE', {tile: tile})
          
-            PubSub.publish('MENU_CLOSE', {})
+            PubSub.publish('MENU', {open: false})
         }
     }
 
@@ -102,13 +103,6 @@ class MenuMiniMap extends Component {
         return (
             <div className="mini-map-wrap">
                 <div className="mini-map">
-                    <div 
-                        className="item"
-                        key={0} 
-                        index={0} 
-                        onClick={() => this._onClick("landing")}
-                        />
-                 
 
                     {data.map(({node},key) => (
                         <div 

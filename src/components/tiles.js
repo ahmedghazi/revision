@@ -14,23 +14,24 @@ class Tiles extends Component {
             winWidth: 0,
             winHeight: 0,
             //inertia: 10,
-            bounding: null
+            bounding: null,
+            tilesClass: ''
         }       
         
-        this._update = this._update.bind(this)
         this._onResize = this._onResize.bind(this)
         this._onScroll = this._onScroll.bind(this)
-        //this._onMouseMove = this._onMouseMove.bind(this)
 
     }
 
     componentDidMount(){
         this._onResize()
-        document.addEventListener("resize", this._onResize)      
+        //document.addEventListener("resize", this._onResize)      
         document.body.addEventListener("scroll", this._onScroll)    
         
         PubSub.subscribe("TILE", (e,d) => {
             //console.log(d)
+            if(!d.tile)return;
+
             const {
                 winWidth,
                 winHeight
@@ -43,8 +44,12 @@ class Tiles extends Component {
             const left = (x*winWidth) + parseFloat(wrapTranslate[4])
             const top = (y*winHeight) + parseFloat(wrapTranslate[5])
 
-            document.body.scrollTo(left, top)
+            setTimeout(() => {
+                document.body.scrollTo(left, top)
+            }, 450)
         })
+
+        
         //document.addEventListener("mousemove", this._onMouseMove)  
 
         //https://codepen.io/anon/pen/VNxyzG
@@ -152,74 +157,22 @@ class Tiles extends Component {
             })
             var pos = first.getBoundingClientRect()
             document.body.scrollTo(pos.left, pos.top)
-            //console.log("first", first.id, pos)
-            // first.scrollIntoView({ 
-            //     behavior: 'smooth',
-            //     block: "start"
-            // });
+
         }, 400)
-    }
-
-    // _onMouseMove(e){
-    //     const {
-    //         winWidth,
-    //         winHeight,
-    //         docWidth,
-    //         docHeight,         
-    //     } = this.state;
-
-    //     var decay = 0.11;
-    //     var percentX = e.clientX / winWidth;
-    //     var percentY = e.clientY / winHeight;
-    //     // get the old scroll value
-    //     var scrollX = document.body.scrollLeft;
-    //     var scrollY = document.body.scrollTop;
-    //     var scrollAmountX = (docWidth - winWidth) * percentX;
-    //     var scrollAmountY = (docHeight - winHeight) * percentY;
-    //     // the new scroll value is the destination value minus how far we've currently scrolled, multiplied by an easing number
-    //     scrollX += parseFloat((scrollAmountX - scrollX) * decay);
-    //     scrollY += parseFloat((scrollAmountY - scrollY) * decay);
-
-    //     this.setState({
-    //         scrollX: scrollX,
-    //         scrollY: scrollY
-    //     })
-
-    //     // document.body.scrollLeft = xpX;
-    //     // document.body.scrollTop = xpY;
-    // }
-
-    _update(){
-        const {
-            scrollX, scrollY
-        } = this.state;
-
-        if(scrollX){
-            // const x = (document.body.scrollLeft - scrollX) / inertia
-            // const y = (document.body.scrollTop - scrollY) / inertia
-      //console.log(x, y)
-            document.body.scrollLeft = scrollX;
-            document.body.scrollTop = scrollY;
-        }
-        
-        requestAnimationFrame(this._update);
     }
 
     render() {
         const {data} = this.props;
-
+        const {tilesClass} = this.state;
+        
         const style = {
             //transform:'translate('+this.x+'px,'+this.y+'px)'
         }
         //console.log(data)
         return (
             
-            <div id="tiles" className="tiles" style={style}>
-                {/* <Tile 
-                    key={0} 
-                    index={0} 
-                    data={landing} /> */}
-                {/*[...range(0, 24)]*/}
+            <div id="tiles" className={'tiles '+tilesClass} >
+     
                 {data.map(({node},key) => (
                     <Tile 
                     key={key} 
