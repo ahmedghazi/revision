@@ -15,7 +15,7 @@ html{
 main{
 
     .tiles-wrap{
-        @include anime(.4s, 0);
+        @include anime(.2s, 0s);
         transform: perspective(100vw) translateZ(0) translateX(0);
     }
     &.is-menu{
