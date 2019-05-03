@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {spiral} from '../../utils/tiles-builder'
+import {spiral} from '../../../utils/tiles-builder'
 import PubSub from 'pubsub-js';
 
 class MenuMiniMap extends Component {

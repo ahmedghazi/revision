@@ -1,4 +1,5 @@
 export function spiral(n) {
+    /* eslint-disable */
     // given n an index in the squared spiral
     // p the sum of point in inner square
     // a the position on the current square
@@ -43,4 +44,5 @@ export function spiral(n) {
             break;
     }
     return pos;
+    /* eslint-enable */
 }

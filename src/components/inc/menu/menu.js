@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
-import Obj3d from './obj3d'
+//import Obj3d from './obj3d'
+import ThreeWrapper from '../3d/ThreeWrapper'
 import MenuMiniMap from './menu-mini-map'
 import MenuIndex from './menu-index'
 
@@ -25,6 +26,21 @@ class Menu extends Component {
             this.setState({
                 menuClass: ''
             })
+        })
+
+        document.addEventListener('keyup', e => {
+            const key = e.key || e.keyCode;
+            switch(key){
+                case "Escape":
+                    this.setState({
+                        menuClass: ''
+                    })
+                break;
+
+                default:
+                break;
+            }
+            
         })
     }
 
@@ -65,7 +81,9 @@ class Menu extends Component {
                                                     return(
                                                     
                                                         <li key={key}>
-                                                            <a href={"#"+li.slug}
+                                                            <a 
+                                                            href={"#"+li.slug}
+                                                            rel="noopener noreferrer"
                                                             onClick={(e)=> this._menuClick(e)}>{li.title}</a>
                                                         </li>
                                                     )
@@ -81,7 +99,8 @@ class Menu extends Component {
                                         return(
                                             <li key={key}>
                                                 <a 
-                                                href={"#"+li.url}
+                                                href={li.url}
+                                                rel="noopener noreferrer"
                                                 target="_blank"
                                                 >{li.label}</a>
                                             </li>
@@ -100,7 +119,7 @@ class Menu extends Component {
                         </div>
                     </div>
                 </div>
-                <Obj3d />
+                <ThreeWrapper src={options.objFile.file.url}/>
                 
             </div>
         );

@@ -4,8 +4,8 @@ import Helmet from "react-helmet";
 //import PubSub from 'pubsub-js';
 
 import Tiles from "../components/tiles"
-import Menu from "../components/ui/menu"
-import Modal from "../components/ui/modal"
+import Menu from "../components/inc/menu/menu"
+import Modal from "../components/inc/modal"
 
 import favicon from '../images/favicon.png';
 
@@ -86,6 +86,11 @@ export const query = graphql `
         date{
           childMarkdownRemark{
             html
+          }
+        }
+        objFile{
+          file {
+            url
           }
         }
       }

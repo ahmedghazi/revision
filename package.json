@@ -28,13 +28,12 @@
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-helmet": "^5.2.0",
-    "react-three-fiber": "^2.0.8",
+ 
     "react-youtube": "^7.9.0",
     "scroll-into-view": "^1.9.5",
     "styled-components": "^3.4.10",
     "styled-reset": "^1.6.0",
     "three": "^0.103.0",
-    "three-mtl-loader": "^1.0.2",
     "three-orbit-controls": "^82.1.0"
   }
 }
