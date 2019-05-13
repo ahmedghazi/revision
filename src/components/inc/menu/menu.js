@@ -116,7 +116,11 @@ class Menu extends Component {
                     </div>
                 </div>
                 <MenuMiniMap data={tiles} menuClass={menuClass} />
-                <ThreeWrapper src={options.objFile.file.url}/>
+                <ThreeWrapper 
+                src={'3d/pill.obj'}
+                mtl={'3d/pill.mtl'}
+                texPath="3d/" 
+                />
                 
             </div>
         );

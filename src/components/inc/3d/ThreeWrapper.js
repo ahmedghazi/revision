@@ -5,27 +5,41 @@ import PubSub from 'pubsub-js';
 class ThreeWrapper extends Component {
     constructor(props) {
         super(props);
-        
+        this._handleScroll = this._handleScroll.bind(this);
     }
 
     componentDidMount() {
-        
+        window.addEventListener('scroll', this._handleScroll);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this._handleScroll);
+    }
+
+    _handleScroll() {
+        // this.setState({
+        //     compteur:
+        // })
     }
 
     _onClick(){
-        PubSub.publish('MENU', {open: true})
+        //PubSub.publish('MENU', {open: true})
+        PubSub.publish('OPEN_STUDIO')
     }
 
     render() {
-        const {src} = this.props
+        const {src, mtl, texPath} = this.props
         return (
             <div id="obj3d"
             onClick={() => this._onClick()}>
                 <Model 
                 width="300" height="300"  
-                position={{x:0,y:-50,z:-100}} 
+                // position={{x:1.5,y:0,z:0}} 
+                // scale={{x:1.5, y:1.5, z: 1.5}}
                 background="transparent"
-                src={src} texPath=""/>
+                src={src} 
+                mtl={mtl}
+                texPath={texPath} />
             </div>
         );
     }

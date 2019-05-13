@@ -291,8 +291,8 @@ class Model extends React.Component{
         // this.group.rotation.set(rotation.x,rotation.y,rotation.z)
 
         // this.group.scale.set(scale.x,scale.y,scale.z)
-        this.group.rotation.x += 0.001;     
-        this.obj3d.rotation.y += 0.005;
+        this.group.rotation.y += 0.01;     
+        //this.obj3d.rotation.y += 0.01;
       }
 
     })
@@ -330,80 +330,44 @@ class Model extends React.Component{
     }
     
   }
-
   load3dModel(){
-    var {src,mtl,texPath} = this.props;
- 
-    if(!src || !mtl) return false
+    var {src,texPath} = this.props;
 
-    var mtl_loader =  new THREE.MTLLoader()
+    if(!src) return false
+    // instantiate a loader
+    // load a resource
     var obj_loader = new THREE.OBJLoader()
+    obj_loader.load(
+      // resource URL
+      src,
+      // called when resource is loaded
+      obj3d => {
 
-    mtl_loader.setTexturePath(texPath)
-
-    mtl_loader.load(mtl, materials => {
-      materials.preload();
-
-      obj_loader.setMaterials( materials )
-      .load(src, obj3d =>{
         var bound_box = this.computeBoundingBox(obj3d);
         // debugger
         var front = bound_box.max;
+
+        //debugger
+
         var cz = bound_box.max.z - bound_box.min.z;
 
-        this.camera.position.set(0, 0, front.z + cz*1.5);
+        this.camera.position.set(0, 0, front.z+cz*1.5);
 
-        //this.initControl()
-        // this.scene.add(obj3d);
+        //this.initControl();
+    
+        //this.scene.add(obj3d);
         this.obj3d = obj3d;
 
         this.props.onLoad && this.props.onLoad()
-      }, (xhr)=>{
+        //this.animate();
+      },
+      // called when loading is in progresses
+      xhr =>{
         this.props.onProgress && this.props.onProgress(xhr)
-      });
-
-    });
-
+        // console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+      } 
+    );
   }
-
-  // load3dModel(){
-  //   var {src,texPath} = this.props;
-
-  //   if(!src) return false
-  //   // instantiate a loader
-  //   // load a resource
-  //   var obj_loader = new THREE.OBJLoader()
-  //   obj_loader.load(
-  //     // resource URL
-  //     src,
-  //     // called when resource is loaded
-  //     obj3d => {
-
-  //       var bound_box = this.computeBoundingBox(obj3d);
-  //       // debugger
-  //       var front = bound_box.max;
-
-  //       //debugger
-
-  //       var cz = bound_box.max.z - bound_box.min.z;
-
-  //       this.camera.position.set(0, 0, front.z+cz*1.5);
-
-  //       //this.initControl();
-    
-  //       //this.scene.add(obj3d);
-  //       this.obj3d = obj3d;
-
-  //       this.props.onLoad && this.props.onLoad()
-  //       //this.animate();
-  //     },
-  //     // called when loading is in progresses
-  //     xhr =>{
-  //       this.props.onProgress && this.props.onProgress(xhr)
-  //       // console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-  //     } 
-  //   );
-  // }
   style(){
     var {width,height} = this.props;
     return Object.assign({},{width:width+'px',height:height+'px'});
