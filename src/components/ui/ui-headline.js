@@ -8,7 +8,6 @@ class Headline extends Component {
             <div className="ui-headline">
             
                 <div className="top fm">
-                    {/* <h2 className="fm">{data.title}</h2> */}
                     <h2 className="fm" dangerouslySetInnerHTML={{ __html: data.title }} />
                     {data.texte !== null &&
                         <div className="texte fm" dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />

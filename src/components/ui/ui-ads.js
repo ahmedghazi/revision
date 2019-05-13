@@ -7,10 +7,11 @@ class Ads extends Component {
         
         return (
             <div className="ui-advertisement">    
-                <div 
-                className="cover"
-                style={{backgroundImage: 'url('+data.image.fluid.src+')'}}></div>
-                
+                {data.image !== null &&
+                    <div 
+                    className="cover"
+                    style={{backgroundImage: 'url('+data.image.fluid.src+')'}}></div>
+                }
                 <div className="bottom fs gradient-overlay">
                     {data.title !== "" &&
                         <div className="title">{data.title}</div>

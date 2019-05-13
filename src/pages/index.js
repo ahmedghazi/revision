@@ -42,41 +42,41 @@ class Index extends React.Component {
         //console.log(data)
         
         return (
-            <main className={mainClass}>
-                <Helmet>
-                    <meta charSet="utf-8" />
+          <main className={mainClass}>
+              <Helmet>
+                  <meta charSet="utf-8" />
 
-                    <link rel='shortcut icon' type="image/png" href={favicon} />
+                  <link rel='shortcut icon' type="image/png" href={favicon} />
 
-                    <title>{contentfulOptions.title}</title>
-                    <meta name="description" content={contentfulOptions.description} />
-                    <meta property="og:url" content="" />
-                    <meta property="og:title" content={contentfulOptions.title} />
-                    <meta property="og:description" content={contentfulOptions.description} />
-                    <meta property="og:image" content="" />
+                  <title>{contentfulOptions.title}</title>
+                  <meta name="description" content={contentfulOptions.description} />
+                  <meta property="og:url" content="" />
+                  <meta property="og:title" content={contentfulOptions.title} />
+                  <meta property="og:description" content={contentfulOptions.description} />
+                  <meta property="og:image" content="" />
 
-                    <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:site" content="@Revision_HQ" />
-                    <meta name="twitter:creator" content="@Revision_HQ" />
-                    <meta property="og:url" content="" />
-                    <meta property="og:title" content={contentfulOptions.title} />
-                    <meta property="og:description" content={contentfulOptions.description} />
-                    <meta property="og:image" content="" />
-                </Helmet>
+                  <meta name="twitter:card" content="summary_large_image" />
+                  <meta name="twitter:site" content="@Revision_HQ" />
+                  <meta name="twitter:creator" content="@Revision_HQ" />
+                  <meta property="og:url" content="" />
+                  <meta property="og:title" content={contentfulOptions.title} />
+                  <meta property="og:description" content={contentfulOptions.description} />
+                  <meta property="og:image" content="" />
+              </Helmet>
 
-                <div className="tiles-wrap">
-                  <Tiles 
-                  data={allContentfulTile.edges} />
-                </div>
-                
+              <div className="tiles-wrap">
+                <Tiles 
+                data={allContentfulTile.edges} />
+              </div>
+              
 
-                <Menu 
-                  menu={contentfulMenu}
-                  options={contentfulOptions}
-                  tiles={allContentfulTile.edges} />
+              <Menu 
+                menu={contentfulMenu}
+                options={contentfulOptions}
+                tiles={allContentfulTile.edges} />
 
-                <Modal />
-            </main>
+              <Modal />
+          </main>
         )
     }
 }

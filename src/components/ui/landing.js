@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Header from "./header"
+//import Header from "./header"
 //import Footer from "./footer"
 //import Repeater from "./ui-repeater"
 //import Cta from "./cta"
-import Link from './ui-link'
+//import Link from './ui-link'
 
 class Landing extends Component {
     render() {

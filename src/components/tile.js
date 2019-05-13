@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Landing from "./ui/landing"
+//import Landing from "./ui/landing"
 import Headline from "./ui/ui-headline"
 import Media from "./ui/ui-media"
 import Texte from "./ui/ui-texte"

@@ -168,7 +168,7 @@ class Tiles extends Component {
         const style = {
             //transform:'translate('+this.x+'px,'+this.y+'px)'
         }
-        //console.log(data)
+        console.log(data)
         return (
             
             <div id="tiles" className={'tiles '+tilesClass} >
