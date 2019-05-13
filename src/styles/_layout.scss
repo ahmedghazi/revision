@@ -16,12 +16,13 @@ main{
 
     .tiles-wrap{
         @include anime(.6s, 0s);
-        transform: perspective(100vw) translateZ(0) translateX(0);
+        ///transform: perspective(100vw) translateZ(0) translateX(0);
+        opacity: 1;
     }
     &.is-menu{
         .tiles-wrap{
-            transform: perspective(860px) translateZ(-318vh) translateX(-100%);
-            //opacity: 0;
+            //transform: perspective(860px) translateZ(-318vh) translateX(-100%);
+            opacity: 0;
         }
     }
 }
