@@ -5,26 +5,10 @@ import PubSub from 'pubsub-js';
 class ThreeWrapper extends Component {
     constructor(props) {
         super(props);
-        this._handleScroll = this._handleScroll.bind(this);
-    }
-
-    componentDidMount() {
-        window.addEventListener('scroll', this._handleScroll);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this._handleScroll);
-    }
-
-    _handleScroll() {
-        // this.setState({
-        //     compteur:
-        // })
     }
 
     _onClick(){
-        //PubSub.publish('MENU', {open: true})
-        PubSub.publish('OPEN_STUDIO')
+        PubSub.publish('MENU', {open: true})
     }
 
     render() {

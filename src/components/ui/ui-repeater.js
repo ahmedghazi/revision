@@ -38,7 +38,9 @@ class Repeater extends React.Component {
                 key={index}
                 className='item blink fm' style={{
                     animationDelay: index+"00ms"
-                }}>{data.title}</div>
+                }}>
+                    <div dangerouslySetInnerHTML={{ __html: data.title }} />
+                </div>
         ))
         return items
     }

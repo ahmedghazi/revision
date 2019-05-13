@@ -44,9 +44,7 @@ class Tiles extends Component {
             const left = (x*winWidth) + parseFloat(wrapTranslate[4])
             const top = (y*winHeight) + parseFloat(wrapTranslate[5])
 
-            setTimeout(() => {
-                document.body.scrollTo(left, top)
-            }, 650)
+            document.body.scrollTo(left, top)
         })
 
         
@@ -149,16 +147,18 @@ class Tiles extends Component {
         tilesWrap.style.transform = 'translate('+translateX+'px, '+translateY+'px)'
         //console.log(document.body.scrollWidth, document.body.scrollHeight)
         
+
         setTimeout(() => {
+            var pos = first.getBoundingClientRect()
+            document.body.scrollTo(pos.left, pos.top)
+
             this.setState({
                 docWidth: document.body.scrollWidth,
                 docHeight: document.body.scrollHeight,
                 bounding: tilesWrap.getBoundingClientRect()
             })
-            var pos = first.getBoundingClientRect()
-            document.body.scrollTo(pos.left, pos.top)
-
-        }, 400)
+        
+        }, 150)
     }
 
     render() {

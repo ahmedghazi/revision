@@ -25,7 +25,7 @@ class Media extends Component {
     render() {
         const {data} = this.props
         const {playState} = this.state
-        console.log(data)
+        //console.log(data)
         return (
             <div className={"ui-media video-"+playState}>
                 {data.image !== null &&

@@ -44,8 +44,8 @@ class Menu extends Component {
         e.preventDefault();
         const tileId = e.target.getAttribute("href").replace("#", "")
         const tile = document.getElementById(tileId)
-        console.log(e.target.getAttribute("href"))
-        console.log(tile)
+        // console.log(e.target.getAttribute("href"))
+        // console.log(tile)
         PubSub.publish('TILE', {tile: tile})
 
         PubSub.publish('MENU', {open: false})
