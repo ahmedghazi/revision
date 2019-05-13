@@ -25,13 +25,14 @@ class Media extends Component {
     render() {
         const {data} = this.props
         const {playState} = this.state
-        //console.log(data)
+        console.log(data)
         return (
             <div className={"ui-media video-"+playState}>
-                <div 
-                className="cover"
-                style={{backgroundImage: 'url('+data.image.fluid.src+')'}}></div>
-
+                {data.image !== null &&
+                    <div 
+                    className="cover"
+                    style={{backgroundImage: 'url('+data.image.fluid.src+')'}}></div>
+                }
                 <div className="gradient-overlay"></div>
 
                 {data.video !== "" &&
