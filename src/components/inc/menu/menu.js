@@ -109,9 +109,7 @@ class Menu extends Component {
                             
                         </div>
                         <div className="col-xs-6 col-md-4">
-                            <div className="text-right">
-                                <MenuIndex data={tiles} />
-                            </div>
+                            <MenuIndex data={tiles} />
                         </div>
                     </div>
                 </div>
