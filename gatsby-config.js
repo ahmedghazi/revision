@@ -5,8 +5,7 @@ if (process.env.ENVIRONMENT !== 'production') {
 }
 
 const { spaceId, accessToken } = process.env;
-console.log(spaceId)
-console.log(accessToken)
+
 module.exports = {
   siteMetadata: {
     title: 'REVISION.IO',
@@ -23,11 +22,6 @@ module.exports = {
         accessToken,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-google-fonts`,
-    //   options: {
-    //     fonts: ['Quicksand:400,700'],
-    //   },
-    // },
+
   ],
 };

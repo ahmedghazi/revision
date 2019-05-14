@@ -353,6 +353,7 @@ class Model extends React.Component{
 
         this.camera.position.set(0, 0, front.z + cz*1.5);
 
+        //this.listen()
         //this.initControl()
         // this.scene.add(obj3d);
         this.obj3d = obj3d;
@@ -364,6 +365,32 @@ class Model extends React.Component{
 
     });
 
+  }
+
+  listen(){
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    document.addEventListener('mousemove', (event) => {
+      event.preventDefault();
+ 
+//       mouse.x = (event.clientX / this.renderer.domElement.clientWidth) * 2 - 1;
+//       mouse.y =  - (event.clientY / this.renderer.domElement.clientHeight) * 2 + 1;
+// console.log(mouse)
+      mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+      mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+      
+      raycaster.setFromCamera(mouse, this.camera);
+
+      //meshObjects = [this.obj3d]; // three.js objects with click handlers we are interested in
+       
+      var intersects = raycaster.intersectObjects(this.obj3d);
+//console.log(this.obj3d)
+      if (intersects.length > 0) {
+        //intersects[0].object.callback();
+        console.log(intersects)
+      }
+
+    }, false);
   }
 
   // load3dModel(){

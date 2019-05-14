@@ -83,13 +83,13 @@ class Tile extends Component {
         const {
             data
         } = this.props
-        
+        //console.log(data.subtitle)
         return (
             <div 
             id={data.slug} 
             className={"tile tile-"+data.postTiles.length}
             data-title={data.title} 
-            data-subtitle="">
+            data-subtitle={data.subtitle}>
                 {data.postTiles.map((tile, key) => (
                     <div 
                     key={key} 

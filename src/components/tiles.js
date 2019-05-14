@@ -165,10 +165,10 @@ class Tiles extends Component {
         const {data} = this.props;
         const {tilesClass} = this.state;
         
-        const style = {
-            //transform:'translate('+this.x+'px,'+this.y+'px)'
-        }
-        console.log(data)
+        // const style = {
+        //     //transform:'translate('+this.x+'px,'+this.y+'px)'
+        // }
+        // console.log(data)
         return (
             
             <div id="tiles" className={'tiles '+tilesClass} >

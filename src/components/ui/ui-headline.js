@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {StaticQuery, graphql} from 'gatsby';
 
 class Headline extends Component {
     render() {
@@ -34,3 +35,37 @@ class Headline extends Component {
 }
 
 export default Headline;
+
+// export default (props) => (
+//     <StaticQuery
+//         query={graphql`
+//             query  {
+//                 prismicInfos {
+//                     data {
+//                       title {
+//                         text
+//                       }
+//                       texte {
+//                         html
+//                       }
+//                       contacts{
+//                         title1 {text}
+//                         contact{html}
+//                       }
+//                       team{
+//                         html
+//                       }
+//                       awards{
+//                         year {text}
+//                           award{text}
+//                       }
+//                     }
+//                   }
+//             }
+//         `}
+//         render={data => (
+//             <Headline 
+//             data={data.prismicInfos.data} />
+//         )}
+//     />
+// )

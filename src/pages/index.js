@@ -120,10 +120,12 @@ export const query = graphql `
         edges {
           node {
             title
+            subtitle
             slug
             hierarchy
             postTiles {
               __typename
+              ... on Node {
               ... on ContentfulLinkText {
                 size
                 title
@@ -289,6 +291,7 @@ export const query = graphql `
               }
               ... on ContentfulRepeater{
                 title
+              }
               }
             }
           }

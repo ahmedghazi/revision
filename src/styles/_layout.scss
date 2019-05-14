@@ -31,6 +31,9 @@ main{
 .hidden-m{display: none}
 
 @media all and (max-width:767px){
+    body{
+        scroll-snap-type: both proximity;
+    }
     .hidden-xs{display: none}
     .hidden-m{display: block}
 }
