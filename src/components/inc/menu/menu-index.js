@@ -40,8 +40,12 @@ class MenuIndex extends Component {
             return (
                 <li 
                 key={key}
-                onClick={() => this._onClick(item.slug)}
-                >{item.title}</li>
+                onClick={() => this._onClick(item.slug)}>
+                    <div>{item.title}</div>
+                    {item.subtitle &&
+                        <div>{item.subtitle}</div>
+                    }
+                </li>
             )
         })
         return ul;
