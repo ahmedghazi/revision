@@ -70,7 +70,7 @@ class Menu extends Component {
                                         <div className="h1 fm">{options.title}</div>
                                         <div className="date" dangerouslySetInnerHTML={{ __html: options.date.childMarkdownRemark.html }} />
                                     </div>
-                                    <nav className="main-nav">
+                                    <nav className="main-nav fm">
                                         <ul>
                                             {menu.nav.map((li,key) => {
                                                 {if(li.slug){
@@ -90,7 +90,7 @@ class Menu extends Component {
                                     </nav>
                                 </div>
                                 
-                                <ul className="links small fs">
+                                <ul className="links small fxs">
                                     {menu.links.map((li,key) => {
                                         return(
                                             <li key={key}>

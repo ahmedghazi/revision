@@ -81,6 +81,7 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 		height: 100%;
 		line-height: 100%;
 		height: 35vh;
+		max-height: 25vw;
 		@include flex_center_h_v();
 	}
 

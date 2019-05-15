@@ -69,7 +69,7 @@ class MenuIndex extends Component {
         //const k = "T"
         //console.log(index)
         return (
-            <div className="menu-index fs">
+            <div className="menu-index fxs">
                 {Object.keys(index).map((key, index) => (
                     <div key={key} className="index-item">
                         <div className="index">{key}</div>
