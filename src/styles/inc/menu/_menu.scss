@@ -23,6 +23,9 @@
         //pointer-events: none;
         cursor: pointer;
     }
+    a:hover{
+        color: $color2;
+    }
     .menu{
         @include anime(.6s, .1s);
         left: 0; top: 0;
@@ -75,11 +78,11 @@
         
             .item{
                 position: absolute;
-                background: white;
+                background: $color3;
                 width: 50px; height: 30px;
                 border: 1px solid black;
                 cursor: pointer;
-                &:hover{opacity: .7;}
+                &:hover{background: $color2;}
             }
             
         }
