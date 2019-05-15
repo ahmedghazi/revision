@@ -58,7 +58,7 @@ class Menu extends Component {
             menu, 
             tiles
         } = this.props
-
+console.log(menu)
         return (
             <div className={"menu-wrap "+menuClass}>
                 <div className={"menu"}>
@@ -103,11 +103,27 @@ class Menu extends Component {
                                         )
                                     })}
                                 </ul>
+
+                                <ul className="bottom social small fs">
+                                    {menu.social.map((li,key) => {
+                                        return(
+                                            <li key={key}>
+                                                <a 
+                                                href={li.url}
+                                                rel="noopener noreferrer"
+                                                target="_blank"
+                                                title={li.label}
+                                                >
+                                                <strike>{li.label}</strike>
+                                                <div className={"icon icon-notion "+li.service}></div>
+                                                </a>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
                             </div>
                         </div>
-                        <div className="hidden-xs col-md-4">
-                            
-                        </div>
+                        <div className="hidden-xs col-md-4"></div>
                         <div className="col-xs-6 col-md-4">
                             <MenuIndex data={tiles} />
                         </div>

@@ -41,16 +41,23 @@
         .naviguation{
             @include flexbox();
             @include flex-direction(column);
-            @include justify-content(space-between);
+            //@include justify-content(space-between);
             height: 100%;
+            .header,
+            .main-nav{margin-bottom: 2em;}
         }
 
         .header{
-            margin-bottom: 2em;
+            
             .date{white-space: pre}
         }
-        nav{
-            
+        
+        .social{
+            @include flexbox();
+            a{
+                padding-right: $margeS;
+                display: block;
+            }
         }
         
         

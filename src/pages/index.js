@@ -114,6 +114,11 @@ export const query = graphql `
           label
           url
         }
+        social{
+          label
+          url
+          service
+        }
       }
       
       allContentfulTile(sort: {fields: hierarchy}) {
