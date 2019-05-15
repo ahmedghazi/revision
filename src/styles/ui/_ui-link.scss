@@ -24,3 +24,12 @@
         @include justify-content(space-between)
     }
 }
+
+@media all and (max-width:767px){
+    .ui-link{
+        height: 100%;
+        @include flexbox();
+        @include flex-direction(column);
+        @include justify-content(space-between)
+    }
+}
