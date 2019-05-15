@@ -11,7 +11,7 @@
 }
 
 .gradient-texte{
-	display: inline-block;
+	display: block;
 	&:after{
 		content: "";
 		position: absolute; right: 0;
