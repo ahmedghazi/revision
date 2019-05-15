@@ -133,9 +133,9 @@ class Menu extends Component {
                 </div>
                 <MenuMiniMap data={tiles} menuClass={menuClass} />
                 <ThreeWrapper 
-                src={'3d/v3/Pill.obj'}
-                mtl={'3d/v3/Pill.mtl'}
-                texPath="3d/v3/" 
+                src={'3d/v4/Pill_001.obj'}
+                mtl={'3d/v4/Pill_001.mtl'}
+                texPath="3d/v4/" 
                 />
                 
             </div>
