@@ -26,11 +26,13 @@ class Menu extends Component {
 
         document.addEventListener('keyup', e => {
             const key = e.key || e.keyCode;
+            //console.log(key)
             switch(key){
                 case "Escape":
                     this.setState({
                         menuClass: ''
                     })
+                    PubSub.publish('MENU', {open: false})
                 break;
 
                 default:
@@ -58,7 +60,7 @@ class Menu extends Component {
             menu, 
             tiles
         } = this.props
-console.log(menu)
+//console.log(menu)
         return (
             <div className={"menu-wrap "+menuClass}>
                 <div className={"menu"}>
