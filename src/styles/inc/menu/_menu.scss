@@ -6,7 +6,12 @@
             opacity: 1;
             transform: scale(1);
         }
-        #obj3d{display: none}
+        #obj3d{
+            //display: none;
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+        }
         .mini-map-wrap{
             transform: translate(-50%, -50%) scale(.85);
             opacity:1;
@@ -17,12 +22,7 @@
     #obj3d{
         position: fixed;
     }
-    #obj3d{
-        left: 50%; top: 50%;
-        transform: translate(-50%, -50%);
-        //pointer-events: none;
-        cursor: pointer;
-    }
+    
     a:hover{
         color: $color2;
     }
@@ -95,6 +95,20 @@
             border-radius: 100%;
             background: greenyellow;
         }
+    }
+}
+
+#obj3d{
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    //pointer-events: none;
+    cursor: pointer;
+    @include anime();
+}
+.loading{
+    #obj3d{
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
     }
 }
 

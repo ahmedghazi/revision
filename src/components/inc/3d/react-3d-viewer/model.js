@@ -136,7 +136,6 @@ class Model extends React.Component{
   }
  
   render(){
-
     var {lights} = this.state;
     return (
       <div  ref={node=>this.$container=node} data-loader={this.props.loader} 
@@ -172,6 +171,7 @@ class Model extends React.Component{
 
  
   componentDidUpdate(){
+    console.log(this.props)
     if(!this.obj3d) return false
 
     var {src,background,width,height} = this.props;

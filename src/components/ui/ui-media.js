@@ -35,7 +35,7 @@ class Media extends Component {
                 }
                 <div className="gradient-overlay"></div>
 
-                {data.video !== "" &&
+                {data.video !== null &&
                     <div 
                     className="btn btn-small btn-video btn-white" 
                     onClick={this._handleVideo}>PLAY</div>

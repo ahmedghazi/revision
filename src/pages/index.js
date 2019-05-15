@@ -15,25 +15,32 @@ class Index extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mainClass: 'landing-page',
+          bodyClass: 'loading',
+          mainClass: ''
         }
 
     }
 
     componentDidMount() {
-        // PubSub.subscribe('EVT', (e, d) => {
-        // })
-        PubSub.subscribe("MENU", (e,d) => {
-          const tilesClass = d.open ? 'is-menu' : ''
+      PubSub.subscribe("3D_LOADED", (e,d) => {
+        setTimeout(() => {
           this.setState({
-            mainClass: tilesClass
+            bodyClass: ''
           })
+        }, 250)
+      });
+
+      PubSub.subscribe("MENU", (e,d) => {
+        const tilesClass = d.open ? 'is-menu' : ''
+        this.setState({
+          mainClass: tilesClass
+      })
 
       })
     }
 
     render() {
-        const {mainClass} = this.state
+        const {bodyClass, mainClass} = this.state
         const {
           contentfulOptions,
           contentfulMenu,
@@ -62,6 +69,8 @@ class Index extends React.Component {
                   <meta property="og:title" content={contentfulOptions.title} />
                   <meta property="og:description" content={contentfulOptions.description} />
                   <meta property="og:image" content="" />
+
+                  <body className={bodyClass} />
               </Helmet>
 
               <div className="tiles-wrap">
