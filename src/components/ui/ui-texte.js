@@ -8,7 +8,7 @@ class Texte extends Component {
             data
         } = this.props
 //console.log(data)
-        const numLines = data.size == '1/4' ? 6 : 9
+        const numLines = data.size === '1/4' ? 6 : 9
         return (
             <div className="ui-texte">
                 {data.texte !== "" &&

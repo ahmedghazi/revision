@@ -1,3 +1,4 @@
+/* eslint-disable */
 export {default as Model} from './model'
 export {default as JSONModel} from './json_model'
 export {default as OBJModel} from './obj_model'

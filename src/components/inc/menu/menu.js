@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
-//import Obj3d from './obj3d'
+//import Obj3d from '../3d/obj3d'
 import ThreeWrapper from '../3d/ThreeWrapper'
+//import Gltf from '../3d/gltf'
 import MenuMiniMap from './menu-mini-map'
 import MenuIndex from './menu-index'
 
@@ -160,10 +161,15 @@ class Menu extends Component {
                 </div>
                 <MenuMiniMap data={tiles} menuClass={menuClass} />
                 <ThreeWrapper 
-                src={'3d/v4/Pill_001.obj'}
-                mtl={'3d/v4/Pill_001.mtl'}
-                texPath="3d/v4/" 
+                    src={'3d/v4/Pill_001.obj'}
+                    mtl={'3d/v4/Pill_001.mtl'}
+                    texPath="3d/v4/" 
                 />
+                {/* <Obj3d
+                    src={'3d/gltf/Duck.gltf'}
+                    //mtl={'3d/v4/Pill_001.mtl'}
+                    texPath="3d/gltf/" 
+                /> */}
                 
             </div>
         );

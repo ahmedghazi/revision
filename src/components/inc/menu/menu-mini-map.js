@@ -113,7 +113,6 @@ class MenuMiniMap extends Component {
     }
 
     _menuMouseEnter(slug){
-        console.log(slug)
         PubSub.publish('MENU_HOVER_IN', {slug: slug})
     }
 
