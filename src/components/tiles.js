@@ -98,6 +98,7 @@ class Tiles extends Component {
     }
 
     _renderSpiral(){
+        if(window.innerWidth <= 768)return
         const {
             winWidth,
             winHeight

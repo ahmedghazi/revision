@@ -121,6 +121,17 @@
 }
 
 @media all and (max-width:767px){
+    .menu-wrap .menu{
+        height: 100vh;
+        overflow: hidden;
+        overflow-y: auto;
+        padding: $margeXS;
+        .naviguation{
+            min-height: 90vh;
+            margin-bottom: $fontL;
+        }
+        .menu-index{margin-top: $fontL;}
+    }
     .mini-map-wrap{
         display: none;
     }

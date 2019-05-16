@@ -35,8 +35,10 @@ main{
 .hidden-m{display: none}
 
 @media all and (max-width:767px){
-    body{
-        scroll-snap-type: unset;
+    html{
+        body{
+            scroll-snap-type: unset;
+        }
     }
     .hidden-xs{display: none}
     .hidden-m{display: block}

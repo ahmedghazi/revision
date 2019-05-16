@@ -64,6 +64,7 @@ html,body{
 @media all and (max-width:767px){
     .tile{
         min-height: 200vh;
+        position: initial;
         //min-width: 200vw;
         &.tile-4{
             grid-template-columns: 100%;
