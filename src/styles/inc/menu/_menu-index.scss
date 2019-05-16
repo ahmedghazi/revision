@@ -5,6 +5,8 @@
         .index{margin-bottom: $margeXS}
         li{
             cursor: pointer;
+            @include anime();
+            &.inactive{opacity: .3;}
             h3{text-transform: uppercase}
         }
     }

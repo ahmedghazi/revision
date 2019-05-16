@@ -171,7 +171,7 @@ class Model extends React.Component{
 
  
   componentDidUpdate(){
-    console.log(this.props)
+    //console.log(this.props)
     if(!this.obj3d) return false
 
     var {src,background,width,height} = this.props;

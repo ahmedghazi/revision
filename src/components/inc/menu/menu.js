@@ -37,8 +37,24 @@ class Menu extends Component {
 
                 default:
                 break;
-            }
-            
+            }  
+        })
+
+        PubSub.subscribe("MENU_HOVER_OUT", (e,d) => {
+            const items = document.querySelectorAll(".main-nav a")
+            items.forEach(element => {
+                element.classList.remove("inactive")
+            })
+        })
+
+        PubSub.subscribe("MENU_HOVER_IN", (e,d) => {
+            const slug = d.slug
+            const items = document.querySelectorAll(".main-nav a")
+            items.forEach(element => {
+                element.classList.add("inactive")
+            })
+            if(document.querySelector(".main-nav a[data-slug="+slug+"]"))
+                document.querySelector(".main-nav a[data-slug="+slug+"]").classList.remove("inactive")
         })
     }
 
@@ -51,6 +67,14 @@ class Menu extends Component {
         PubSub.publish('TILE', {tile: tile})
 
         PubSub.publish('MENU', {open: false})
+    }
+
+    _menuMouseEnter(slug){
+        PubSub.publish('MENU_HOVER_IN', {slug: slug})
+    }
+
+    _menuMouseLeave(){
+        PubSub.publish('MENU_HOVER_OUT')
     }
 
     render() {
@@ -80,6 +104,9 @@ class Menu extends Component {
                                                     
                                                         <li key={key}>
                                                             <a 
+                                                            onMouseEnter={() => this._menuMouseEnter(li.slug)}
+                                                            onMouseLeave={() => this._menuMouseLeave()}
+                                                            data-slug={li.slug}
                                                             href={"#"+li.slug}
                                                             rel="noopener noreferrer"
                                                             onClick={(e)=> this._menuClick(e)}>{li.title}</a>

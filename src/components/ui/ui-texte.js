@@ -7,12 +7,13 @@ class Texte extends Component {
         const {
             data
         } = this.props
-//console.log(data.texte.childMarkdownRemark.html)
+//console.log(data)
+        const numLines = data.size == '1/4' ? 6 : 9
         return (
             <div className="ui-texte">
                 {data.texte !== "" &&
                     <Truncate className="texte" 
-                    lines={9}
+                    lines={numLines}
                     trimWhitespace={true}
                     ellipsis={<span>...</span>}>
                         <div  dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />

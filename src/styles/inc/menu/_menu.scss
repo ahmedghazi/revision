@@ -23,6 +23,7 @@
         position: fixed;
     }
     
+    a{@include anime(.1s, 0s);}
     a:hover{
         color: $color2;
     }
@@ -50,6 +51,9 @@
             .main-nav{margin-bottom: 2em;}
             .main-nav{
                 //a {text-transform: capitalize;}
+                .inactive{
+                    opacity: .3;
+                }
             }
         }
 
@@ -79,12 +83,14 @@
         .mini-map{
         
             .item{
+                @include anime();
                 position: absolute;
                 background: $color3;
                 width: 50px; height: 30px;
                 border: 1px solid black;
                 cursor: pointer;
                 &:hover{background: $color2;}
+                &.inactive{opacity: .3;}
             }
             
         }

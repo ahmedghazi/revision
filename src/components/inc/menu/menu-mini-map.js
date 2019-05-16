@@ -32,6 +32,22 @@ class MenuMiniMap extends Component {
             this.refs.here.style.top = y+"px"
             this.refs.here.style.transform = 'translate('+(this.itemWidth/2)+'px, '+(this.itemHeight/2)+'px)'
         })
+
+        PubSub.subscribe("MENU_HOVER_OUT", (e,d) => {
+            const items = document.querySelectorAll(".mini-map .item")
+            items.forEach(element => {
+                element.classList.remove("inactive")
+            })
+        })
+
+        PubSub.subscribe("MENU_HOVER_IN", (e,d) => {
+            const slug = d.slug
+            const items = document.querySelectorAll(".mini-map .item")
+            items.forEach(element => {
+                element.classList.add("inactive")
+            })
+            document.querySelector(".mini-map .item[data-slug="+slug+"]").classList.remove("inactive")
+        })
     }
 
     _onResize(){
@@ -96,7 +112,14 @@ class MenuMiniMap extends Component {
         }
     }
 
-    
+    _menuMouseEnter(slug){
+        console.log(slug)
+        PubSub.publish('MENU_HOVER_IN', {slug: slug})
+    }
+
+    _menuMouseLeave(){
+        PubSub.publish('MENU_HOVER_OUT')
+    }
 
     render() {
         const {data} = this.props
@@ -109,7 +132,11 @@ class MenuMiniMap extends Component {
                         className="item"
                         key={key} 
                         index={key} 
+                        data-slug={node.slug}
                         onClick={() => this._onClick(node.slug)}
+                        onMouseEnter={() => this._menuMouseEnter(node.slug)}
+                        onMouseLeave={() => this._menuMouseLeave()}
+
                         />
                     ))}
 
