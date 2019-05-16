@@ -69,13 +69,16 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 		border-color: $color1;
 	}
 	&.btn-small{
-		padding: 1.5vh 3.5vh;
+		//padding: 1.5vh 3.5vh;
 		height: 13.5vh;
 		//line-height: 5vh; 
-		line-height: 13.5vh;
+		//line-height: 13.5vh;
 		padding-top: 0;
 		padding-bottom: 0;
 		text-align: center;
+		line-height: 14vh;
+		line-height: 13vh;
+		padding: 0 4.9vh;
 	}
 	&.btn-large{
 		width: 100%;
