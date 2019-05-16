@@ -88,10 +88,11 @@ class Tiles extends Component {
     }
 
     _onResize(){
+        const winWidth = window.innerWidth <= 768 ? window.innerWidth*2 : window.innerWidth
         this.setState({
             docWidth: document.innerWidth,
             docHeight: document.innerHeight,
-            winWidth: window.innerWidth,
+            winWidth: winWidth,
             winHeight: window.innerHeight
         }, () => this._renderSpiral())
     }

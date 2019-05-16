@@ -48,10 +48,12 @@
             height: 100%;
             .header,
             .main-nav{margin-bottom: 2em;}
+            .main-nav{
+                //a {text-transform: capitalize;}
+            }
         }
 
         .header{
-            
             .date{white-space: pre}
         }
         

@@ -1,7 +1,11 @@
 .menu-index{
+    h2{margin-bottom: $margeS;}
     .index-item{
         margin-bottom: $margeS;
         .index{margin-bottom: $margeXS}
-        li{cursor: pointer;}
+        li{
+            cursor: pointer;
+            h3{text-transform: uppercase}
+        }
     }
 }

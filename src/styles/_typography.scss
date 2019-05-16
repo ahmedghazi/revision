@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
 
 @font-face {
 	font-family: 'BasierCircle-Regular';
@@ -14,11 +15,14 @@ body {
 	font-size: $fontS;
 	line-height: $fontSLh; 
 }
-
+small,.small{
+	//font-family: $fontSecondary;
+}
 
 .fxs{
 	font-size: $fontXs;
 	line-height: $fontXsLh; 
+	font-family: $fontSecondary;
 }
 .fs{
 	font-size: $fontS;

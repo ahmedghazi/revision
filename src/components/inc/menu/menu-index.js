@@ -39,9 +39,10 @@ class MenuIndex extends Component {
         const ul = index[key].map( (item, _key) => {
             return (
                 <li 
+                className="menu-index fxs"
                 key={key}
                 onClick={() => this._onClick(item.slug)}>
-                    <div>{item.title}</div>
+                    <h3 className="fxs">{item.title}</h3>
                     {item.subtitle &&
                         <div>{item.subtitle}</div>
                     }
@@ -69,10 +70,11 @@ class MenuIndex extends Component {
         //const k = "T"
         //console.log(index)
         return (
-            <div className="menu-index fxs">
+            <div className="menu-index fs">
+                <h2 className="fs">INDEX</h2>
                 {Object.keys(index).map((key, index) => (
                     <div key={key} className="index-item">
-                        <div className="index">{key}</div>
+                        <div className="index fs">{key}</div>
                         <ul>
                             {this._renderIndexListLetter(key)}
                             {/* {index[key].map( (item, _key) => (
