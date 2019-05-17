@@ -44,7 +44,9 @@ class Tiles extends Component {
             const left = (x*winWidth) + parseFloat(wrapTranslate[4])
             const top = (y*winHeight) + parseFloat(wrapTranslate[5])
 
-            document.body.scrollTo(left, top)
+            setTimeout(() => {
+                document.body.scrollTo(left, top)
+            }, 600)
         })
 
         

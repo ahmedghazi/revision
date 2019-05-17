@@ -4,8 +4,9 @@ html{
     body{
         &.loading{
             //opacity: 0;
-            scroll-behavior: smooth;
+            
         }
+        scroll-behavior: smooth;
         //
         overflow: scroll;
         height: 100vh;
