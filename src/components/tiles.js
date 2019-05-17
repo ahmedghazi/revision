@@ -103,6 +103,7 @@ class Tiles extends Component {
             winWidth,
             winHeight
         } = this.state;
+        const isMobile = winWidth <= 768
 
         const tilesWrap = document.querySelector(".tiles")
         const tiles = document.querySelectorAll(".tile")
@@ -114,27 +115,14 @@ class Tiles extends Component {
         tiles.forEach((tile,idx) => {
             
             if(idx === 0)first = tile
-
+//console.log(tile)
+            //if(isMobile)
             const pos = spiral(idx)
             const left = pos[0] * (winWidth/1)
             const top = pos[1] * (winHeight/1)
             tile.style.transform = 'translate('+left+'px, '+top+'px)'
             tile.dataset.x = pos[0]
             tile.dataset.y = pos[1]
-            // if(left < 0){
-            //     const _left = Math.abs(left)
-            //     tilesWrap.style.transform = 'translateX('+_left+'px)'
-            // }
-
-            // if(top < 0){
-            //     const _top = Math.abs(top)
-            //     tilesWrap.style.transform = 'translateY('+_top+'px)'
-            // }
-            // if(left < 0 && top < 0){
-            //     const _left = Math.abs(left)
-            //     const _top = Math.abs(top)
-            //     tilesWrap.style.transform = 'translate('+_left+'px, '+_top+'px)'
-            // }
             
             if(left < 0 && translateX !== left){
                 const _left = Math.abs(left)
@@ -151,9 +139,11 @@ class Tiles extends Component {
         
 
         setTimeout(() => {
-            var pos = first.getBoundingClientRect()
-            document.body.scrollTo(pos.left, pos.top)
-
+            if(!window.location.hash){
+                var pos = first.getBoundingClientRect()
+                document.body.scrollTo(pos.left, pos.top)
+            }
+            
             this.setState({
                 docWidth: document.body.scrollWidth,
                 docHeight: document.body.scrollHeight,
