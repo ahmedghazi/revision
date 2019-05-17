@@ -20,6 +20,8 @@ class ThreeWrapper extends Component {
                 height: '150'
             })
         }else{
+            // const w = (10 * window.innerHeight) / 100
+            // const h = (4 * window.innerHeight) / 100
             this.setState({
                 width: '300',
                 height: '300'
@@ -39,8 +41,7 @@ class ThreeWrapper extends Component {
         //console.log(width, height)
         const {src, mtl, texPath} = this.props
         return (
-            <div id="obj3d"
-            onClick={() => this._onClick()}>
+            <div id="obj3d">
                 <Model 
                     width={width} height={height}
                     // position={{x:1.5,y:0,z:0}} 
@@ -50,6 +51,9 @@ class ThreeWrapper extends Component {
                     mtl={mtl}
                     texPath={texPath}
                     onLoad={this._onLoad} />
+                <div 
+                className="obj3d-btn"
+                onClick={() => this._onClick()}></div>
             </div>
         );
     }

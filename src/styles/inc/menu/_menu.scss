@@ -109,9 +109,19 @@
 #obj3d{
     left: 50%; top: 50%;
     transform: translate(-50%, -50%) scale(1);
-    //pointer-events: none;
-    cursor: pointer;
+    pointer-events: none;
+    
     @include anime();
+    .obj3d-btn{
+        cursor: pointer;
+        pointer-events: auto;
+        width: 4vw;
+        height: 10vh;
+        //background: red;
+        position: absolute;
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 .loading{
     #obj3d{
