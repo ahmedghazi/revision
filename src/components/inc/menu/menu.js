@@ -144,8 +144,7 @@ class Menu extends Component {
                                                 target="_blank"
                                                 title={li.label}
                                                 >
-                                                <strike>{li.label}</strike>
-                                                <div className={"icon icon-notion "+li.service}></div>
+                                                <div className={"icon icon-"+li.service}></div>
                                                 </a>
                                             </li>
                                         )
