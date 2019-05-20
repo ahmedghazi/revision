@@ -40,6 +40,9 @@ class Media extends Component {
                     className="btn btn-small btn-video btn-white" 
                     onClick={this._handleVideo}>PLAY</div>
                 }
+                <div 
+                    className="btn btn-small btn-video btn-white" 
+                    onClick={this._handleVideo}>PLAY</div>
 
                 <div className="bottom fs ">
                     <div className="inner">
