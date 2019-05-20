@@ -58,7 +58,19 @@ class MenuMiniMap extends Component {
     }
 
     _filterTilesByViewPort(){
-        
+        const isMobile = window.innerWidth <= 768
+        const tiles = document.querySelectorAll(".mini-map .item")
+        tiles.forEach((tile,idx) => {
+            if(isMobile){
+                if(tile.classList.contains("md-only")){
+                    tile.parentNode.removeChild(tile);
+                }
+            }else{
+                if(tile.classList.contains("xs-only")){
+                    tile.parentNode.removeChild(tile);
+                }
+            }
+        })
     }
 
     _renderSpiral(){
@@ -125,15 +137,27 @@ class MenuMiniMap extends Component {
         PubSub.publish('MENU_HOVER_OUT')
     }
 
+    _renderClassName(node){
+        //console.log(node.display)
+        const xsOnly = node.display == "Mobile" ? "xs-only" : ""
+        const mdOnly = node.display == "Desktop" ? "md-only" : ""
+
+        return xsOnly+' '+mdOnly;
+    }
+
     render() {
         const {data} = this.props
+        /*
+        const xsOnly = data.display == "Mobile" ? "xs-only" : ""
+        const mdOnly = data.display == "Desktop" ? "md-only" : ""
+        */
         return (
             <div className="mini-map-wrap">
                 <div className="mini-map">
-
+           
                     {data.map(({node},key) => (
                         <div 
-                        className="item"
+                        className={"item "+this._renderClassName(node)}
                         key={key} 
                         index={key} 
                         data-slug={node.slug}

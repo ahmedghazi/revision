@@ -86,7 +86,7 @@ class Tile extends Component {
         //console.log(data.subtitle)
         const xsOnly = data.display == "Mobile" ? "xs-only" : ""
         const mdOnly = data.display == "Desktop" ? "md-only" : ""
-        console.log(data.display)
+        //console.log(data.display)
         return (
             <div 
             id={data.slug} 

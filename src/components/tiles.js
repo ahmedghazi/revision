@@ -100,6 +100,22 @@ class Tiles extends Component {
         }, () => this._renderSpiral())
     }
 
+    _filterTilesByViewPort(){
+        const isMobile = window.innerWidth <= 768
+        const tiles = document.querySelectorAll(".tile")
+        tiles.forEach((tile,idx) => {
+            if(isMobile){
+                if(tile.classList.contains("md-only")){
+                    tile.parentNode.removeChild(tile);
+                }
+            }else{
+                if(tile.classList.contains("xs-only")){
+                    tile.parentNode.removeChild(tile);
+                }
+            }
+        })
+    }
+    
     _renderSpiral(){
         if(window.innerWidth <= 768)return
         const {
@@ -158,21 +174,7 @@ class Tiles extends Component {
         }, 150)
     }
 
-    _filterTilesByViewPort(){
-        const isMobile = window.innerWidth <= 768
-        const tiles = document.querySelectorAll(".tile")
-        tiles.forEach((tile,idx) => {
-            if(isMobile){
-                if(tile.classList.contains("md-only")){
-                    tile.parentNode.removeChild(tile);
-                }
-            }else{
-                if(tile.classList.contains("xs-only")){
-                    tile.parentNode.removeChild(tile);
-                }
-            }
-        })
-    }
+    
 
     render() {
         const {data} = this.props;
