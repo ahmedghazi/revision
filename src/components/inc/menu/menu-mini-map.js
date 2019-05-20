@@ -11,6 +11,7 @@ class MenuMiniMap extends Component {
     }
 
     componentDidMount(){
+        this._filterTilesByViewPort()
         this._onResize()
         document.addEventListener("resize", this._onResize)       
   
@@ -54,6 +55,10 @@ class MenuMiniMap extends Component {
    
         this._renderSpiral()
         this._handleHereIAm()
+    }
+
+    _filterTilesByViewPort(){
+        
     }
 
     _renderSpiral(){

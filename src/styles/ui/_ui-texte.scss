@@ -5,15 +5,17 @@
 }
 .tile-quarter{
     .texte{
-        max-height: calc(4 * #{$fontLLh});
-        overflow: hidden;
+        // max-height: calc(4 * #{$fontLLh});
+        // overflow: hidden;
+        font-size: $fontM;
+        line-height: $fontMLh; 
     }
 }
 .tile-half{
     .texte{
         font-size: $fontL;
         line-height: $fontLLh; 
-        max-height: calc(9 * #{$fontLLh});
-        overflow: hidden;
+        // max-height: calc(9 * #{$fontLLh});
+        // overflow: hidden;
     }
 }

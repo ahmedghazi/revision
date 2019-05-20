@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import People from "./people"
-import Truncate from 'react-truncate';
+//import Truncate from 'react-truncate';
+import Truncate from 'react-clamp'
 
 class Texte extends Component {
     render() {
@@ -18,9 +19,12 @@ class Texte extends Component {
                     // ellipsis={<span>...</span>}>
                         
                     // </Truncate>
-                    <div 
-                    className="texte" 
-                    dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
+                    <Truncate clamp={numLines} className="texte">
+                        <div 
+                        dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
+                    </Truncate>
+
+                    
                 }   
                 {data.people !== null &&
                     <People data={data.people} />
