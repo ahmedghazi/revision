@@ -56,7 +56,8 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 .btn{
 	//border: $borderHeight solid;
 	color: $color1;
-	border: $border;
+	//border: $border;
+	border: calc(#{$borderHeight} * 1.2) solid;
 	border-color: $color1;
 	//border-style: inset;
 	font-size: $fontL;

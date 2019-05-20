@@ -137,6 +137,7 @@ export const query = graphql `
             subtitle
             slug
             hierarchy
+            display
             postTiles {
               __typename
               ... on Node {
