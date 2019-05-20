@@ -12,12 +12,15 @@ class Texte extends Component {
         return (
             <div className="ui-texte">
                 {data.texte !== "" &&
-                    <Truncate className="texte" 
-                    lines={numLines}
-                    trimWhitespace={true}
-                    ellipsis={<span>...</span>}>
-                        <div  dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
-                    </Truncate>
+                    // <Truncate className="texte" 
+                    // lines={numLines}
+                    // trimWhitespace={true}
+                    // ellipsis={<span>...</span>}>
+                        
+                    // </Truncate>
+                    <div 
+                    className="texte" 
+                    dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
                 }   
                 {data.people !== null &&
                     <People data={data.people} />

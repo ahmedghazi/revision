@@ -3,9 +3,17 @@
         margin-bottom: calc(3.5vh / 2);
     }
 }
+.tile-quarter{
+    .texte{
+        max-height: calc(4 * #{$fontLLh});
+        overflow: hidden;
+    }
+}
 .tile-half{
     .texte{
         font-size: $fontL;
-	    line-height: $fontLLh; 
+        line-height: $fontLLh; 
+        max-height: calc(9 * #{$fontLLh});
+        overflow: hidden;
     }
 }
