@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import {StaticQuery, graphql} from 'gatsby';
+import Truncate from 'react-clamp'
 
 class Headline extends Component {
     render() {
         const {data} = this.props
         //console.log(data)
+        const numLines = 5
+
         return (
             <div className="ui-headline">
             
                 <div className="top fm">
                     <h2 className="fl" dangerouslySetInnerHTML={{ __html: data.title }} />
                     {data.texte !== null &&
-                        <div className="texte fl" dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
+                        // <div className="texte fl" dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
+                        <Truncate clamp={numLines} className="texte fl">
+                            <div 
+                            dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
+                        </Truncate>
                     }  
                 </div>
                 <div className="bottom">
