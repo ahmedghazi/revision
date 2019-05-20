@@ -24,6 +24,7 @@ class Tiles extends Component {
     }
 
     componentDidMount(){
+        this._filterTilesByViewPort()
         this._onResize()
         //document.addEventListener("resize", this._onResize)      
         document.body.addEventListener("scroll", this._onScroll)    
@@ -109,6 +110,7 @@ class Tiles extends Component {
 
         const tilesWrap = document.querySelector(".tiles")
         const tiles = document.querySelectorAll(".tile")
+        
         let first = ''
 
         let translateX = 0
@@ -137,6 +139,7 @@ class Tiles extends Component {
             }
         })
         tilesWrap.style.transform = 'translate('+translateX+'px, '+translateY+'px)'
+        tilesWrap.style.opacity = 1
         //console.log(document.body.scrollWidth, document.body.scrollHeight)
         
 
@@ -153,6 +156,22 @@ class Tiles extends Component {
             })
         
         }, 150)
+    }
+
+    _filterTilesByViewPort(){
+        const isMobile = window.innerWidth <= 768
+        const tiles = document.querySelectorAll(".tile")
+        tiles.forEach((tile,idx) => {
+            if(isMobile){
+                if(tile.classList.contains("md-only")){
+                    tile.parentNode.removeChild(tile);
+                }
+            }else{
+                if(tile.classList.contains("xs-only")){
+                    tile.parentNode.removeChild(tile);
+                }
+            }
+        })
     }
 
     render() {

@@ -90,7 +90,7 @@ class Tile extends Component {
         return (
             <div 
             id={data.slug} 
-            className={"tile tile-"+data.postTiles.length}
+            className={"tile tile-"+data.postTiles.length+" "+mdOnly+" "+xsOnly}
             data-title={data.title} 
             data-subtitle={data.subtitle}>
                 {data.postTiles.map((tile, key) => (

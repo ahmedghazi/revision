@@ -20,11 +20,11 @@ class ThreeWrapper extends Component {
                 height: '150'
             })
         }else{
-            // const w = (10 * window.innerHeight) / 100
-            // const h = (4 * window.innerHeight) / 100
+            const w = (15 * window.innerHeight) / 100
+            const h = (4 * window.innerHeight) / 100
             this.setState({
-                width: '300',
-                height: '300'
+                width: w,
+                height: w
             })
         }
     }

@@ -9,9 +9,9 @@ class Headline extends Component {
             <div className="ui-headline">
             
                 <div className="top fm">
-                    <h2 className="fm" dangerouslySetInnerHTML={{ __html: data.title }} />
+                    <h2 className="fl" dangerouslySetInnerHTML={{ __html: data.title }} />
                     {data.texte !== null &&
-                        <div className="texte fm" dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
+                        <div className="texte fl" dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
                     }  
                 </div>
                 <div className="bottom">
