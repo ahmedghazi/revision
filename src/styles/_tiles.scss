@@ -67,7 +67,8 @@ html,body{
             //top: 0; left: 0;
         }
         & > div{z-index: 1;}
-        border: $borderHeight/2 solid;
+        //border: $borderHeight/2 solid;
+        border: 2px solid;
         //margin: 1.4vh;
         //margin: $borderHeight/2;
         &.nopad{
@@ -79,6 +80,27 @@ html,body{
             padding-bottom: 0;
         }
     }
+}
+
+@media all and (min-height:250px){
+    .tile{.tile-item{border: 1px solid;}}
+    .btn{border: 2px solid}
+}
+@media all and (min-height:768px){
+    .tile{.tile-item{border: 2px solid;}}
+    .btn{border: 4px solid}
+}
+// @media all and (min-height:1000px){
+//     .tile{.tile-item{border: 2px solid;}}
+//     .btn{border: 4px solid}
+// }
+@media all and (min-height:1500px){
+    .tile{.tile-item{border: 3px solid;}}
+    .btn{border: 6px solid}
+}
+@media all and (min-height:2000px){
+    .tile{.tile-item{border: 8px solid;}}
+    .btn{border: 4px solid}
 }
 
 @media all and (max-width:767px){
