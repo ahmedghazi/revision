@@ -60,7 +60,7 @@ class Index extends React.Component {
                   <meta property="og:url" content="" />
                   <meta property="og:title" content={contentfulOptions.title} />
                   <meta property="og:description" content={contentfulOptions.description} />
-                  <meta property="og:image" content="" />
+                  <meta property="og:image" content={contentfulOptions.image.file.url} />
 
                   <meta name="twitter:card" content="summary_large_image" />
                   <meta name="twitter:site" content="@Revision_HQ" />
@@ -68,7 +68,7 @@ class Index extends React.Component {
                   <meta property="og:url" content="" />
                   <meta property="og:title" content={contentfulOptions.title} />
                   <meta property="og:description" content={contentfulOptions.description} />
-                  <meta property="og:image" content="" />
+                  <meta property="og:image" content={contentfulOptions.image.file.url} />
 
                   <body className={bodyClass} />
               </Helmet>
@@ -106,7 +106,7 @@ export const query = graphql `
             html
           }
         }
-        objFile{
+        image{
           file {
             url
           }
