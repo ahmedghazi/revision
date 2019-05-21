@@ -78,7 +78,6 @@ class Index extends React.Component {
                 data={allContentfulTile.edges} />
               </div>
               
-
               <Menu 
                 menu={contentfulMenu}
                 options={contentfulOptions}
@@ -118,6 +117,7 @@ export const query = graphql `
           title
           slug
           subtitle
+          display
         }
         links{
           label

@@ -14,6 +14,7 @@ class MenuIndex extends Component {
     componentDidMount(){
         const {data} = this.props
         let index = {}
+        const isMobile = window.innerWidth <= 768
         data.forEach(element => {
             if(element.node.title){
                 const firstCharTitle = element.node.title.charAt(0)
@@ -23,7 +24,13 @@ class MenuIndex extends Component {
                 }else{
                     arr = [element.node]
                 }
-                index[firstCharTitle] = arr
+                if(isMobile && element.node.display == "Desktop" 
+                || !isMobile && element.node.display == "Mobile"){
+
+                }else{
+                    index[firstCharTitle] = arr
+                }
+                
             }
             
         });
@@ -32,6 +39,7 @@ class MenuIndex extends Component {
         this.setState({
             index: index
         })
+        //this._filterByViewPort()
 
         PubSub.subscribe("MENU_HOVER_OUT", (e,d) => {
             const items = document.querySelectorAll(".menu-index")
@@ -51,7 +59,9 @@ class MenuIndex extends Component {
                 document.querySelector(".menu-index[data-slug="+slug+"]").classList.remove("inactive")
         })
     }
+
     
+
     _menuMouseEnter(slug){
         PubSub.publish('MENU_HOVER_IN', {slug: slug})
     }
@@ -65,7 +75,7 @@ class MenuIndex extends Component {
         const ul = index[key].map( (item, _key) => {
             return (
                 <li 
-                className="menu-index fxs"
+                className={"menu-index fxs "+this._renderClassName(item)}
                 key={key}
                 onClick={() => this._onClick(item.slug)}
                 onMouseEnter={() => this._menuMouseEnter(item.slug)}
@@ -89,6 +99,14 @@ class MenuIndex extends Component {
          
             PubSub.publish('MENU', {open: false})
         }
+    }
+
+    _renderClassName(node){
+        //console.log(node.display)
+        const xsOnly = node.display == "Mobile" ? "xs-only" : ""
+        const mdOnly = node.display == "Desktop" ? "md-only" : ""
+
+        return xsOnly+' '+mdOnly;
     }
 
     render() {

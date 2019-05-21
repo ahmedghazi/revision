@@ -47,12 +47,12 @@ class MenuMiniMap extends Component {
             items.forEach(element => {
                 element.classList.add("inactive")
             })
-            document.querySelector(".mini-map .item[data-slug="+slug+"]").classList.remove("inactive")
+            if(document.querySelector(".mini-map .item[data-slug="+slug+"]"))
+                document.querySelector(".mini-map .item[data-slug="+slug+"]").classList.remove("inactive")
         })
     }
 
     _onResize(){
-   
         this._renderSpiral()
         this._handleHereIAm()
     }
@@ -147,10 +147,7 @@ class MenuMiniMap extends Component {
 
     render() {
         const {data} = this.props
-        /*
-        const xsOnly = data.display == "Mobile" ? "xs-only" : ""
-        const mdOnly = data.display == "Desktop" ? "md-only" : ""
-        */
+    
         return (
             <div className="mini-map-wrap">
                 <div className="mini-map">

@@ -17,6 +17,8 @@ class Menu extends Component {
     }
 
     componentDidMount(){
+        this._filterByViewPort();
+        
         PubSub.subscribe("MENU", (e,d) => {
             const menuClass = d.open ? 'active' : ''
   
@@ -78,6 +80,30 @@ class Menu extends Component {
         PubSub.publish('MENU_HOVER_OUT')
     }
 
+    _filterByViewPort(){
+        const isMobile = window.innerWidth <= 768
+        const tiles = document.querySelectorAll(".main-nav li")
+        tiles.forEach((tile,idx) => {
+            console.log(tiles)
+            if(isMobile){
+                if(tile.classList.contains("md-only")){
+                    tile.parentNode.removeChild(tile);
+                }
+            }else{
+                if(tile.classList.contains("xs-only")){
+                    tile.parentNode.removeChild(tile);
+                }
+            }
+        })
+    }
+
+    _renderClassName(node){
+        const xsOnly = node.display == "Mobile" ? "xs-only" : ""
+        const mdOnly = node.display == "Desktop" ? "md-only" : ""
+
+        return xsOnly+' '+mdOnly;
+    }
+
     render() {
         const {menuClass} = this.state
         const {
@@ -102,8 +128,10 @@ class Menu extends Component {
                                             {menu.nav.map((li,key) => {
                                                 {if(li.slug){
                                                     return(
-                                                    
-                                                        <li key={key}>
+                                                        <li 
+                                                        key={key}
+                                                        className={this._renderClassName(li)}
+                                                        >
                                                             <a 
                                                             onMouseEnter={() => this._menuMouseEnter(li.slug)}
                                                             onMouseLeave={() => this._menuMouseLeave()}
