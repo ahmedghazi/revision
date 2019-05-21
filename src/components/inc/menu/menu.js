@@ -11,14 +11,14 @@ class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            menuClass: '',
+            menuClass: 'active',
         }
         this._menuClick = this._menuClick.bind(this)
     }
 
     componentDidMount(){
         this._filterByViewPort();
-        
+
         PubSub.subscribe("MENU", (e,d) => {
             const menuClass = d.open ? 'active' : ''
   

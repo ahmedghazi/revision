@@ -18,11 +18,11 @@ class MenuMiniMap extends Component {
         PubSub.subscribe("SCROLL_END", (e,d) => {
             const {scrollLeft, scrollTop} = d
             
-            const doc = document.querySelector(".tiles").getBoundingClientRect()
+            //const doc = document.querySelector(".tiles").getBoundingClientRect()
             //console.log(document.body.scrollWidth)
             const {scrollWidth, scrollHeight} = document.body
-            const percentX = (scrollWidth / scrollLeft)
-            const percentY = (scrollHeight / scrollTop)
+            // const percentX = (scrollWidth / scrollLeft)
+            // const percentY = (scrollHeight / scrollTop)
 
             var scrollPercentX = (scrollLeft) / (scrollWidth - 0) * 100;
             var scrollPercentY = (scrollTop) / (scrollHeight - 0) * 100;
@@ -32,6 +32,7 @@ class MenuMiniMap extends Component {
             this.refs.here.style.left = x+"px"
             this.refs.here.style.top = y+"px"
             this.refs.here.style.transform = 'translate('+(this.itemWidth/2)+'px, '+(this.itemHeight/2)+'px)'
+            this.refs.here.style.opacity = 1
         })
 
         PubSub.subscribe("MENU_HOVER_OUT", (e,d) => {
