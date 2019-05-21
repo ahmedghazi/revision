@@ -22,7 +22,7 @@ class LinkTexte extends Component {
                     {data.linkUrl !== "" &&
                         <div className="inner">
                             <div className="url">
-                                <div className=" fxs gradient-texte">{data.linkUrl}</div>
+                                <div className="anon fxs gradient-texte">{data.linkUrl}</div>
                                 <div className={"icon icon-"+data.service}></div>
                             </div>
                             <Btn 

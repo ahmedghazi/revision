@@ -18,11 +18,14 @@ body {
 small,.small{
 	//font-family: $fontSecondary;
 }
+.anon{
+	font-family: $fontSecondary;
+}
 
 .fxs{
 	font-size: $fontXs;
 	line-height: $fontXsLh; 
-	font-family: $fontSecondary;
+	//font-family: $fontSecondary;
 }
 .fs{
 	font-size: $fontS;

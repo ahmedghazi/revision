@@ -18,7 +18,7 @@ class Link extends Component {
                     size="large" />
 
                 <div className="url">
-                    <div className=" fxs gradient-texte">{url}</div>
+                    <div className="anon fxs gradient-texte">{url}</div>
                     <div className={"icon icon-"+service}></div>
                 </div>
                 

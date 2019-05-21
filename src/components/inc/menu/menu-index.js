@@ -75,7 +75,7 @@ class MenuIndex extends Component {
         const ul = index[key].map( (item, _key) => {
             return (
                 <li 
-                className={"menu-index fxs "+this._renderClassName(item)}
+                className={"menu-index fxs anon"+this._renderClassName(item)}
                 key={key}
                 onClick={() => this._onClick(item.slug)}
                 onMouseEnter={() => this._menuMouseEnter(item.slug)}
@@ -118,7 +118,7 @@ class MenuIndex extends Component {
         //const k = "T"
         //console.log(index)
         return (
-            <div className="menu-index fs">
+            <div className="menu-index fs ">
                 <h2 className="fs">INDEX</h2>
                 {Object.keys(index).map((key, index) => (
                     <div key={key} className="index-item">
