@@ -1,6 +1,9 @@
 .ui-texte{
     .texte{
         margin-bottom: calc(3.5vh / 2);
+        a{
+            text-decoration: underline!important;
+        }
     }
 }
 .tile-quarter{
