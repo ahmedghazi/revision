@@ -39,15 +39,26 @@ class Tiles extends Component {
             } = this.state;
 
             const {x,y} = d.tile.dataset
-            
-            const wrapTranslate = this._getComputedTranslateY()
-            
-            const left = (x*winWidth) + parseFloat(wrapTranslate[4])
-            const top = (y*winHeight) + parseFloat(wrapTranslate[5])
+            let left,top;
 
-            setTimeout(() => {
+            if(winWidth <= 768){
+                //console.log(d.tile.getBoundingClientRect().top)
+                //d.tile.scrollIntoView()
+                left = 0
+                top = d.tile.getBoundingClientRect().top
                 document.body.scrollTo(left, top)
-            }, 600)
+            }else{
+                const wrapTranslate = this._getComputedTranslateY()
+            
+                left = (x*winWidth) + parseFloat(wrapTranslate[4])
+                top = (y*winHeight) + parseFloat(wrapTranslate[5])
+                setTimeout(() => {
+                    document.body.scrollTo(left, top)
+                }, 600)
+            }
+            
+
+            
         })
 
         

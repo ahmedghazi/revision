@@ -136,16 +136,39 @@
 }
 
 @media all and (max-width:767px){
-    .menu-wrap .menu{
-        height: 100vh;
-        overflow: hidden;
-        overflow-y: auto;
-        padding: $margeXS;
-        .naviguation{
-            min-height: 90vh;
-            margin-bottom: $fontL;
+    .menu,
+    #obj3d{z-index: 250;}
+    .menu-wrap {
+        &.active{
+            #obj3d{
+                opacity: 1;   
+                pointer-events: auto;
+                left: unset; top: 0px; right: 0;
+                max-width: 90px;
+                max-height: 90px;
+                transform: translate(0, 0) scale(1);
+                canvas{
+                    max-width: 90px;
+                    max-height: 90px;
+                }
+                .obj3d-btn{
+                    height: 7vh;
+                    width: 7vh
+                }
+            }
         }
-        .menu-index{margin-top: $fontL;}
+        .menu{
+            height: 100vh;
+            overflow: hidden;
+            overflow-y: auto;
+            padding: $margeXS;
+            .naviguation{
+                min-height: 90vh;
+                margin-bottom: $fontL;
+            }
+            .menu-index{margin-top: $fontL;}
+            
+        }
     }
     .mini-map-wrap{
         display: none;

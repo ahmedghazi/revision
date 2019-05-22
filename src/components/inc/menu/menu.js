@@ -191,6 +191,7 @@ class Menu extends Component {
                     src={'3d/v4/Pill_001.obj'}
                     mtl={'3d/v4/Pill_001.mtl'}
                     texPath="3d/v4/" 
+                    menuClass={menuClass}
                 />
                 {/* <Obj3d
                     src={'3d/gltf/Duck.gltf'}

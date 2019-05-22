@@ -104,6 +104,7 @@ html,body{
 }
 
 @media all and (max-width:767px){
+    .tiles{opacity: 1;}
     .tile{
         min-height: 200vh;
         position: initial;

@@ -39,6 +39,7 @@ main{
     html{
         body{
             scroll-snap-type: unset;
+            //scroll-behavior: unset
         }
     }
     .hidden-xs{display: none}

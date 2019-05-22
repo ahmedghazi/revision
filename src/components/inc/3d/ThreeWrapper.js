@@ -8,6 +8,7 @@ class ThreeWrapper extends Component {
         super(props);
         this.state = {
             //playState: 'initial',
+            //active: false,
             width: '150',
             height: '150'
         }
@@ -21,15 +22,24 @@ class ThreeWrapper extends Component {
             })
         }else{
             const w = (15 * window.innerHeight) / 100
-            const h = (4 * window.innerHeight) / 100
+            const h = (15 * window.innerHeight) / 100
             this.setState({
                 width: w,
-                height: w
+                height: h
             })
         }
     }
     _onClick(){
-        PubSub.publish('MENU', {open: true})
+        if(window.innerWidth <= 768){
+            if(this.props.menuClass === "active"){
+                PubSub.publish('MENU', {open: false})
+            }else{
+                PubSub.publish('MENU', {open: true})
+            }
+        }else{
+            PubSub.publish('MENU', {open: true})
+        }
+        
     }
 
     _onLoad(){
