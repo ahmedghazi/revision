@@ -84,8 +84,8 @@ class Tile extends Component {
             data
         } = this.props
         //console.log(data.subtitle)
-        const xsOnly = data.display == "Mobile" ? "xs-only" : ""
-        const mdOnly = data.display == "Desktop" ? "md-only" : ""
+        const xsOnly = data.display === "Mobile" ? "xs-only" : ""
+        const mdOnly = data.display === "Desktop" ? "md-only" : ""
         //console.log(data.display)
         return (
             <div 

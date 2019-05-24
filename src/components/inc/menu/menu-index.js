@@ -24,8 +24,8 @@ class MenuIndex extends Component {
                 }else{
                     arr = [element.node]
                 }
-                if(isMobile && element.node.display == "Desktop" 
-                || !isMobile && element.node.display == "Mobile"){
+                if((isMobile && element.node.display === "Desktop")
+                || (!isMobile && element.node.display === "Mobile")){
 
                 }else{
                     index[firstCharTitle] = arr
@@ -76,7 +76,7 @@ class MenuIndex extends Component {
             return (
                 <li 
                 className={"menu-index fxs anon"+this._renderClassName(item)}
-                key={key}
+                key={_key+"-"+key}
                 onClick={() => this._onClick(item.slug)}
                 onMouseEnter={() => this._menuMouseEnter(item.slug)}
                 onMouseLeave={() => this._menuMouseLeave()}
@@ -103,8 +103,8 @@ class MenuIndex extends Component {
 
     _renderClassName(node){
         //console.log(node.display)
-        const xsOnly = node.display == "Mobile" ? "xs-only" : ""
-        const mdOnly = node.display == "Desktop" ? "md-only" : ""
+        const xsOnly = node.display === "Mobile" ? "xs-only" : ""
+        const mdOnly = node.display === "Desktop" ? "md-only" : ""
 
         return xsOnly+' '+mdOnly;
     }

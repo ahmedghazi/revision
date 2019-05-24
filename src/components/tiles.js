@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
 import {spiral} from '../utils/tiles-builder'
+import {debounce} from 'throttle-debounce';
 //import {range} from '../utils'
 
 import Tile from "./tile"
@@ -18,15 +19,20 @@ class Tiles extends Component {
             tilesClass: ''
         }       
         
-        this._onResize = this._onResize.bind(this)
+        //this._onResize = this._onResize.bind(this)
         this._onScroll = this._onScroll.bind(this)
+        this._onResize = debounce(250, this._onResize.bind(this));
+    }
 
+    componentWillUnmount(){
+        window.removeEventListener("resize", this._onResize)      
+        document.body.removeEventListener("scroll", this._onScroll)   
     }
 
     componentDidMount(){
         this._filterTilesByViewPort()
         this._onResize()
-        //document.addEventListener("resize", this._onResize)      
+        window.addEventListener("resize", this._onResize)      
         document.body.addEventListener("scroll", this._onScroll)    
         
         PubSub.subscribe("TILE", (e,d) => {
@@ -128,12 +134,13 @@ class Tiles extends Component {
     }
     
     _renderSpiral(){
+        console.log("_renderSpiral")
         if(window.innerWidth <= 768)return
         const {
             winWidth,
             winHeight
         } = this.state;
-        const isMobile = winWidth <= 768
+        //const isMobile = winWidth <= 768
 
         const tilesWrap = document.querySelector(".tiles")
         const tiles = document.querySelectorAll(".tile")

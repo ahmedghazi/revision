@@ -12,11 +12,17 @@ class Menu extends Component {
         super(props);
         this.state = {
             menuClass: 'active',
+            isMobile: false
         }
         this._menuClick = this._menuClick.bind(this)
     }
 
     componentDidMount(){
+        if(window.innerWidth <= 768){
+            this.setState({
+                isMobile: true
+            })
+        }
         this._filterByViewPort();
 
         PubSub.subscribe("MENU", (e,d) => {
@@ -81,10 +87,11 @@ class Menu extends Component {
     }
 
     _filterByViewPort(){
-        const isMobile = window.innerWidth <= 768
+        //const isMobile = window.innerWidth <= 768
+        const {isMobile} = this.state
         const tiles = document.querySelectorAll(".main-nav li")
         tiles.forEach((tile,idx) => {
-            console.log(tiles)
+            //console.log(tiles)
             if(isMobile){
                 if(tile.classList.contains("md-only")){
                     tile.parentNode.removeChild(tile);
@@ -105,7 +112,7 @@ class Menu extends Component {
     }
 
     render() {
-        const {menuClass} = this.state
+        const {menuClass,isMobile} = this.state
         const {
             options,
             menu, 
@@ -187,18 +194,16 @@ class Menu extends Component {
                     </div>
                 </div>
                 <MenuMiniMap data={tiles} menuClass={menuClass} />
-                <ThreeWrapper 
-                    src={'3d/v4/Pill_001.obj'}
-                    mtl={'3d/v4/Pill_001.mtl'}
-                    texPath="3d/v4/" 
-                    menuClass={menuClass}
-                />
-                {/* <Obj3d
-                    src={'3d/gltf/Duck.gltf'}
-                    //mtl={'3d/v4/Pill_001.mtl'}
-                    texPath="3d/gltf/" 
-                /> */}
-                
+
+                {!isMobile && 
+                    <ThreeWrapper 
+                        src={'3d/v4/Pill_001.obj'}
+                        mtl={'3d/v4/Pill_001.mtl'}
+                        texPath="3d/v4/" 
+                        menuClass={menuClass}
+                    />
+                }
+          
             </div>
         );
     }

@@ -68,6 +68,9 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 	//line-height: $fontLLh; 
 	border-radius: 2em;
 	text-transform: uppercase;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
 	&:hover{
 		color: $color2;
 		background: $color1;
@@ -75,7 +78,7 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 	}
 	&.btn-small{
 		//padding: 1.5vh 3.5vh;
-		height: 13.5vh;
+		min-height: 13.5vh;
 		//line-height: 5vh; 
 		//line-height: 13.5vh;
 		padding-top: 0;
@@ -83,6 +86,7 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 		text-align: center;
 		line-height: 14vh;
 		line-height: 13vh;
+		line-height: 100%;
 		padding: 0 4.9vh;
 	}
 	&.btn-large{
@@ -100,6 +104,9 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 	&.btn-white{
 		color: $color2;
 		border-color: $color2;
+	}
+	span{
+		line-height: 1em;
 	}
 }
 

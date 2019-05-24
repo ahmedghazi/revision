@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StaticQuery, graphql} from 'gatsby';
+//import {StaticQuery, graphql} from 'gatsby';
 import Truncate from 'react-clamp'
 
 class Headline extends Component {
