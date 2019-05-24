@@ -12,7 +12,10 @@
         padding: $paddV $paddH;
         //z-index: 1;
         pointer-events: none;
-        .title{z-index: 1; display: inline-block}
+        .title{
+            z-index: 1; display: inline-block;
+            max-width: 50%;
+        }
         .btn-video{
             position: absolute;
             right: 0; bottom: 0;

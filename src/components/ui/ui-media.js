@@ -41,8 +41,8 @@ class Media extends Component {
                     onClick={this._handleVideo}>PLAY</div>
                 }
 
-                <div className="bottom fs ">
-                    <div className="inner">
+                <div className="bottom fxs ">
+                    <div className="inner ">
                         {data.title !== "" &&
                             <div className="title">{data.title}</div>
                         }
