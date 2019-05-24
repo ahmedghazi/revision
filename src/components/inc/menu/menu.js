@@ -195,14 +195,12 @@ class Menu extends Component {
                 </div>
                 <MenuMiniMap data={tiles} menuClass={menuClass} />
 
-                {!isMobile && 
-                    <ThreeWrapper 
-                        src={'3d/v4/Pill_001.obj'}
-                        mtl={'3d/v4/Pill_001.mtl'}
-                        texPath="3d/v4/" 
-                        menuClass={menuClass}
-                    />
-                }
+                <ThreeWrapper 
+                    src={'3d/v4/Pill_001.obj'}
+                    mtl={'3d/v4/Pill_001.mtl'}
+                    texPath="3d/v4/" 
+                    menuClass={menuClass}
+                />
           
             </div>
         );
