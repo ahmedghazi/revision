@@ -1,16 +1,13 @@
 html{
     //scroll-behavior: smooth;
-    &.safari{overflow: hidden}
+    //&.safari{overflow: hidden}
     &:not(.safari){
         body{
             overflow: scroll;
         }
     }
     body{
-        &.loading{
-            //opacity: 0;
-            
-        }
+
         scroll-behavior: smooth;
         //
         //overflow: scroll;
