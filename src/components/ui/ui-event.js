@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import Peoples from "./peoples"
-import Truncate from 'react-clamp'
+//import Truncate from 'react-clamp'
 
 class Event extends Component {
     render() {
         const {data} = this.props
-        console.log(data)
-        const numLines = 3
+        //console.log(data)
+        //const numLines = 3
         return (
             <div className="ui-event">
                 <h2 className="fm">{data.title}</h2>

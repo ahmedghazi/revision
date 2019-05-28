@@ -32,8 +32,10 @@ class Tiles extends Component {
     componentDidMount(){
         this._filterTilesByViewPort()
         this._onResize()
-        window.addEventListener("resize", this._onResize)      
-        document.body.addEventListener("scroll", this._onScroll)    
+
+        window.addEventListener("resize", this._onResize)
+
+        document.body.addEventListener("scroll", this._onScroll)          
         
         PubSub.subscribe("TILE", (e,d) => {
             //console.log(d)
@@ -75,21 +77,7 @@ class Tiles extends Component {
             
         })
 
-        
-        //document.addEventListener("mousemove", this._onMouseMove)  
-
-        //https://codepen.io/anon/pen/VNxyzG
-        // window.requestAnimationFrame = window.requestAnimationFrame
-        //     || window.mozRequestAnimationFrame
-        //     || window.webkitRequestAnimationFrame
-        //     || window.msRequestAnimationFrame
-        //     || function(f){return setTimeout(f, 1000/10)}
-
-        //requestAnimationFrame(this._update);
-        // a.ui.win.on('deviceorientation', function(e){
-        //     a.nav.clientX = ((e.originalEvent.gamma+90)/180) * a.sizes.winWidth;
-        //     a.nav.clientY = ((e.originalEvent.beta+90)/180) * a.sizes.winHeight;
-        // });
+ 
     }
 
     _getComputedTranslateY(){
@@ -102,13 +90,13 @@ class Tiles extends Component {
     }
 
     _onScroll(){
+        //console.log("scroll")
         window.clearTimeout( this.isScrolling );
 
         // Set a timeout to run after scrolling ends
         this.isScrolling = setTimeout(function() {
-            const scroller = document.scrollingElement || document.documentElement
             const {scrollLeft, scrollTop} = document.body
-            //console.log("SCROLL_END", scrollLeft, scrollTop)
+
             PubSub.publish('SCROLL_END', {
                 scrollLeft: scrollLeft,
                 scrollTop: scrollTop
@@ -143,7 +131,7 @@ class Tiles extends Component {
     }
     
     _renderSpiral(){
-        console.log("_renderSpiral")
+        //console.log("_renderSpiral")
         if(window.innerWidth <= 768)return
         const {
             winWidth,

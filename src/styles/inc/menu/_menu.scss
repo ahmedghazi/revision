@@ -99,6 +99,7 @@
         .here{
             @include anime();
             opacity: 0;
+            z-index: 50;
             position: absolute;
             width: 20px; height: 20px;
             margin-left: -10px;

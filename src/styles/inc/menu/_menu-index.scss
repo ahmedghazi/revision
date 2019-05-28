@@ -1,4 +1,7 @@
 .menu-index{
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: calc( 100vh - (#{$margeM} * 2) );
     h2{margin-bottom: $margeS;}
     .index-item{
         margin-bottom: $margeS;
