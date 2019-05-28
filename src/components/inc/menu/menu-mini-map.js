@@ -28,7 +28,7 @@ class MenuMiniMap extends Component {
             var scrollPercentY = (scrollTop) / (scrollHeight - 0) * 100;
             const x = scrollPercentX * this.mapWidth / 100
             const y = scrollPercentY * this.mapHeight / 100
-
+console.log(x,y)
             this.refs.here.style.left = x+"px"
             this.refs.here.style.top = y+"px"
             this.refs.here.style.transform = 'translate('+(this.itemWidth/2)+'px, '+(this.itemHeight/2)+'px)'
