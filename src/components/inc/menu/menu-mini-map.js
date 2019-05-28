@@ -32,6 +32,7 @@ class MenuMiniMap extends Component {
             this.refs.here.style.left = x+"px"
             this.refs.here.style.top = y+"px"
             this.refs.here.style.transform = 'translate('+(this.itemWidth/2)+'px, '+(this.itemHeight/2)+'px)'
+            this.refs.here.style.webkitTransform = 'translate('+(this.itemWidth/2)+'px, '+(this.itemHeight/2)+'px)'
             this.refs.here.style.opacity = 1
         })
 
@@ -109,9 +110,11 @@ class MenuMiniMap extends Component {
             tile.style.width = this.itemWidth+"px"
             tile.style.height = this.itemHeight+"px"
             tile.style.transform = 'translate('+left+'px, '+top+'px)'
+            tile.style.webkitTransform = 'translate('+left+'px, '+top+'px)'
         })
         
         tilesWrap.style.transform = 'translate('+this.translateX+'px, '+this.translateY+'px)'
+        tilesWrap.style.webkitTransform = 'translate('+this.translateX+'px, '+this.translateY+'px)'
         tilesWrap.style.width = (this.itemWidth * sqrt)+"px"
         tilesWrap.style.height = (this.itemHeight * sqrt)+"px"
         

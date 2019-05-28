@@ -19,7 +19,10 @@ class Link extends Component {
                     size="large" />
 
                 <div className="url">
-                    <a target="_blank" href={url}>
+                    <a 
+                    rel="noopener noreferrer"
+                    target="_blank" 
+                    href={url}>
                         <div className="anon fxs gradient-texte">{url}</div>
                         <div className={"icon icon-"+service}></div>
                     </a>

@@ -83,7 +83,7 @@ class Tile extends Component {
 
             default:
                 return (<div>Test</div>)
-            break;
+            //break;
         }
     }
     

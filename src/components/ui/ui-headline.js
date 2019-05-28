@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import {StaticQuery, graphql} from 'gatsby';
-import Truncate from 'react-clamp'
+import Dotdotdot from 'react-clamp'
 
 class Headline extends Component {
     render() {
@@ -15,10 +15,9 @@ class Headline extends Component {
                     <h2 className="fl" dangerouslySetInnerHTML={{ __html: data.title }} />
                     {data.texte !== null &&
                         // <div className="texte fl" dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
-                        <Truncate clamp={numLines} className="texte fl">
-                            <div 
-                            dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
-                        </Truncate>
+                        <Dotdotdot clamp={numLines} className="texte fl">
+                            <div dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
+                        </Dotdotdot>
                     }  
                 </div>
                 <div className="bottom">

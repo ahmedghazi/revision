@@ -59,7 +59,14 @@ class Tiles extends Component {
                 left = (x*winWidth) + parseFloat(wrapTranslate[4])
                 top = (y*winHeight) + parseFloat(wrapTranslate[5])
                 setTimeout(() => {
-                    document.body.scrollTo(left, top)
+                    //document.body.scrollTo(left, top)
+                    //const scroller = document.scrollingElement || document.documentElement
+                    //console.log(left, top)
+                    const scroller = document.scrollingElement || document.documentElement
+                    scroller.scrollTo(left, top)
+                    //scroller.scrollTop += 10;
+                    //document.body.scrollTop = top
+                    //document.body.scrollLeft = left
                 }, 600)
             }
             
@@ -98,8 +105,9 @@ class Tiles extends Component {
 
         // Set a timeout to run after scrolling ends
         this.isScrolling = setTimeout(function() {
-            const {scrollLeft, scrollTop} = document.body
-            
+            const scroller = document.scrollingElement || document.documentElement
+            const {scrollLeft, scrollTop} = scroller
+            //console.log("SCROLL_END", scrollLeft, scrollTop)
             PubSub.publish('SCROLL_END', {
                 scrollLeft: scrollLeft,
                 scrollTop: scrollTop
@@ -173,6 +181,7 @@ class Tiles extends Component {
             }
         })
         tilesWrap.style.transform = 'translate('+translateX+'px, '+translateY+'px)'
+        tilesWrap.style.webkitTransform = 'translate('+translateX+'px, '+translateY+'px)'
         tilesWrap.style.opacity = 1
         //console.log(document.body.scrollWidth, document.body.scrollHeight)
         
@@ -180,7 +189,11 @@ class Tiles extends Component {
         setTimeout(() => {
             if(!window.location.hash){
                 var pos = first.getBoundingClientRect()
-                document.body.scrollTo(pos.left, pos.top)
+                const scroller = document.scrollingElement || document.documentElement
+                console.log(pos)
+                scroller.scrollTo(pos.left, pos.top)
+                // document.documentElement.scrollTop = pos.top
+                // document.documentElement.scrollLeft = pos.left
             }
             
             this.setState({

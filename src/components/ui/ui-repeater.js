@@ -10,7 +10,9 @@ class Repeater extends React.Component {
 
     componentDidMount(){
         if (typeof window !== 'undefined') {
-            if(!'ontouchstart' in window){
+            if('ontouchstart' in window){
+                
+            }else{
                 this._tick()
             }
         }

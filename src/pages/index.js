@@ -22,6 +22,15 @@ class Index extends React.Component {
     }
 
     componentDidMount() {
+      var ua = navigator.userAgent.toLowerCase(); 
+      if (ua.indexOf('safari') != -1) { 
+        if (ua.indexOf('chrome') > -1) {
+          document.documentElement.classList.add("chrome")
+        } else {
+          document.documentElement.classList.add("safari")
+        }
+      }
+
       PubSub.subscribe("3D_LOADED", (e,d) => {
         setTimeout(() => {
           this.setState({
