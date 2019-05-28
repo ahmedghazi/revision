@@ -10,3 +10,11 @@
         li a{padding-right: 1em;}
     }
 }
+
+@media all and (max-width:767px){
+    .ui-headline{
+        .top{
+            height: 100%;
+        }
+    }
+}
