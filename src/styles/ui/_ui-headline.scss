@@ -15,6 +15,7 @@
     .ui-headline{
         .top{
             height: 100%;
+            .texte{min-height: calc(#{$fontL} * 6.5)}
         }
     }
 }
