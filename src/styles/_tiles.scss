@@ -1,10 +1,5 @@
-html,body{
-    //overflow: hidden;
-    //scroll-snap-type: both mandatory;
-}
+
 .tiles{
-    // min-width: 500vw;
-    // min-height: 500vh
     opacity: 0;
 }
 .tile{
@@ -36,8 +31,6 @@ html,body{
         grid-template-rows: 50% 50%;
     }
     
-    
-
     &.tile-h-auto{
         height: auto;
     }
@@ -106,8 +99,10 @@ html,body{
 @media all and (max-width:767px){
     .tiles{opacity: 1;}
     .tile{
-        min-height: 200vh;
+        //min-height: 200vh;
+        height: auto;
         position: initial;
+        display: block;
         //min-width: 200vw;
         &.tile-4{
             grid-template-columns: 100%;
@@ -123,6 +118,11 @@ html,body{
         &.tile-3{
             grid-template-columns: 100%;
             grid-template-rows: 25% 25% 25%;
+        }
+        .tile-quarter{
+            max-height: initial;
+            height: 50vh;
+            & > div{height: 100%;}
         }
     }
 }

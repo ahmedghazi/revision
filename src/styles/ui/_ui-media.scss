@@ -30,3 +30,12 @@
         cursor: pointer;
     }
 }
+
+@media all and (max-width:767px){
+    .tile-quarter{
+        .ui-media{
+            
+            //.cover{min-height: 50vh;}
+        }
+    }
+}
