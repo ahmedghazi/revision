@@ -16,7 +16,7 @@ html{
         //overflow: scroll;
         //overflow: auto;
 
-        //scroll-snap-type: both mandatory;
+        scroll-snap-type: both mandatory;
     }
     .tile{
         scroll-snap-align: start;
