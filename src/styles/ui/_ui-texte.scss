@@ -1,6 +1,12 @@
 .ui-texte{
+    height: 100%;
     .texte{
         margin-bottom: calc(3.5vh / 2);
+        &.scrollable{
+            max-height: 100%;
+            overflow: hidden;
+            overflow-y: auto;
+        }
         a{
             text-decoration: underline!important;
             color: $color1!important

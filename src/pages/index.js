@@ -265,6 +265,7 @@ export const query = graphql `
               ... on ContentfulTexte {
                 size
                 title
+                capLines
                 people {
                   name
                   info

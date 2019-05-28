@@ -15,7 +15,6 @@ class Texte extends Component {
         const {
             data
         } = this.props
-        console.log(data.size)
 
         let numLines = 0
         if('ontouchstart' in window){
@@ -36,24 +35,23 @@ class Texte extends Component {
         const {
             data
         } = this.props
+        const capLines = data.capLines
+        console.log(data.capLines)
 //console.log(data)
         //const numLines = data.size === '1/4' ? 6 : 9
         return (
-            <div className="ui-texte" data-lines={numLines+" "+data.size}>
-                {data.texte !== "" &&
-                    // <Truncate className="texte" 
-                    // lines={numLines}
-                    // trimWhitespace={true}
-                    // ellipsis={<span>...</span>}>
-                        
-                    // </Truncate>
+            <div className="ui-texte" data-title={data.title}>
+                {data.texte !== "" && data.capLines === null &&
                     <Truncate clamp={numLines} className="texte">
                         <div 
                         dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
                     </Truncate>
-
-                    
                 }   
+                {data.texte !== "" && data.capLines === false &&
+                    <div 
+                    className="texte scrollable"
+                        dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
+                }
                 {data.people !== null &&
                     <People data={data.people} />
                 }
