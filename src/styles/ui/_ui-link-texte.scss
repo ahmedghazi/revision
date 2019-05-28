@@ -25,3 +25,13 @@
         }
     }
 }
+
+@media all and (max-width:767px){
+    .ui-link-texte{
+        .bottom{
+            .btn{
+                min-width: initial
+            }
+        }
+    }
+}
