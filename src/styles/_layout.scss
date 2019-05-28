@@ -1,6 +1,6 @@
 html{
     //scroll-behavior: smooth;
-    //&.safari{overflow: hidden}
+
     &:not(.safari){
         body{
             overflow: scroll;
