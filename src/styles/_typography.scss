@@ -278,11 +278,11 @@ p{
 		line-height: calc(#{$fontSLh} - 1px); 
 	}
 	.fm{
-		font-size: calc(#{$fontM} - .8vh);
-		line-height: calc(#{$fontMLh} - .8vh); 
+		font-size: $fontS;
+		line-height: $fontSLh; 
 	}
 	.fl{
-		font-size: calc(#{$fontL} - 2px);
-		line-height: calc(#{$fontLLh} - 2px); 
+		font-size: $fontM;
+		line-height: $fontMLh; 
 	}
 }
