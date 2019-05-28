@@ -62,8 +62,9 @@ class Tiles extends Component {
                     //document.body.scrollTo(left, top)
                     //const scroller = document.scrollingElement || document.documentElement
                     //console.log(left, top)
-                    const scroller = document.scrollingElement || document.documentElement
-                    scroller.scrollTo(left, top)
+                    //const scroller = document.scrollingElement || document.documentElement
+                    //scroller.scrollTo(left, top)
+                    document.body.scrollTo(left, top)
                     //scroller.scrollTop += 10;
                     //document.body.scrollTop = top
                     //document.body.scrollLeft = left
@@ -189,9 +190,10 @@ class Tiles extends Component {
         setTimeout(() => {
             if(!window.location.hash){
                 var pos = first.getBoundingClientRect()
-                const scroller = document.scrollingElement || document.documentElement
-                console.log(pos)
-                scroller.scrollTo(pos.left, pos.top)
+                //const scroller = document.scrollingElement || document.documentElement
+                //console.log(pos)
+                //scroller.scrollTo(pos.left, pos.top)
+                document.body.scrollTo(pos.left, pos.top)
                 // document.documentElement.scrollTop = pos.top
                 // document.documentElement.scrollLeft = pos.left
             }
