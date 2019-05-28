@@ -107,7 +107,7 @@ class Tiles extends Component {
         // Set a timeout to run after scrolling ends
         this.isScrolling = setTimeout(function() {
             const scroller = document.scrollingElement || document.documentElement
-            const {scrollLeft, scrollTop} = scroller
+            const {scrollLeft, scrollTop} = document.body
             //console.log("SCROLL_END", scrollLeft, scrollTop)
             PubSub.publish('SCROLL_END', {
                 scrollLeft: scrollLeft,
