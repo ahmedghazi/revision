@@ -40,7 +40,7 @@ class Texte extends Component {
         //console.log(data)
         //const numLines = data.size === '1/4' ? 6 : 9
         return (
-            <div className="ui-texte" data-title={data.title}>
+            <div className="ui-texte">
                 {data.texte !== "" && data.capLines === null &&
                     <Truncate clamp={numLines} className="texte">
                         <div 
