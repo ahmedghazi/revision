@@ -157,7 +157,7 @@ export const query = graphql `
                       fileName
                       url
                     }
-                    fluid(maxWidth: 1440) {
+                    fluid(maxWidth: 1440, quality: 80) {
                       sizes
                       src
                       srcSet
@@ -181,7 +181,7 @@ export const query = graphql `
                     fileName
                     url
                   }
-                  fluid(maxWidth: 1440) {
+                  fluid(maxWidth: 1440, quality: 80) {
                     sizes
                     src
                     srcSet
@@ -275,7 +275,7 @@ export const query = graphql `
                       fileName
                       url
                     }
-                    fluid(maxWidth: 1440) {
+                    fluid(maxWidth: 1440, quality: 80) {
                       sizes
                       src
                       srcSet
@@ -298,7 +298,7 @@ export const query = graphql `
                     fileName
                     url
                   }
-                  fluid(maxWidth: 1440) {
+                  fluid(maxWidth: 1440, quality: 80) {
                     sizes
                     src
                     srcSet

@@ -81,6 +81,7 @@
         transform: translate(-50%, -50%) scale(5);
         opacity:0;
         pointer-events: none;
+        overflow: hidden;
         .mini-map{
         
             .item{

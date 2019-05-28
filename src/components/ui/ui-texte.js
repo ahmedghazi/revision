@@ -36,8 +36,8 @@ class Texte extends Component {
             data
         } = this.props
         const capLines = data.capLines
-        console.log(data.capLines)
-//console.log(data)
+        //console.log(data.capLines)
+        //console.log(data)
         //const numLines = data.size === '1/4' ? 6 : 9
         return (
             <div className="ui-texte" data-title={data.title}>
