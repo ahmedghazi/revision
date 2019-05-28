@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import { Link } from 'gatsby'
 import Btn from './btn'
 
 class Link extends Component {
@@ -18,8 +19,11 @@ class Link extends Component {
                     size="large" />
 
                 <div className="url">
-                    <div className="anon fxs gradient-texte">{url}</div>
-                    <div className={"icon icon-"+service}></div>
+                    <a target="_blank" href={url}>
+                        <div className="anon fxs gradient-texte">{url}</div>
+                        <div className={"icon icon-"+service}></div>
+                    </a>
+                    
                 </div>
                 
             </div>

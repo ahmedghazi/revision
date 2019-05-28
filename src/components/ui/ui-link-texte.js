@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Btn from './btn'
-//import Truncate from 'react-truncate';
 import Truncate from 'react-clamp'
 
 class LinkTexte extends Component {
@@ -8,10 +7,10 @@ class LinkTexte extends Component {
         const {data} = this.props
         return (
             <div className="ui-link-texte">
-                {/* <div className="texte" dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} /> */}
                 {data.texte !== "" &&
-                    <Truncate className="texte" 
-                    lines={4}>
+                    <Truncate 
+                    className="texte" 
+                    clamp={4}>
                         <div  dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
                     </Truncate>
                 }    
@@ -21,8 +20,10 @@ class LinkTexte extends Component {
                     {data.linkUrl !== "" &&
                         <div className="inner">
                             <div className="url">
-                                <div className="anon fxs gradient-texte">{data.linkUrl}</div>
-                                <div className={"icon icon-"+data.service}></div>
+                                <a target="_blank" href={data.linkUrl}>
+                                    <div className="anon fxs gradient-texte">{data.linkUrl}</div>
+                                    <div className={"icon icon-"+data.service}></div>
+                                </a>
                             </div>
                             <Btn 
                             label={data.linkLabel} 

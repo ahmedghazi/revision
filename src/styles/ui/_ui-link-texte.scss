@@ -16,12 +16,18 @@
                 top: 4px;
                 top: 0;
             }
+            &:hover{
+                .gradient-texte{text-decoration: underline}
+            }
         }
         .btn{
             right: 0;
             //display: block;
             min-width: 260px;
             background: white;
+            &:hover{
+                background: $color1;
+            }
         }
     }
 }
