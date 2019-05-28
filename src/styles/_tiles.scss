@@ -120,9 +120,16 @@
             grid-template-rows: 25% 25% 25%;
         }
         .tile-quarter{
-            max-height: initial;
+            max-height: none;
             height: 50vh;
-            & > div{height: 100%;}
+            //min-height: 50vh;
+        }
+        .tile-headline,
+        .tile-text,
+        .tile-linktext{
+            height: auto;
+            min-height: 50vh;
+            // & > div{height: 100%; min-height: 50vh;}
         }
     }
 }

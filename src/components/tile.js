@@ -11,7 +11,19 @@ import Ads from "./ui/ui-ads"
 import Repeater from "./ui/ui-repeater"
 
 class Tile extends Component {
-    _normaliseSize(size){
+    _className(tile){
+        const size = this._size(tile.size)
+        const padded = this._padded(tile.__typename)
+        const type = this._type(tile.__typename)
+        return type+" "+size+" "+padded
+    }
+    
+    _type(__typename){
+        const type = __typename.replace("Contentful", "tile-").toLowerCase()
+        return type
+    }
+
+    _size(size){
         //console.log(size)
         switch(size){
             case '1/4': return 'tile-quarter'
@@ -19,7 +31,18 @@ class Tile extends Component {
             case '1': return 'tile-full'
             default: return 'tile-quarter'
         } 
+    }
 
+    _padded(__typename){
+        if(__typename === "ContentfulAds" 
+        || __typename === "ContentfulMedia"){
+            return 'nopad'
+        }else if(__typename === "ContentfulRepeater"){
+            return 'nopad-tb'
+        }
+        else{
+            return ''
+        }
     }
 
     _renderTile(tile){
@@ -64,20 +87,7 @@ class Tile extends Component {
         }
     }
     
-    _padding(tile){
-        if(
-            tile.__typename === "ContentfulAds" 
-            || tile.__typename === "ContentfulMedia"
-            
-            ){
-            return 'nopad'
-        }else if(tile.__typename === "ContentfulRepeater"){
-            return 'nopad-tb'
-        }
-        else{
-            return ''
-        }
-    }
+    
 
     render() {
         const {
@@ -96,10 +106,8 @@ class Tile extends Component {
                 {data.postTiles.map((tile, key) => (
                     <div 
                     key={key} 
-                    className={"tile-item "+this._normaliseSize(tile.size)+" "+this._padding(tile)}>
-                        {
-                            this._renderTile(tile)
-                        }
+                    className={"tile-item "+this._className(tile)}>
+                        {this._renderTile(tile)}
                     </div>
                 ))}
             </div>

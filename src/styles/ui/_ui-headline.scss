@@ -13,9 +13,14 @@
 
 @media all and (max-width:767px){
     .ui-headline{
-        .top{
-            height: 100%;
-            .texte{min-height: calc(#{$fontL} * 6.5)}
+        .top,
+        .bottom{
+            position: initial
+        }
+        .texte{
+            overflow: initial!important;
+            text-overflow: initial!important;
+            -webkit-line-clamp: initial!important;
         }
     }
 }

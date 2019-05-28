@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Btn from './btn'
-import Truncate from 'react-truncate';
+//import Truncate from 'react-truncate';
+import Truncate from 'react-clamp'
 
 class LinkTexte extends Component {
     render() {
@@ -10,9 +11,7 @@ class LinkTexte extends Component {
                 {/* <div className="texte" dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} /> */}
                 {data.texte !== "" &&
                     <Truncate className="texte" 
-                    lines={4}
-                    trimWhitespace={true}
-                    ellipsis={<span>...</span>}>
+                    lines={4}>
                         <div  dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
                     </Truncate>
                 }    
