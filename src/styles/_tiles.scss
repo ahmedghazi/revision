@@ -131,5 +131,9 @@
             min-height: 50vh;
             // & > div{height: 100%; min-height: 50vh;}
         }
+        .tile-link{
+            height: auto;
+            min-height: none;
+        }
     }
 }
