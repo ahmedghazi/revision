@@ -9,6 +9,7 @@ class ThreeWrapper extends Component {
         this.state = {
             //playState: 'initial',
             //active: false,
+            isMobile: false,
             width: '150',
             height: '150'
         }
@@ -17,6 +18,7 @@ class ThreeWrapper extends Component {
     componentDidMount(){
         if(window.innerWidth <= 768){
             this.setState({
+                isMobile: true,
                 width: '150',
                 height: '150'
             })
@@ -24,6 +26,7 @@ class ThreeWrapper extends Component {
             const w = (15 * window.innerHeight) / 100
             const h = (15 * window.innerHeight) / 100
             this.setState({
+                isMobile: false,
                 width: w,
                 height: h
             })
@@ -47,9 +50,10 @@ class ThreeWrapper extends Component {
     }
 
     render() {
-        const {width, height} = this.state
+        const {isMobile, width, height} = this.state
         //console.log(width, height)
         const {src, mtl, texPath} = this.props
+        if(isMobile)return (null)
         return (
             <div id="obj3d">
                 <Model 

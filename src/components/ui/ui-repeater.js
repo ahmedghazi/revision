@@ -9,7 +9,9 @@ class Repeater extends React.Component {
     }
 
     componentDidMount(){
-        this._tick()
+        if (typeof window !== 'undefined') {
+            this._tick()
+        }
     }
 
     _tick(){
