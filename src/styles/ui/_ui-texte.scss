@@ -29,3 +29,11 @@
         // overflow: hidden;
     }
 }
+
+@media all and (max-width:767px){
+    .tile-quarter{
+        .ui-texte{
+            .texte{min-height: calc(#{$fontL} * 6.5);}
+        }
+    }
+}
