@@ -22,6 +22,11 @@ module.exports = {
         accessToken,
       },
     },
-    //UA-123294241-1
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-123294241-1",
+      },
+    }
   ],
 };
