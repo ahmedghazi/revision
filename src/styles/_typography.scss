@@ -296,3 +296,20 @@ p{
 		line-height: $fontMLh; 
 	}
 }
+
+@media all and (max-width:1029px) and (orientation: landscape){
+	.fxs,
+	.fs,
+	.texte{
+		font-size: 2em!important;
+		line-height: 1.3em!important;
+	}
+	.fm{
+		font-size: 1.5em!important;
+		line-height: 1.3em!important;
+	}
+	.fl{
+		font-size: 1.5em!important;
+		line-height: 1.3em!important;
+	}
+}

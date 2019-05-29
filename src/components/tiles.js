@@ -50,7 +50,7 @@ class Tiles extends Component {
             let left,top;
             console.log(x,y)
 
-            if(winWidth <= 768){
+            if('ontouchstart' in window){
                 //console.log(d.tile.getBoundingClientRect().top)
                 //d.tile.scrollIntoView()
                 left = 0
