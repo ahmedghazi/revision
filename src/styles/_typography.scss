@@ -140,6 +140,11 @@ p {
 	&:last-child{margin-bottom: 0}
 	&:empty{display: none}
 	//br{display: none}
+	a{
+		text-decoration: underline!important;
+		color: $color1!important;
+		&:hover{color: $color3}
+	}
 }
 ul, ol {
 	//margin: 0 0 1.5em 2.5em;

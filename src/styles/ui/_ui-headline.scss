@@ -2,20 +2,18 @@
     text-align: left;
     height: 100%;
     .texte{
-        width: 340px;
-    }
-    p{
+        //width: 340px;
         display: -webkit-box;
         -webkit-line-clamp: 5;
         /* autoprefixer: off */
         -webkit-box-orient: vertical;  
         /* autoprefixer: on */
         overflow: hidden;
+    }
+    p{
         
-        a{
-            text-decoration: underline!important;
-            color: $color1!important
-        }
+        
+        
     }
     ul{
         @include flexbox();
