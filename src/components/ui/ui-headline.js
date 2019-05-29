@@ -14,10 +14,10 @@ class Headline extends Component {
                 <div className="top fm">
                     <h2 className="fl" dangerouslySetInnerHTML={{ __html: data.title }} />
                     {data.texte !== null &&
-                        // <div className="texte fl" dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
-                        <Dotdotdot clamp={numLines} className="texte fl">
-                            <div dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
-                        </Dotdotdot>
+                        <div className="texte fl" dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
+                        // <Dotdotdot clamp={numLines} className="texte fl">
+                        //     <div dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
+                        // </Dotdotdot>
                     }  
                 </div>
                 <div className="bottom">

@@ -1,15 +1,16 @@
 html{
     //overflow: auto;
-    overflow: hidden;
+    
     &:not(.safari){
+        overflow: hidden;
         body{
-            //overflow: auto;
+            overflow: auto;
             scroll-behavior: smooth;
         }
     }
     body{
         //overflow: visible;
-        overflow: auto;
+        
         //height: 200vh;
         //overflow: scroll;
         //overflow: auto;

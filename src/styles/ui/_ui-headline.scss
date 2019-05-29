@@ -1,9 +1,21 @@
 .ui-headline{
     text-align: left;
     height: 100%;
-    .texte{}
+    .texte{
+        width: 340px;
+    }
     p{
-        //white-space: pre;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        /* autoprefixer: off */
+        -webkit-box-orient: vertical;  
+        /* autoprefixer: on */
+        overflow: hidden;
+        
+        a{
+            text-decoration: underline!important;
+            color: $color1!important
+        }
     }
     ul{
         @include flexbox();

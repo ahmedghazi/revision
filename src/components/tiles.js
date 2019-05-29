@@ -63,21 +63,16 @@ class Tiles extends Component {
                 setTimeout(() => {
                     //document.body.scrollTo(left, top)
                     //const scroller = document.scrollingElement || document.documentElement
-                    //console.log(left, top)
+                    console.log("TILEs on TILE", left, top)
                     //const scroller = document.scrollingElement || document.documentElement
                     //scroller.scrollTo(left, top)
-                    document.body.scrollTo(left, top)
+                    //document.body.scrollTo(left, top)
                     //scroller.scrollTop += 10;
-                    //document.body.scrollTop = top
-                    //document.body.scrollLeft = left
+                    document.body.scrollTop = top
+                    document.body.scrollLeft = left
                 }, 600)
-            }
-            
-
-            
+            }  
         })
-
- 
     }
 
     _getComputedTranslateY(){
@@ -90,7 +85,7 @@ class Tiles extends Component {
     }
 
     _onScroll(){
-        //console.log("scroll")
+        console.log("scroll")
         window.clearTimeout( this.isScrolling );
 
         // Set a timeout to run after scrolling ends
@@ -173,7 +168,6 @@ class Tiles extends Component {
         tilesWrap.style.webkitTransform = 'translate('+translateX+'px, '+translateY+'px)'
         tilesWrap.style.opacity = 1
         //console.log(document.body.scrollWidth, document.body.scrollHeight)
-        
 
         setTimeout(() => {
             if(!window.location.hash){
@@ -191,7 +185,6 @@ class Tiles extends Component {
                 docHeight: document.body.scrollHeight,
                 bounding: tilesWrap.getBoundingClientRect()
             })
-        
         }, 150)
     }
 
@@ -200,24 +193,19 @@ class Tiles extends Component {
     render() {
         const {data} = this.props;
         const {tilesClass} = this.state;
-        
         // const style = {
         //     //transform:'translate('+this.x+'px,'+this.y+'px)'
         // }
         // console.log(data)
         return (
-            
             <div id="tiles" className={'tiles '+tilesClass} >
-     
                 {data.map(({node},key) => (
                     <Tile 
                     key={key} 
                     index={key} 
                     data={node} />
                 ))}
-        
             </div>
-            
         );
     }
 }
