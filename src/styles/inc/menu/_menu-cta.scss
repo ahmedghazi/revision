@@ -1,3 +1,4 @@
+.xs-only{visibility: hidden}
 .menu-cta{
     position: fixed;
     right: 0; top: 0;
@@ -7,4 +8,8 @@
     background: #eee;
     top: 1.4vh; right: 2vw;
     border-radius: calc(2.8vh * 0.7)
+}
+
+@media all and (max-width:768px){
+    .xs-only{visibility: visible}
 }
