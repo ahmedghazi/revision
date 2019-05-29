@@ -10,7 +10,6 @@ class MenuCta extends Component {
     }
     componentDidMount(){
         PubSub.subscribe("MENU", (e,d) => {
-            console.log(d)
             this.setState({
                 active: d.open
             })

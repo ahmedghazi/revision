@@ -48,6 +48,7 @@ class Tiles extends Component {
 
             const {x,y} = d.tile.dataset
             let left,top;
+            console.log(x,y)
 
             if(winWidth <= 768){
                 //console.log(d.tile.getBoundingClientRect().top)
@@ -57,7 +58,8 @@ class Tiles extends Component {
                 document.body.scrollTo(left, top)
             }else{
                 const wrapTranslate = this._getComputedTranslateY()
-            
+            console.log(winHeight)
+            console.log(wrapTranslate)
                 left = (x*winWidth) + parseFloat(wrapTranslate[4])
                 top = (y*winHeight) + parseFloat(wrapTranslate[5])
                 setTimeout(() => {
@@ -66,10 +68,10 @@ class Tiles extends Component {
                     console.log("TILEs on TILE", left, top)
                     //const scroller = document.scrollingElement || document.documentElement
                     //scroller.scrollTo(left, top)
-                    //document.body.scrollTo(left, top)
+                    document.body.scrollTo(left, top)
                     //scroller.scrollTop += 10;
-                    document.body.scrollTop = top
-                    document.body.scrollLeft = left
+                    // document.body.scrollTop = top
+                    // document.body.scrollLeft = left
                 }, 600)
             }  
         })
@@ -85,7 +87,7 @@ class Tiles extends Component {
     }
 
     _onScroll(){
-        console.log("scroll")
+        //console.log("scroll")
         window.clearTimeout( this.isScrolling );
 
         // Set a timeout to run after scrolling ends

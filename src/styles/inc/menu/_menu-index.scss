@@ -14,3 +14,10 @@
         }
     }
 }
+
+@media all and (max-width:767px){
+    .menu-index{
+        overflow: initial;
+        max-height: none
+    }
+}
