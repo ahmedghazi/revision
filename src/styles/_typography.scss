@@ -143,7 +143,12 @@ p {
 	a{
 		text-decoration: underline!important;
 		color: $color1!important;
-		&:hover{color: $color3}
+		&:hover{color: blue!important}
+	}
+}
+.tile-item{
+	.nav a:hover{
+		color: blue!important
 	}
 }
 ul, ol {
