@@ -34,16 +34,17 @@
     .tile-half{
         .ui-texte{
             .texte{
-                font-size: $fontM;
-                line-height: $fontMLh;
+                font-size: $fontL;
+                line-height: $fontLLh;
             }
         }
     }
-    .tile-quarter{
+    .tile-quarter.tile-texte{
+        height: auto;
         .ui-texte{
             .texte{
-                font-size: $fontS;
-                line-height: $fontSLh;
+                // font-size: $fontS;
+                // line-height: $fontSLh;
                 //min-height: calc(#{$fontL} * 6.5);
                 // font-size: calc(#{$fontM} - 1px);
                 // line-height: calc(#{$fontMLh} - 1px); 

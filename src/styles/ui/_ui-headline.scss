@@ -28,9 +28,10 @@
             position: initial
         }
         .texte{
-            overflow: initial!important;
-            text-overflow: initial!important;
-            -webkit-line-clamp: initial!important;
+            display: block;
+            overflow: initial;
+            text-overflow: initial;
+            -webkit-line-clamp: initial;
         }
     }
 }
