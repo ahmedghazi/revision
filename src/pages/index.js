@@ -55,7 +55,7 @@ class Index extends React.Component {
           contentfulMenu,
           allContentfulTile
         } = this.props.data
-        console.log(contentfulOptions.description.childMarkdownRemark.rawMarkdownBody)
+        //console.log(contentfulOptions.description.childMarkdownRemark.rawMarkdownBody)
         
         return (
           <main className={mainClass}>

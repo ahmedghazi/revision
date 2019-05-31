@@ -21,6 +21,7 @@ class Menu extends Component {
     componentDidMount(){
         if(window.innerWidth <= 768){
             this.setState({
+                menuClass: '',
                 isMobile: true
             })
         }
