@@ -65,10 +65,10 @@ class Index extends React.Component {
                   <link rel='shortcut icon' type="image/png" href={favicon} />
 
                   <title>{contentfulOptions.title}</title>
-                  <meta name="description" content={contentfulOptions.description} />
+                  <meta name="description" content={contentfulOptions.description.rawMarkdownBody} />
                   <meta property="og:url" content="" />
                   <meta property="og:title" content={contentfulOptions.title} />
-                  <meta property="og:description" content={contentfulOptions.description} />
+                  <meta property="og:description" content={contentfulOptions.description.rawMarkdownBody} />
                   <meta property="og:image" content={contentfulOptions.image.file.url} />
 
                   <meta name="twitter:card" content="summary_large_image" />
@@ -76,7 +76,7 @@ class Index extends React.Component {
                   <meta name="twitter:creator" content="@Revision_HQ" />
                   <meta property="og:url" content="" />
                   <meta property="og:title" content={contentfulOptions.title} />
-                  <meta property="og:description" content={contentfulOptions.description} />
+                  <meta property="og:description" content={contentfulOptions.description.rawMarkdownBody} />
                   <meta property="og:image" content={contentfulOptions.image.file.url} />
 
                   <body className={bodyClass} />
@@ -107,6 +107,7 @@ export const query = graphql `
         description{
           childMarkdownRemark{
             html
+            rawMarkdownBody
           }
         }
         
