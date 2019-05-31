@@ -51,11 +51,13 @@ class Tiles extends Component {
             //console.log(x,y)
 
             if('ontouchstart' in window){
+                
                 //console.log(d.tile.getBoundingClientRect().top)
-                //d.tile.scrollIntoView()
-                left = 0
-                top = d.tile.getBoundingClientRect().top
-                document.body.scrollTo(left, top)
+                d.tile.scrollIntoView()
+                // left = 0
+                // top = d.tile.getBoundingClientRect().top
+                // console.log(top)
+                // document.body.scrollTo(left, top)
             }else{
                 const wrapTranslate = this._getComputedTranslateY()
             // console.log(winHeight)
