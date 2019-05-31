@@ -129,7 +129,9 @@ class Menu extends Component {
                                 <div className="nav-top">
                                     <div className="header fm">
                                         <div className="h1 fm">{options.title}</div>
-                                        <div className="date" dangerouslySetInnerHTML={{ __html: options.date.childMarkdownRemark.html }} />
+                                        {options.date &&
+                                            <div className="date" dangerouslySetInnerHTML={{ __html: options.date.childMarkdownRemark.html }} />
+                                        }
                                     </div>
                                     <nav className="main-nav fm">
                                         <ul>

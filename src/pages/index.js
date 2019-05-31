@@ -109,11 +109,7 @@ export const query = graphql `
             html
           }
         }
-        date{
-          childMarkdownRemark{
-            html
-          }
-        }
+        
         image{
           file {
             url
@@ -316,7 +312,8 @@ export const query = graphql `
               }
               ... on ContentfulRepeater{
                 title
-              }
+                size
+                }
               }
             }
           }

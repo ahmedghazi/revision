@@ -96,7 +96,10 @@ class Tile extends Component {
         //console.log(data.subtitle)
         const xsOnly = data.display === "Mobile" ? "xs-only" : ""
         const mdOnly = data.display === "Desktop" ? "md-only" : ""
-        //console.log(data.display)
+        
+        if(data.slug == "quote"){
+            console.log(data.postTiles)
+        }
         return (
             <div 
             id={data.slug} 
