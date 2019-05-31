@@ -48,7 +48,7 @@ class Tiles extends Component {
 
             const {x,y} = d.tile.dataset
             let left,top;
-            console.log(x,y)
+            //console.log(x,y)
 
             if('ontouchstart' in window){
                 //console.log(d.tile.getBoundingClientRect().top)
@@ -58,14 +58,14 @@ class Tiles extends Component {
                 document.body.scrollTo(left, top)
             }else{
                 const wrapTranslate = this._getComputedTranslateY()
-            console.log(winHeight)
-            console.log(wrapTranslate)
+            // console.log(winHeight)
+            // console.log(wrapTranslate)
                 left = (x*winWidth) + parseFloat(wrapTranslate[4])
                 top = (y*winHeight) + parseFloat(wrapTranslate[5])
                 setTimeout(() => {
                     //document.body.scrollTo(left, top)
                     //const scroller = document.scrollingElement || document.documentElement
-                    console.log("TILEs on TILE", left, top)
+                    //console.log("TILEs on TILE", left, top)
                     //const scroller = document.scrollingElement || document.documentElement
                     //scroller.scrollTo(left, top)
                     document.body.scrollTo(left, top)
