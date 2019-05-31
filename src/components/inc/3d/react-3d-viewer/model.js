@@ -293,8 +293,8 @@ class Model extends React.Component{
         // this.group.scale.set(scale.x,scale.y,scale.z)
         //console.log("here")
         if(window.innerWidth >= 768){
-          this.group.rotation.x += 0.001;     
-          this.obj3d.rotation.y += 0.005;
+          this.group.rotation.x += 0.03;     
+          this.obj3d.rotation.y += 0.05;
         }
         
       }
