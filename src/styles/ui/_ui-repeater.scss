@@ -14,7 +14,7 @@
     to {color: #fafafa;}
 }
 
-@media all and (max-width:768px){
+@media all and (max-width:$ipad){
     .tile-repeater.tile-half{
         max-height: none;
         height: 50vh;

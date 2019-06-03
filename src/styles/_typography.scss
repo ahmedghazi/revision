@@ -297,7 +297,7 @@ p{
 	}
 }
 
-@media all and (max-width:1023px) and (orientation: landscape){
+@media all and (max-width:$ipad) and (orientation: landscape){
 	.fxs,
 	.fs,
 	.texte{

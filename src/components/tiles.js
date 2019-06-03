@@ -54,10 +54,7 @@ class Tiles extends Component {
                 window.removeEventListener("resize", this._onResize)  
                 //console.log(d.tile.getBoundingClientRect().top)
                 d.tile.scrollIntoView()
-                // left = 0
-                // top = d.tile.getBoundingClientRect().top
-                // console.log(top)
-                // document.body.scrollTo(left, top)
+    
             }else{
                 const wrapTranslate = this._getComputedTranslateY()
             // console.log(winHeight)
@@ -65,15 +62,7 @@ class Tiles extends Component {
                 left = (x*winWidth) + parseFloat(wrapTranslate[4])
                 top = (y*winHeight) + parseFloat(wrapTranslate[5])
                 setTimeout(() => {
-                    //document.body.scrollTo(left, top)
-                    //const scroller = document.scrollingElement || document.documentElement
-                    //console.log("TILEs on TILE", left, top)
-                    //const scroller = document.scrollingElement || document.documentElement
-                    //scroller.scrollTo(left, top)
-                    document.body.scrollTo(left, top)
-                    //scroller.scrollTop += 10;
-                    // document.body.scrollTop = top
-                    // document.body.scrollLeft = left
+                     document.body.scrollTo(left, top)
                 }, 600)
             }  
         })
@@ -131,7 +120,7 @@ class Tiles extends Component {
     
     _renderSpiral(){
         //console.log("_renderSpiral")
-        if(window.innerWidth <= 768)return
+        if(window.innerWidth <= 1023)return
         const {
             winWidth,
             winHeight

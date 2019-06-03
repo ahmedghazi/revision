@@ -32,7 +32,7 @@
     }
 }
 
-@media all and (max-width:768px){
+@media all and (max-width:$ipad){
     .ui-link-texte{
         min-height: 50vh;
         .top,

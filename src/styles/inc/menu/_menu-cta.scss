@@ -3,13 +3,18 @@
     position: fixed;
     right: 0; top: 0;
     z-index: 250;
-    height: 4.9v;
+    height: 4.9vh;
     padding: 0 0.7em;
     background: #eee;
     top: 1.4vh; right: 2vw;
     border-radius: calc(2.8vh * 0.7)
 }
 
-@media all and (max-width:768px){
+@media all and (max-width: $ipad){
     .xs-only{visibility: visible}
+}
+@media all and (min-width: 834px) and (max-width: 834px){
+    .menu-cta{
+        height: auto;
+    }
 }

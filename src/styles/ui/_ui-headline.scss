@@ -21,7 +21,7 @@
     }
 }
 
-@media all and (max-width:768px){
+@media all and (max-width:$ipad){
     .ui-headline{
         min-height: calc(50vh - (4.9vh * 2));
         .top,
