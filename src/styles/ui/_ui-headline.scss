@@ -29,10 +29,16 @@
             //position: initial
         }
         .texte{
-            display: block;
-            overflow: initial;
-            text-overflow: initial;
-            -webkit-line-clamp: initial;
+            // display: block;
+            // overflow: initial;
+            // text-overflow: initial;
+            // -webkit-line-clamp: initial;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;  
+            /* autoprefixer: on */
+            overflow: hidden;
         }
     }
 }

@@ -51,7 +51,7 @@ class Tiles extends Component {
             //console.log(x,y)
 
             if('ontouchstart' in window){
-                
+                window.removeEventListener("resize", this._onResize)  
                 //console.log(d.tile.getBoundingClientRect().top)
                 d.tile.scrollIntoView()
                 // left = 0
