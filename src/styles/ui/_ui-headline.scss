@@ -23,9 +23,10 @@
 
 @media all and (max-width:767px){
     .ui-headline{
+        min-height: calc(50vh - (4.9vh * 2));
         .top,
         .bottom{
-            position: initial
+            //position: initial
         }
         .texte{
             display: block;
