@@ -136,7 +136,6 @@ class Tiles extends Component {
         let translateY = 0
 
         tiles.forEach((tile,idx) => {
-            
             if(idx === 0)first = tile
 //console.log(tile)
             //if(isMobile)

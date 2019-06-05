@@ -112,6 +112,7 @@
         position: initial;
         display: block;
         //min-width: 200vw;
+        
         &.tile-4{
             grid-template-columns: 100%;
             grid-template-rows: 25% 25% 25% 25%;
