@@ -298,7 +298,8 @@ p{
 }
 
 @media all and (max-width:$ipad) and (orientation: landscape){
-	.fxs,
+	.fxs{font-size: 1em!important;}
+
 	.fs,
 	.texte{
 		font-size: 2em!important;
