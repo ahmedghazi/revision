@@ -42,11 +42,17 @@ class Texte extends Component {
         return (
             <div className="ui-texte">
                 {data.texte !== "" && data.capLines === null &&
-                    <Dotdotdot 
-                    clamp={numLines} 
-                    className="texte">
-                        <div dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
-                    </Dotdotdot>
+                    // <Dotdotdot 
+                    // clamp={numLines} 
+                    // className="texte">
+                    //     <div dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
+                    // </Dotdotdot>
+                    <div 
+                    className="texte"
+                    style={{
+                        WebkitLineClamp: numLines
+                    }}
+                    dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
                 }   
                 {data.texte !== "" && data.capLines === false &&
                     <div 

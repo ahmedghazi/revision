@@ -120,7 +120,7 @@ class Tiles extends Component {
     
     _renderSpiral(){
         //console.log("_renderSpiral")
-        if(window.innerWidth <= 1023)return
+        if(window.innerWidth <= 1024)return
         const {
             winWidth,
             winHeight
