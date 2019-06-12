@@ -5,13 +5,15 @@ class MenuCta extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: true
+            active: false,
+            label: "MENU"
         }
     }
     componentDidMount(){
         PubSub.subscribe("MENU", (e,d) => {
             this.setState({
-                active: d.open
+                active: d.open,
+                label: d.open ? 'X' : 'MENU'
             })
         })
     }
@@ -20,11 +22,13 @@ class MenuCta extends Component {
     }
 
     render() {
+        const {active,label} = this.state
+        const _className = active ? "active" : ""
         return (
             <div 
             onClick={() => this._onClick()}
-            className="menu-cta xs-only fxs">
-                MENU
+            className={"menu-cta xs-only fxs "+_className}>
+                {label}
             </div>
         );
     }

@@ -7,7 +7,14 @@
     padding: 0 0.7em;
     background: #eee;
     top: 1.4vh; right: 2vw;
-    border-radius: calc(2.8vh * 0.7)
+    border-radius: calc(2.8vh * 0.7);
+    line-height: 4.9vh;
+    @include anime();
+    &.active{
+        width: 4.9vh;
+        border-radius: 100%;
+        text-align: center;
+    }
 }
 
 @media all and (max-width: $ipad){
