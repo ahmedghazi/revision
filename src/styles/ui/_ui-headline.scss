@@ -21,6 +21,18 @@
     }
 }
 
+@media all and (max-width:1023px){
+    .ui-headline{
+        .top,
+        .bottom{
+            position: initial
+        }
+        .texte{
+            -webkit-line-clamp: unset!important;
+            margin-bottom: 1em;
+        }
+    }
+}
 @media all and (max-width:$ipad){
     .ui-headline{
         min-height: calc(50vh - (4.9vh * 2));
