@@ -3,6 +3,8 @@ import Helmet from "react-helmet";
 import Tile from '../components/tile'
 import favicon from '../images/favicon.png';
 
+require('../styles/index.scss')
+
 class PageTile extends Component {
     render() {
         const {
