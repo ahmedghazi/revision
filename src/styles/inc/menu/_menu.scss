@@ -85,7 +85,7 @@
         .mini-map{
         
             .item{
-                @include anime();
+                //@include anime();
                 position: absolute;
                 background: $color3;
                 width: 50px; height: 30px;

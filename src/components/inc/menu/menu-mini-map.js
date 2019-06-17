@@ -13,7 +13,7 @@ class MenuMiniMap extends Component {
     componentDidMount(){
         this._filterTilesByViewPort()
         this._onResize()
-        document.addEventListener("resize", this._onResize)       
+        window.addEventListener("resize", this._onResize)       
   
         PubSub.subscribe("SCROLL_END", (e,d) => {
             const {scrollLeft, scrollTop} = d
@@ -76,6 +76,7 @@ class MenuMiniMap extends Component {
     }
 
     _renderSpiral(){
+        console.log("_renderSpiral")
         const tilesWrap = document.querySelector(".mini-map")
         const tiles = document.querySelectorAll(".mini-map .item")
         if(!tiles)return
