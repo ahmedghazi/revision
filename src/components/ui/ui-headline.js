@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 //import {StaticQuery, graphql} from 'gatsby';
-import Dotdotdot from 'react-clamp'
+//import Dotdotdot from 'react-clamp'
 
 class Headline extends Component {
     render() {
         const {data} = this.props
         //console.log(data)
-        const numLines = 5
+        //const numLines = 5
 
         return (
             <div className="ui-headline">
@@ -15,9 +15,6 @@ class Headline extends Component {
                     <h2 className="fl" dangerouslySetInnerHTML={{ __html: data.title }} />
                     {data.texte !== null &&
                         <div className="texte fl" dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
-                        // <Dotdotdot clamp={numLines} className="texte fl">
-                        //     <div dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
-                        // </Dotdotdot>
                     }  
                 </div>
                 <div className="bottom">

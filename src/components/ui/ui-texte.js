@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import People from "./people"
 //import Truncate from 'react-truncate';
-import Dotdotdot from 'react-clamp'
+//import Dotdotdot from 'react-clamp'
 
 class Texte extends Component {
     constructor(props) {
@@ -35,18 +35,11 @@ class Texte extends Component {
         const {
             data
         } = this.props
-        //const capLines = data.capLines
-        //console.log(data.capLines)
-        //console.log(data)
-        //const numLines = data.size === '1/4' ? 6 : 9
+
         return (
             <div className="ui-texte">
                 {data.texte !== "" && data.capLines === null &&
-                    // <Dotdotdot 
-                    // clamp={numLines} 
-                    // className="texte">
-                    //     <div dangerouslySetInnerHTML={{ __html: data.texte.childMarkdownRemark.html }} />
-                    // </Dotdotdot>
+       
                     <div 
                     className="texte"
                     style={{

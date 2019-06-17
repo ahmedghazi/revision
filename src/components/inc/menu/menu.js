@@ -107,8 +107,8 @@ class Menu extends Component {
     }
 
     _renderClassName(node){
-        const xsOnly = node.display == "Mobile" ? "xs-only" : ""
-        const mdOnly = node.display == "Desktop" ? "md-only" : ""
+        const xsOnly = node.display === "Mobile" ? "xs-only" : ""
+        const mdOnly = node.display === "Desktop" ? "md-only" : ""
 
         return xsOnly+' '+mdOnly;
     }

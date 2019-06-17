@@ -1,4 +1,3 @@
-
 export default function Tick(fuc,name){
   var Renderer = {animate:true,name:''}
 

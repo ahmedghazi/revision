@@ -144,8 +144,8 @@ class MenuMiniMap extends Component {
 
     _renderClassName(node){
         //console.log(node.display)
-        const xsOnly = node.display == "Mobile" ? "xs-only" : ""
-        const mdOnly = node.display == "Desktop" ? "md-only" : ""
+        const xsOnly = node.display === "Mobile" ? "xs-only" : ""
+        const mdOnly = node.display === "Desktop" ? "md-only" : ""
 
         return xsOnly+' '+mdOnly;
     }
