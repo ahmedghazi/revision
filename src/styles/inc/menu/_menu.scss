@@ -114,9 +114,10 @@
 }
 
 #obj3d{
-    left: 50%; top: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    // left: 50%; top: 50%;
+    // transform: translate(-50%, -50%) scale(1);
     pointer-events: none;
+    right: 0; top: 0;
     
     @include anime();
     .obj3d-btn{
@@ -160,6 +161,7 @@
                 }
             }
         }
+        .header{max-width: 80%}
         .menu{
             height: 100vh;
             overflow: hidden;
@@ -175,5 +177,28 @@
     }
     .mini-map-wrap{
         display: none;
+    }
+}
+
+/* ----------- iPad Pro ----------- */
+/* Portrait and Landscape */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    
+}
+
+/* Portrait */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    .menu-wrap{
+        .col-md-4{
+            flex-basis: 100%;
+            max-width: 100%;
+        }
     }
 }

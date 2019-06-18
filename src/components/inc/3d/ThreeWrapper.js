@@ -16,7 +16,8 @@ class ThreeWrapper extends Component {
     }
 
     componentDidMount(){
-        if(window.innerWidth <= 1023){
+        //if(window.innerWidth <= 1023){
+        if('ontouchstart' in window){
             this.setState({
                 isMobile: true,
                 width: '150',
