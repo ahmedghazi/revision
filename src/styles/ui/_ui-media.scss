@@ -32,10 +32,10 @@
 }
 
 @media all and (max-width:$ipad){
-    .tile-quarter{
+    .tile-quarter,
+    .tile-half{
         .ui-media{
-            
-            //.cover{min-height: 50vh;}
+            .cover{min-height: 50vh;}
         }
     }
 }

@@ -7,6 +7,12 @@
             overflow: hidden;
             overflow-y: auto;
         }
+        display: -webkit-box;
+        //-webkit-line-clamp: 5;
+
+        overflow: hidden;
+        /* autoprefixer: ignore next */
+        -webkit-box-orient: vertical;  
         a{
             text-decoration: underline!important;
             color: $color1!important

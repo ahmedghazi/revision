@@ -273,12 +273,7 @@ p{
 }
 
 @media all and (max-width:767px){
-	body,h2{
-		
-	}
-	p{
-		
-	}
+
 	.btn{
 		&.btn-large{max-height: 28vh}
 	}
@@ -296,21 +291,39 @@ p{
 		line-height: $fontMLh; 
 	}
 }
+@media all and (max-width:$ipad){
 
-@media all and (max-width:$ipad) and (orientation: landscape){
-	.fxs{font-size: 1em!important;}
+	.btn{
+		&.btn-large{max-height: 28vh}
+	}
 
-	.fs,
-	.texte{
-		font-size: 2em!important;
-		line-height: 1.3em!important;
+	.fs{
+		font-size: calc(#{$fontS} - 1px);
+		line-height: calc(#{$fontSLh} - 1px); 
 	}
 	.fm{
-		font-size: 1.5em!important;
-		line-height: 1.3em!important;
+		font-size: $fontS;
+		line-height: $fontSLh; 
 	}
 	.fl{
-		font-size: 1.5em!important;
-		line-height: 1.3em!important;
+		font-size: $fontM;
+		line-height: $fontMLh; 
 	}
+}
+@media all and (max-width:$ipad) and (orientation: landscape){
+	// .fxs{font-size: 1em!important;}
+
+	// .fs,
+	// .texte{
+	// 	font-size: 2em!important;
+	// 	line-height: 1.3em!important;
+	// }
+	// .fm{
+	// 	font-size: 1.5em!important;
+	// 	line-height: 1.3em!important;
+	// }
+	// .fl{
+	// 	font-size: 1.5em!important;
+	// 	line-height: 1.3em!important;
+	// }
 }
