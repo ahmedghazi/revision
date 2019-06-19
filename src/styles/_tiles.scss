@@ -83,6 +83,32 @@
     }
 }
 
+// .arrow{
+//     position: fixed;
+
+//     &.arrow-n{
+//         bottom: 1em;
+//         left: 50vw;
+//         //&::before{content: "↑"}
+//         @include arrow(top, #000, 20px)
+//     }
+//     &.arrow-s{
+//         bottom: 1em;
+//         left: 50vw;
+//         @include arrow(bottom, #000, 20px)
+//     }
+//     &.arrow-e{
+//         top: 50vh;
+//         right: 1em;
+//         @include arrow(right, #000, 20px)
+//     }
+//     &.arrow-w{
+//         top: 50vh;
+//         left: 1em;
+//         @include arrow(left, #000, 20px)
+//     }
+// }
+
 @media all and (min-height:250px){
     .tile{.tile-item{border: 1px solid;}}
     .btn{border: 2px solid}

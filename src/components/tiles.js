@@ -81,6 +81,8 @@ class Tiles extends Component {
         //console.log("scroll")
         window.clearTimeout( this.isScrolling );
 
+        //this._scrollBoundaries()
+
         // Set a timeout to run after scrolling ends
         this.isScrolling = setTimeout(function() {
             const {scrollLeft, scrollTop} = document.body
@@ -90,6 +92,34 @@ class Tiles extends Component {
                 scrollTop: scrollTop
             })
         }, 66);
+    }
+    
+    _scrollBoundaries(){
+        const {scrollLeft, scrollTop, offsetWidth, scrollWidth, offsetHeight, scrollHeight} = document.body
+        //console.log(scrollLeft, offsetWidth + scrollLeft, scrollWidth)
+        document.querySelectorAll(".arrow").forEach(el => {
+            el.style.display = "none"
+        })
+        if ((offsetHeight + scrollTop) >= scrollHeight) {
+            console.log("is bottom")
+            document.querySelector(".arrow.arrow-s").style.display = "none"
+            document.querySelector(".arrow.arrow-n").style.display = "block"
+        }
+        if(scrollTop == 0){
+            console.log("is top")
+            document.querySelector(".arrow.arrow-n").style.display = "none"
+            document.querySelector(".arrow.arrow-s").style.display = "block"
+        }
+        if((offsetWidth + scrollLeft) >= scrollWidth){
+            console.log("is right")
+            document.querySelector(".arrow.arrow-e").style.display = "none"
+            document.querySelector(".arrow.arrow-w").style.display = "block"
+        }
+        if(scrollLeft == 0){
+            console.log("is left")
+            document.querySelector(".arrow.arrow-w").style.display = "none"
+            document.querySelector(".arrow.arrow-e").style.display = "block"
+        }
     }
 
     _onResize(){
@@ -189,7 +219,9 @@ class Tiles extends Component {
         //     //transform:'translate('+this.x+'px,'+this.y+'px)'
         // }
         // console.log(data)
+        const arrows = ["e", "ne", "n", "nw", "w", "sw", "s", "se"]
         return (
+            <>
             <div id="tiles" className={'tiles '+tilesClass} >
                 {data.map(({node},key) => (
                     <Tile 
@@ -198,6 +230,10 @@ class Tiles extends Component {
                     data={node} />
                 ))}
             </div>
+            {arrows.map((el,i) => (
+                <div key={i} className={"arrow arrow-"+el}></div>
+            ))}
+            </>
         );
     }
 }
