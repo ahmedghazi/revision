@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
-import {Img} from 'gatsby-image';
+//import {Img} from 'gatsby-image';
 
 class Media extends Component {
     constructor(props) {
