@@ -33,12 +33,14 @@ class Media extends Component {
                     className="cover"
                     style={{backgroundImage: 'url('+data.image.fluid.src+')'}}></div>
                 }
-                <div className="gradient-overlay"></div>
-
+                
                 {data.video !== null &&
+                    <>
+                    <div className="gradient-overlay"></div>
                     <div 
                     className="btn btn-small btn-video btn-white" 
                     onClick={this._handleVideo}>PLAY</div>
+                    </>
                 }
 
                 <div className="bottom fxs ">
