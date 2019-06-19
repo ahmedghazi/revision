@@ -9,7 +9,7 @@ class ThreeWrapper extends Component {
         this.state = {
             //playState: 'initial',
             //active: false,
-            isMobile: false,
+            isMobile: true,
             width: '150',
             height: '150'
         }
@@ -18,6 +18,7 @@ class ThreeWrapper extends Component {
     componentDidMount(){
         //if(window.innerWidth <= 1023){
         if('ontouchstart' in window){
+            //console.log("ontouchstart in window")
             this.setState({
                 isMobile: true,
                 width: '150',

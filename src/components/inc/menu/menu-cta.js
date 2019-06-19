@@ -5,12 +5,13 @@ class MenuCta extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: false,
-            label: "MENU"
+            active: true,
+            label: "X"
         }
     }
     componentDidMount(){
         PubSub.subscribe("MENU", (e,d) => {
+            //console.log(d)
             this.setState({
                 active: d.open,
                 label: d.open ? 'X' : 'MENU'

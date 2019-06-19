@@ -16,13 +16,16 @@ class Link extends Component {
                 <Btn 
                     label={title}
                     url={url}
+                    //url={"#revision-circles"}
                     size="large" />
 
                 <div className="url">
                     <a 
                     rel="noopener noreferrer"
                     target="_blank" 
-                    href={url}>
+                    href={url}
+                    //href={"#revision-circles"}
+                    >
                         <div className="anon fxs gradient-texte">{url}</div>
                         <div className={"icon icon-"+service}></div>
                     </a>

@@ -119,6 +119,9 @@ class MenuMiniMap extends Component {
         tilesWrap.style.width = (this.itemWidth * sqrt)+"px"
         tilesWrap.style.height = (this.itemHeight * sqrt)+"px"
         
+        if('ontouchstart' in window && window.innerWidth > 768){
+            window.removeEventListener("resize", this._onResize)   
+        }  
     }
 
     _handleHereIAm(){
