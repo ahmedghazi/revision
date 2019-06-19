@@ -38,7 +38,7 @@ class Tiles extends Component {
         document.body.addEventListener("scroll", this._onScroll)          
         
         PubSub.subscribe("TILE", (e,d) => {
-            //console.log(d)
+            console.log(d)
             if(!d.tile)return;
 
             const {
@@ -50,19 +50,24 @@ class Tiles extends Component {
             let left,top;
             //console.log(x,y)
 
-            if('ontouchstart' in window){
+            if('ontouchstart' in window && winWidth <= 768){
                 window.removeEventListener("resize", this._onResize)  
                 //console.log(d.tile.getBoundingClientRect().top)
                 d.tile.scrollIntoView()
-    
             }else{
                 const wrapTranslate = this._getComputedTranslateY()
-            // console.log(winHeight)
-            // console.log(wrapTranslate)
+
                 left = (x*winWidth) + parseFloat(wrapTranslate[4])
                 top = (y*winHeight) + parseFloat(wrapTranslate[5])
+
                 setTimeout(() => {
-                     document.body.scrollTo(left, top)
+                    document.body.scrollTo(left, top)
+                    // if('ontouchstart' in window){
+                    //     console.log(left,top)
+                    //     const scroller = document.scrollingElement || document.documentElement
+                    //     console.log(scroller)
+                    //     scroller.scrollTo(left, top)
+                    // }
                 }, 600)
             }  
         })
@@ -207,6 +212,10 @@ class Tiles extends Component {
                 docHeight: document.body.scrollHeight,
                 bounding: tilesWrap.getBoundingClientRect()
             })
+            
+            if('ontouchstart' in window && winWidth > 768){
+                window.removeEventListener("resize", this._onResize)   
+            }   
         }, 150)
     }
 

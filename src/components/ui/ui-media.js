@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
+import {Img} from 'gatsby-image';
 
 class Media extends Component {
     constructor(props) {
@@ -33,12 +34,14 @@ class Media extends Component {
                     className="cover"
                     style={{backgroundImage: 'url('+data.image.fluid.src+')'}}></div>
                 }
-                <div className="gradient-overlay"></div>
-
+                
                 {data.video !== null &&
+                    <>
+                    <div className="gradient-overlay"></div>
                     <div 
                     className="btn btn-small btn-video btn-white" 
                     onClick={this._handleVideo}>PLAY</div>
+                    </>
                 }
 
                 <div className="bottom fxs ">
