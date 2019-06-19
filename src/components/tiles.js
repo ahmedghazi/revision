@@ -81,7 +81,7 @@ class Tiles extends Component {
         //console.log("scroll")
         window.clearTimeout( this.isScrolling );
 
-        //this._scrollBoundaries()
+        this._scrollBoundaries()
 
         // Set a timeout to run after scrolling ends
         this.isScrolling = setTimeout(function() {
