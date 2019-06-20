@@ -5,8 +5,8 @@ class MenuCta extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: true,
-            label: "X"
+            active: false,
+            label: "MENU"
         }
     }
     componentDidMount(){
