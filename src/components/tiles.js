@@ -56,9 +56,14 @@ class Tiles extends Component {
                 d.tile.scrollIntoView()
             }else{
                 const wrapTranslate = this._getComputedTranslateY()
-
-                left = (x*winWidth) + parseFloat(wrapTranslate[4])
-                top = (y*winHeight) + parseFloat(wrapTranslate[5])
+if(wrapTranslate){
+    left = (x*winWidth) + parseFloat(wrapTranslate[4])
+    top = (y*winHeight) + parseFloat(wrapTranslate[5])
+}else{
+    left = 0
+    top = d.tile.getBoundingClientRect().top
+}
+                
 
                 setTimeout(() => {
                     document.body.scrollTo(left, top)

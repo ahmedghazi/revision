@@ -10,6 +10,12 @@ class MenuCta extends Component {
         }
     }
     componentDidMount(){
+        if('ontouchstart' in window && window.innerWidth > 768){
+            this.setState({
+                active: true,
+                label: 'X'
+            })
+        }
         PubSub.subscribe("MENU", (e,d) => {
             //console.log(d)
             this.setState({
