@@ -91,7 +91,7 @@ if(wrapTranslate){
         //console.log("scroll")
         window.clearTimeout( this.isScrolling );
 
-        //this._scrollBoundaries()
+        this._scrollBoundaries()
 
         // Set a timeout to run after scrolling ends
         this.isScrolling = setTimeout(function() {
@@ -108,28 +108,22 @@ if(wrapTranslate){
         const {scrollLeft, scrollTop, offsetWidth, scrollWidth, offsetHeight, scrollHeight} = document.body
         //console.log(scrollLeft, offsetWidth + scrollLeft, scrollWidth)
         document.querySelectorAll(".arrow").forEach(el => {
-            el.style.display = "none"
+            el.style.display = "block"
         })
-        if ((offsetHeight + scrollTop) >= scrollHeight) {
-            console.log("is bottom")
-            document.querySelector(".arrow.arrow-s").style.display = "none"
-            document.querySelector(".arrow.arrow-n").style.display = "block"
-        }
-        if(scrollTop == 0){
-            console.log("is top")
-            document.querySelector(".arrow.arrow-n").style.display = "none"
-            document.querySelector(".arrow.arrow-s").style.display = "block"
+        if(scrollLeft === 0){
+            document.querySelector(".arrow.arrow-w").style.display = "none"
         }
         if((offsetWidth + scrollLeft) >= scrollWidth){
-            console.log("is right")
             document.querySelector(".arrow.arrow-e").style.display = "none"
-            document.querySelector(".arrow.arrow-w").style.display = "block"
         }
-        if(scrollLeft == 0){
-            console.log("is left")
-            document.querySelector(".arrow.arrow-w").style.display = "none"
-            document.querySelector(".arrow.arrow-e").style.display = "block"
+
+        if(scrollTop === 0){
+            document.querySelector(".arrow.arrow-n").style.display = "none"
         }
+        if ((offsetHeight + scrollTop) >= scrollHeight) {
+            document.querySelector(".arrow.arrow-s").style.display = "none"
+        }
+        
     }
 
     _onResize(){
@@ -233,7 +227,7 @@ if(wrapTranslate){
         //     //transform:'translate('+this.x+'px,'+this.y+'px)'
         // }
         // console.log(data)
-        //const arrows = ["e", "ne", "n", "nw", "w", "sw", "s", "se"]
+        const arrows = ["e", "ne", "n", "nw", "w", "sw", "s", "se"]
         return (
             <>
             <div id="tiles" className={'tiles '+tilesClass} >
@@ -244,9 +238,9 @@ if(wrapTranslate){
                     data={node} />
                 ))}
             </div>
-            {/* {arrows.map((el,i) => (
+            {arrows.map((el,i) => (
                 <div key={i} className={"arrow arrow-"+el}></div>
-            ))} */}
+            ))}
             </>
         );
     }

@@ -51,5 +51,31 @@ exports.createPages = async ({
         })
     })
 
+    //////////////////////////////////
+    // const articles = await graphql(`
+    // {
+    //     allContentfulArticle {
+    //         edges {
+    //           node {
+    //             slug
+    //             title
+    //           }
+    //         }
+    //       }
+    // }
+    // `)
+    // const templateTile = path.resolve("src/templates/page-tile.js")
+    // tiles.data.allContentfulTile.edges.forEach(edge => {
+    //     const path = `/tile/${edge.node.slug}`
+
+    //     createPage({
+    //         path: path,
+    //         component: templateTile,
+    //         context: {
+    //             slug: edge.node.slug,
+    //             //template: 'project'
+    //         },
+    //     })
+    // })
 
 }
