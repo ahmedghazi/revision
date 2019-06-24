@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
 //import Obj3d from '../3d/obj3d'
-import ThreeWrapper from '../3d/ThreeWrapper'
+//import ThreeWrapper from '../3d/ThreeWrapper'
 import MenuCta from './menu-cta'
 //import Gltf from '../3d/gltf'
 import MenuMiniMap from './menu-mini-map'
@@ -199,12 +199,12 @@ class Menu extends Component {
                 </div>
                 <MenuMiniMap data={tiles} menuClass={menuClass} />
 
-                <ThreeWrapper 
+                {/* <ThreeWrapper 
                     src={'3d/v4/Pill_001.obj'}
                     mtl={'3d/v4/Pill_001.mtl'}
                     texPath="3d/v4/" 
                     menuClass={menuClass}
-                />
+                /> */}
                 <MenuCta />
           
             </div>

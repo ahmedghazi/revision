@@ -5,8 +5,8 @@ class MenuCta extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: false,
-            label: "MENU"
+            active: true,
+            label: "x"
         }
     }
     componentDidMount(){
@@ -34,7 +34,7 @@ class MenuCta extends Component {
         return (
             <div 
             onClick={() => this._onClick()}
-            className={"menu-cta xs-only fxs "+_className}>
+            className={"menu-cta fxs "+_className}>
                 {label}
             </div>
         );

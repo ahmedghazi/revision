@@ -38,7 +38,7 @@ class Tiles extends Component {
         document.body.addEventListener("scroll", this._onScroll)          
         
         PubSub.subscribe("TILE", (e,d) => {
-            console.log(d)
+            //console.log(d)
             if(!d.tile)return;
 
             const {
