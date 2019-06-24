@@ -1,9 +1,11 @@
 .page-article{
-    padding: $paddV $paddH;
+    
     header{
-        margin-bottom: $paddV;
+        padding: $paddV $paddH;
+        border-bottom: $border;
     }
     article{
+        padding: $paddV $paddH;
         max-width: $ipad;
         margin: 0 auto;
         h1,
