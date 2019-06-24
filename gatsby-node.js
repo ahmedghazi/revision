@@ -51,29 +51,29 @@ exports.createPages = async ({
     })
 
     //////////////////////////////////
-    // const articles = await graphql(`
-    // {
-    //     allContentfulArticle{
-    //         edges{
-    //           node{
-    //             slug
-    //           }
-    //         }
-    //     }
-    // }
-    // `)
-    // const templateArticle = path.resolve("src/templates/page-article.js")
-    // articles.data.allContentfulArticle.edges.forEach(edge => {
-    //     const path = `/article/${edge.node.slug}`
-    //     console.log(path)
-    //     createPage({
-    //         path: path,
-    //         component: templateArticle,
-    //         context: {
-    //             slug: edge.node.slug,
-    //             //template: 'project'
-    //         },
-    //     })
-    // })
+    const articles = await graphql(`
+    {
+        allContentfulArticle{
+            edges{
+              node{
+                slug
+              }
+            }
+        }
+    }
+    `)
+    const templateArticle = path.resolve("src/templates/page-article.js")
+    articles.data.allContentfulArticle.edges.forEach(edge => {
+        const path = `/article/${edge.node.slug}`
+        console.log(path)
+        createPage({
+            path: path,
+            component: templateArticle,
+            context: {
+                slug: edge.node.slug,
+                //template: 'project'
+            },
+        })
+    })
 
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from "react-helmet";
 //import Tile from '../components/tile'
+import {Link} from 'gatsby'
 import favicon from '../images/favicon.png';
 
 require('../styles/index.scss')
@@ -37,9 +38,29 @@ class PageArticle extends Component {
 
                 
               </Helmet>
-
+              <header>
+                <div className="sitename">
+                  <Link to="/">{options.title}</Link>
+                </div>
+              </header>
               <article>
-                <h1>{article.title}</h1>
+                <div className="wrapper">
+                <h1 className="fl">{article.title}</h1>
+                </div>
+                {article.hero &&
+                  <div className="hero">
+                    <figure>
+                      <img 
+                      src={article.hero.fluid.src} 
+                      srcSet={article.hero.fluid.srcset}
+                      sizes={article.hero.fluid.sizes}
+                      alt="" />
+                    </figure>
+                  </div>
+                }
+                <div className="wrapper">
+                  <div className="texte " dangerouslySetInnerHTML={{ __html: article.texte.childMarkdownRemark.html }} />
+                </div>
               </article>
             </div>
         );
