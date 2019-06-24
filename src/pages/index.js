@@ -23,11 +23,15 @@ class Index extends React.Component {
 
     componentDidMount() {
       var ua = navigator.userAgent.toLowerCase(); 
+      console.log(ua)
       if (ua.indexOf('safari') !== -1) { 
         if (ua.indexOf('chrome') > -1) {
           document.documentElement.classList.add("chrome")
         } else {
           document.documentElement.classList.add("safari")
+        }
+        if (ua.indexOf('ipad') > -1) {
+          document.documentElement.classList.add("ipad")
         }
       }
 
