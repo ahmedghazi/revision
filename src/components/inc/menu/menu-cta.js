@@ -10,12 +10,20 @@ class MenuCta extends Component {
         }
     }
     componentDidMount(){
+        
         if('ontouchstart' in window && window.innerWidth > 768){
             this.setState({
                 active: true,
                 label: 'X'
             })
         }
+        if('ontouchstart' in window && window.innerWidth < 1023){
+            this.setState({
+                active: false,
+                label: 'MENU'
+            })
+        }
+        
         PubSub.subscribe("MENU", (e,d) => {
             //console.log(d)
             this.setState({
@@ -30,6 +38,7 @@ class MenuCta extends Component {
 
     render() {
         const {active,label} = this.state
+        console.log(label)
         const _className = active ? "active" : ""
         return (
             <div 

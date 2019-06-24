@@ -309,10 +309,10 @@ export const query = graphql `
                     url
                   }
                   fluid(maxWidth: 1440, quality: 80) {
-                    sizes
-                    src
-                    srcSet
+                 
+                    ...GatsbyContentfulFluid
                   }
+                  
                 }
               }
               ... on ContentfulRepeater{

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
-//import {Img} from 'gatsby-image';
+import Img from 'gatsby-image'
+import BackgroundImage from 'gatsby-background-image'
 
 class Media extends Component {
     constructor(props) {
@@ -26,15 +27,23 @@ class Media extends Component {
     render() {
         const {data} = this.props
         const {playState} = this.state
-        //console.log(data)
+        //console.log(data.image.fluid)
         return (
             <div className={"ui-media video-"+playState}>
-                {data.image !== null &&
-                    <div 
-                    className="cover"
-                    style={{backgroundImage: 'url('+data.image.fluid.src+')'}}></div>
+                {/* {data.image !== null &&
+                    // <div 
+                    // className="cover"
+                    // style={{backgroundImage: 'url('+data.image.fluid.src+')'}}></div>
+                    
+                } */}
+                {data.image.fluid &&
+                    // <Img fluid={data.image.fluid} />
+                    <BackgroundImage Tag="figure"
+                        fluid={data.image.fluid} 
+                    ></BackgroundImage>
                 }
                 
+
                 {data.video !== null &&
                     <>
                     <div className="gradient-overlay"></div>
