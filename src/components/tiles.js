@@ -233,7 +233,7 @@ if(wrapTranslate){
         //     //transform:'translate('+this.x+'px,'+this.y+'px)'
         // }
         // console.log(data)
-        const arrows = ["e", "ne", "n", "nw", "w", "sw", "s", "se"]
+        //const arrows = ["e", "ne", "n", "nw", "w", "sw", "s", "se"]
         return (
             <>
             <div id="tiles" className={'tiles '+tilesClass} >
@@ -244,9 +244,9 @@ if(wrapTranslate){
                     data={node} />
                 ))}
             </div>
-            {arrows.map((el,i) => (
+            {/* {arrows.map((el,i) => (
                 <div key={i} className={"arrow arrow-"+el}></div>
-            ))}
+            ))} */}
             </>
         );
     }

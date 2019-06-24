@@ -4,7 +4,7 @@ if (process.env.ENVIRONMENT !== 'production') {
   dotenv.config();
 }
 
-const { spaceId, accessToken } = process.env;
+const { spaceId, accessToken, environment } = process.env;
 
 module.exports = {
   siteMetadata: {
@@ -20,6 +20,7 @@ module.exports = {
       options: {
         spaceId,
         accessToken,
+        environment,
       },
     },
     {
