@@ -56,9 +56,15 @@ class Tiles extends Component {
                 d.tile.scrollIntoView()
             }else{
                 const wrapTranslate = this._getComputedTranslateY()
-
-                left = (x*winWidth) + parseFloat(wrapTranslate[4])
-                top = (y*winHeight) + parseFloat(wrapTranslate[5])
+                if(wrapTranslate){
+                    left = (x*winWidth) + parseFloat(wrapTranslate[4])
+                    top = (y*winHeight) + parseFloat(wrapTranslate[5])
+                }else{
+                    left = 0
+                    top = d.tile.getBoundingClientRect().top
+                }
+                // left = (x*winWidth) + parseFloat(wrapTranslate[4])
+                // top = (y*winHeight) + parseFloat(wrapTranslate[5])
 
                 setTimeout(() => {
                     document.body.scrollTo(left, top)
@@ -86,7 +92,7 @@ class Tiles extends Component {
         //console.log("scroll")
         window.clearTimeout( this.isScrolling );
 
-        this._scrollBoundaries()
+        //this._scrollBoundaries()
 
         // Set a timeout to run after scrolling ends
         this.isScrolling = setTimeout(function() {
@@ -228,7 +234,7 @@ class Tiles extends Component {
         //     //transform:'translate('+this.x+'px,'+this.y+'px)'
         // }
         // console.log(data)
-        const arrows = ["e", "ne", "n", "nw", "w", "sw", "s", "se"]
+        //const arrows = ["e", "ne", "n", "nw", "w", "sw", "s", "se"]
         return (
             <>
             <div id="tiles" className={'tiles '+tilesClass} >
@@ -239,9 +245,9 @@ class Tiles extends Component {
                     data={node} />
                 ))}
             </div>
-            {arrows.map((el,i) => (
+            {/* {arrows.map((el,i) => (
                 <div key={i} className={"arrow arrow-"+el}></div>
-            ))}
+            ))} */}
             </>
         );
     }
