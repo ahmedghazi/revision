@@ -9,9 +9,9 @@ class PageTile extends Component {
     render() {
         const {
           options,
-          tile
+          contentfulTile
         } = this.props.data
-        const seoTitle = tile.title + " - " + options.title
+        const seoTitle = contentfulTile.title + " - " + options.title
         
         return (
             <div className="page-tile">
@@ -24,7 +24,7 @@ class PageTile extends Component {
                 <meta name="description" content={options.description.childMarkdownRemark.rawMarkdownBody} />
                 <meta property="og:url" content="" />
                 <meta property="og:title" content={seoTitle} />
-                <meta property="og:description" content={tile.subtitle} />
+                <meta property="og:description" content={contentfulTile.subtitle} />
                 <meta property="og:image" content={options.image.file.url} />
 
                 <meta name="twitter:card" content="summary_large_image" />
@@ -32,13 +32,13 @@ class PageTile extends Component {
                 <meta name="twitter:creator" content="@Revision_HQ" />
                 <meta property="og:url" content="" />
                 <meta property="og:title" content={seoTitle} />
-                <meta property="og:description" content={tile.subtitle} />
+                <meta property="og:description" content={contentfulTile.subtitle} />
                 <meta property="og:image" content={options.image.file.url} />
 
                 
               </Helmet>
 
-              <Tile data={tile} />
+              <Tile data={contentfulTile} />
             </div>
         );
     }
@@ -47,7 +47,7 @@ class PageTile extends Component {
 export default PageTile;
 
 export const pageQuery = graphql `
-  query Tile($slug: String!) {
+  query TileBySlug($slug: String!) {
     options: contentfulOptions{
       title
       description{
@@ -64,7 +64,7 @@ export const pageQuery = graphql `
       }
     }
 
-    tile: contentfulTile(slug: {eq: $slug}) {
+    contentfulTile(slug: {eq: $slug}) {
         title
         subtitle
         slug

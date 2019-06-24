@@ -87,25 +87,25 @@
     position: fixed;
 
     &.arrow-n{
-        top: 1em;
+        top: $paddV/2;
         left: 50vw;
         //&::before{content: "↑"}
-        @include arrow(top, #000, 20px)
+        @include arrow(top, #000, 10px)
     }
     &.arrow-s{
-        bottom: 1em;
+        bottom: $paddV/2;
         left: 50vw;
-        @include arrow(bottom, #000, 20px)
+        @include arrow(bottom, #000, 10px)
     }
     &.arrow-e{
         top: 50vh;
-        right: 1em;
-        @include arrow(right, #000, 20px)
+        right: $paddH/2;
+        @include arrow(right, #000, 10px)
     }
     &.arrow-w{
         top: 50vh;
-        left: 1em;
-        @include arrow(left, #000, 20px)
+        left: $paddH/2;
+        @include arrow(left, #000, 10px)
     }
 }
 
@@ -131,6 +131,7 @@
 }
 
 @media all and (max-width:$ipad){
+
     .tiles{opacity: 1;}
     .tile{
         //min-height: 200vh;
@@ -171,5 +172,8 @@
             height: auto;
             min-height: none;
         }
+    }
+    .arrow{
+        display: none!important
     }
 }
