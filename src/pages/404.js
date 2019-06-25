@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "gatsby"
 
+require('../styles/index.scss')
 
 class Page404 extends Component {
     render() {
