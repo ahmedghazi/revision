@@ -6,12 +6,13 @@
     }
     article{
         padding: $paddV $paddH;
-     
-
+        max-width: $ipad;
+        margin: 0 auto;
+        text-align: center;
         h1{
             margin-bottom: $paddV;
-            
+            text-align: center;
         }
-        
+        a{text-decoration: underline}
     }
 }

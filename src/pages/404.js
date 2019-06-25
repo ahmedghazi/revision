@@ -8,8 +8,7 @@ require('../styles/index.scss')
 class Page404 extends Component {
     render() {
         const {
-            options,
-            articles
+            options
           } = this.props.data
           console.log(options)
         return (
@@ -43,18 +42,8 @@ class Page404 extends Component {
                 <article>
                     <h1>404 Page Not Found</h1>
                     <p>Oops, we couldn't find this page!</p>
-
-                    <ul className="articles">
-                        <li>
-                            <Link to="/">Home page</Link>
-                        </li>
-
-                        {articles.edges.map(({node},i) => (
-                            <li key={i}>
-                                <Link to={"/"+node.slug}>{node.title}</Link>
-                            </li>
-                        ))}
-                    </ul>
+                    <Link to="/">Back Home</Link>
+                    
                 </article>
             </div>
         );
@@ -81,13 +70,6 @@ export const query = graphql `
       }
     }
 
-    articles: allContentfulArticle {
-        edges {
-          node {
-            title
-            slug
-          }
-        }
-      }
+    
   }
 `
