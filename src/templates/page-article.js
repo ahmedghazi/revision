@@ -36,7 +36,7 @@ class PageArticle extends Component {
                 <meta property="og:description" content={article.texte.childMarkdownRemark.rawMarkdownBody} />
                 <meta property="og:image" content={options.image.file.url} />
 
-                
+                <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
               </Helmet>
               <header>
                 <div className="sitename">

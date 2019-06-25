@@ -64,7 +64,7 @@ exports.createPages = async ({
     `)
     const templateArticle = path.resolve("src/templates/page-article.js")
     articles.data.allContentfulArticle.edges.forEach(edge => {
-        const path = `/article/${edge.node.slug}`
+        const path = `/${edge.node.slug}`
         console.log(path)
         createPage({
             path: path,
